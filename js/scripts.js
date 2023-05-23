@@ -1,3 +1,6 @@
+require('dotenv').config(); // Load environment variables from .env file
+
+
 window.addEventListener('DOMContentLoaded', event => {
 
     // Activate Bootstrap scrollspy on the main nav element
@@ -27,3 +30,44 @@ window.addEventListener('DOMContentLoaded', event => {
 
 const currentYear = new Date().getFullYear();
 document.getElementById("currentYear").textContent = currentYear;
+
+const nodemailer = require('nodemailer');
+
+// Create a function to send the email
+async function sendEmail() {
+    // Create a transport object using SMTP
+    const transporter = nodemailer.createTransport({
+        service: 'gmail',
+        auth: {
+            user: process.env.EMAIL_ADDRESS,
+            pass: process.env.EMAIL_PASSWORD
+        }
+    });
+
+    // Get the form data
+    const name = document.getElementById('name').value;
+    const email = document.getElementById('email').value;
+    const phone = document.getElementById('phone').value;
+    const message = document.getElementById('message').value;
+
+    // Prepare the email message
+    const mailOptions = {
+        from: 'your-email@gmail.com',
+        to: 'recipient@example.com',
+        subject: 'Message',
+        text: `Name: ${name}\nEmail: ${email}\nPhone: ${phone}\nMessage: ${message}`
+    };
+
+    try {
+        // Send the email
+        await transporter.sendMail(mailOptions);
+        console.log('Email sent successfully');
+
+        // Show success message
+        document.getElementById('submitButton').disabled = true;
+        document.getElementById('successMessage').classList.remove('d-none');
+    } catch (error) {
+        console.error('Error sending email:', error);
+        // Handle error here
+    }
+}

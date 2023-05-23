@@ -75,8 +75,7 @@
                         <p class="lead fw-normal text-muted mb-5">Launch your site faster with our help! We'll make your
                             concept a reality, all without burdening you with any monthly fees</p>
                         <div class="d-flex flex-column flex-lg-row align-items-center">
-                            <a class="btn btn-outline-dark py-2 px-4 rounded-pill"
-                                href="#about">About Us</a>
+                            <a class="btn btn-outline-dark py-2 px-4 rounded-pill" href="#about">About Us</a>
                             <span class="mx-1 mt-1"></span>
                         </div>
                     </div>
@@ -251,16 +250,21 @@
                 </div>
                 <div class="col-12 col-lg-5">
                     <h2 class="display-4 lh-1 mt-4">About Us</h2>
-                    <p class="lead fw-normal text-muted mb-2 mb-lg-0">Our mission is to empower businesses and individuals with a strong online presence. We believe that a well-designed website is more than just a digital storefront, it is a powerful tool that can engage visitors, build brand credibility, and drive meaningful results.</p>
+                    <p class="lead fw-normal text-muted mb-2 mb-lg-0">Our mission is to empower businesses and
+                        individuals with a strong online presence. We believe that a well-designed website is more than
+                        just a digital storefront, it is a powerful tool that can engage visitors, build brand
+                        credibility, and drive meaningful results.</p>
                     <p>
-                        <a class="btn btn-outline-dark py-2 px-3 mt-3 rounded-pill" data-bs-toggle="collapse" href="#collapseExample" role="button"
-                            aria-expanded="false" aria-controls="collapseExample">
+                        <a class="btn btn-outline-dark py-2 px-3 mt-3 rounded-pill" data-bs-toggle="collapse"
+                            href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
                             Read More
                         </a>
                     </p>
                     <div class="collapse" id="collapseExample">
                         <div class="lead fw-normal text-muted mb-5 mb-lg-0">
-                            Using the latest web development frameworks and tools, we ensure that your website is optimised for performance, security, and scalability. We pay meticulous attention to detail, ensuring seamless user experiences across different devices and screen sizes.
+                            Using the latest web development frameworks and tools, we ensure that your website is
+                            optimised for performance, security, and scalability. We pay meticulous attention to detail,
+                            ensuring seamless user experiences across different devices and screen sizes.
                         </div>
                     </div>
                 </div>
@@ -283,77 +287,67 @@
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header bg-gradient-primary-to-secondary p-4">
-                    <h5 class="modal-title font-alt text-white" id="contactModalLabel">Send feedback</h5>
-                    <button class="btn-close btn-close-white" type="button" data-bs-dismiss="modal"
-                        aria-label="Close"></button>
+                    <h5 class="modal-title font-alt text-white" id="contactModalLabel">Message Us</h5>
+                    <button class="btn-close btn-close-white" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body border-0 p-4">
-                    <form id="contact-form" method="post" action="submit_form.php">
+                    <form id="contact-form" onsubmit="event.preventDefault(); sendEmail();">
                         <!-- Name input-->
                         <div class="form-floating mb-3">
-                            <input class="form-control" id="name" type="text" placeholder="Enter your name..."
-                                data-sb-validations="required" />
+                            <input class="form-control" id="name" type="text" placeholder="Enter your name..." required />
                             <label for="name">Full name</label>
-                            <div class="invalid-feedback" data-sb-feedback="name:required">A name is required.</div>
+                            <div class="invalid-feedback">A name is required.</div>
                         </div>
                         <!-- Email address input-->
                         <div class="form-floating mb-3">
-                            <input class="form-control" id="email" type="email" placeholder="name@example.com"
-                                data-sb-validations="required,email" />
+                            <input class="form-control" id="email" type="email" placeholder="name@example.com" required />
                             <label for="email">Email address</label>
-                            <div class="invalid-feedback" data-sb-feedback="email:required">An email is required.</div>
-                            <div class="invalid-feedback" data-sb-feedback="email:email">Email is not valid.</div>
+                            <div class="invalid-feedback">An email is required.</div>
+                            <div class="invalid-feedback">Email is not valid.</div>
                         </div>
                         <!-- Phone number input-->
                         <div class="form-floating mb-3">
-                            <input class="form-control" id="phone" type="tel" placeholder="(123) 456-7890"
-                                data-sb-validations="required" />
+                            <input class="form-control" id="phone" type="tel" placeholder="(123) 456-7890" required />
                             <label for="phone">Phone number</label>
-                            <div class="invalid-feedback" data-sb-feedback="phone:required">A phone number is required.
-                            </div>
+                            <div class="invalid-feedback">A phone number is required.</div>
                         </div>
                         <!-- Message input-->
                         <div class="form-floating mb-3">
-                            <textarea class="form-control" id="message" type="text"
-                                placeholder="Enter your message here..." style="height: 10rem"
-                                data-sb-validations="required"></textarea>
+                            <textarea class="form-control" id="message" placeholder="Enter your message here..." style="height: 10rem" required></textarea>
                             <label for="message">Message</label>
-                            <div class="invalid-feedback" data-sb-feedback="message:required">A message is required.
-                            </div>
-                        </div>
-                        <!-- Submit success message-->
-                        <!---->
-                        <!-- This is what your users will see when the form-->
-                        <!-- has successfully submitted-->
-                        <div class="d-none" id="submitSuccessMessage">
-                            <div class="text-center mb-3">
-                                <div class="fw-bolder">Form submission successful!</div>
-                                Thank you for reaching out to us. We appreciate your inquiry and assure you that we are
-                                committed to providing the best possible service. Our team is currently reviewing your
-                                message, and we will promptly get back to you with a comprehensive response.
-                                <br />
-                            </div>
-                        </div>
-                        <!-- Submit error message-->
-                        <!---->
-                        <!-- This is what your users will see when there is-->
-                        <!-- an error submitting the form-->
-                        <div class="d-none" id="submitErrorMessage">
-                            <div class="text-center text-danger mb-3">Error sending message!</div>
+                            <div class="invalid-feedback">A message is required.</div>
                         </div>
                         <!-- Submit Button-->
-                        <div class="d-grid"><button class="btn btn-primary rounded-pill btn-lg"
-                                id="submitButton" type="submit">Submit</button></div>
+                        <div class="d-grid">
+                            <button class="btn btn-primary rounded-pill btn-lg" id="submitButton" type="submit">Submit</button>
+                        </div>
                     </form>
+                </div>
+                <div id="successMessage" class="modal-footer border-0 text-center d-none">
+                    <p class="text-success h4 mb-0">Thank you for your message!</p>
                 </div>
             </div>
         </div>
     </div>
+    
+    <script>
+        function sendEmail() {
+            // Add your email sending logic here
+            // You can use AJAX or any other method to send the email
+    
+            // Show success message
+            document.getElementById('submitButton').disabled = true; // Disable the button
+            document.getElementById('successMessage').classList.remove('d-none'); // Show the success message
+        }
+    </script>
+    
+
+
     <!-- Bootstrap core JS-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
     <!-- Core theme JS-->
     <script src="js/scripts.js"></script>
-    
+
     <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
 </body>
 
