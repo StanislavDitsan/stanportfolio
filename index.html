@@ -22,6 +22,14 @@
         rel="stylesheet" />
     <!-- Core theme CSS -->
     <link href="css/styles.css" rel="stylesheet" />
+    <!-- EmailJs -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js">
+    </script>
+    <script type="text/javascript">
+        (function () {
+            emailjs.init("UaZWUlEb7skLpUE_c");
+        })();
+    </script>
 </head>
 
 <body id="page-top">
@@ -288,19 +296,22 @@
             <div class="modal-content">
                 <div class="modal-header bg-gradient-primary-to-secondary p-4">
                     <h5 class="modal-title font-alt text-white" id="contactModalLabel">Message Us</h5>
-                    <button class="btn-close btn-close-white" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <button class="btn-close btn-close-white" type="button" data-bs-dismiss="modal"
+                        aria-label="Close"></button>
                 </div>
                 <div class="modal-body border-0 p-4">
                     <form id="contact-form" onsubmit="event.preventDefault(); sendEmail();">
                         <!-- Name input-->
                         <div class="form-floating mb-3">
-                            <input class="form-control" id="name" type="text" placeholder="Enter your name..." required />
+                            <input class="form-control" id="name" type="text" placeholder="Enter your name..."
+                                required />
                             <label for="name">Full name</label>
                             <div class="invalid-feedback">A name is required.</div>
                         </div>
                         <!-- Email address input-->
                         <div class="form-floating mb-3">
-                            <input class="form-control" id="email" type="email" placeholder="name@example.com" required />
+                            <input class="form-control" id="email" type="email" placeholder="name@example.com"
+                                required />
                             <label for="email">Email address</label>
                             <div class="invalid-feedback">An email is required.</div>
                             <div class="invalid-feedback">Email is not valid.</div>
@@ -313,64 +324,74 @@
                         </div>
                         <!-- Message input-->
                         <div class="form-floating mb-3">
-                            <textarea class="form-control" id="message" placeholder="Enter your message here..." style="height: 10rem" required></textarea>
+                            <textarea class="form-control" id="message" placeholder="Enter your message here..."
+                                style="height: 10rem" required></textarea>
                             <label for="message">Message</label>
                             <div class="invalid-feedback">A message is required.</div>
                         </div>
                         <!-- Submit Button-->
                         <div class="d-grid">
-                            <button class="btn btn-primary rounded-pill btn-lg" id="submitButton" type="submit">Submit</button>
+                            <button class="btn btn-primary rounded-pill btn-lg" id="submitButton"
+                                type="submit">Submit</button>
                         </div>
                     </form>
                 </div>
                 <div id="successMessage" class="modal-footer border-0 text-center d-none">
-                    <p class="text-success h4 mb-0">Thank you for your message!</p>
+                    <p class="text-success mb-0">Thank you for your message!</p>
                 </div>
             </div>
         </div>
     </div>
-    
+
+    <!-- EmailJs-->
     <script>
-        async function sendEmail() {
-            try {
-                // Create a transport object using SMTP
-                const transporter = nodemailer.createTransport({
-                    service: 'gmail',
-                    auth: {
-                        user: process.env.EMAIL_ADDRESS,
-                        pass: process.env.EMAIL_PASSWORD
-                    }
+        function sendEmail() {
+            event.preventDefault(); // Prevent form submission
+
+            // Set up EmailJS configuration
+            emailjs.init('UaZWUlEb7skLpUE_c'); // Replace YOUR_USER_ID with your EmailJS User ID
+
+            // Get the form data
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            const message = document.getElementById('message').value;
+
+            // Prepare the email parameters
+            const templateParams = {
+                from_name: name,
+                from_email: email,
+                phone: phone,
+                message: message
+            };
+
+            // Send the email
+            emailjs.send('service_0w40uzt', 'template_rwo4bru', templateParams)
+                .then(function (response) {
+                    console.log('Email sent successfully', response);
+                    // Show success message
+                    document.getElementById('submitButton').disabled = true;
+                    document.getElementById('successMessage').classList.remove('d-none');
+                    // Reset form fields
+                    resetForm();
+                }, function (error) {
+                    console.error('Error sending email:', error);
+                    // Handle error here
                 });
-    
-                // Get the form data
-                const name = document.getElementById('name').value;
-                const email = document.getElementById('email').value;
-                const phone = document.getElementById('phone').value;
-                const message = document.getElementById('message').value;
-    
-                // Prepare the email message
-                const mailOptions = {
-                    from: process.env.EMAIL_ADDRESS,
-                    to: 'recipient@example.com',
-                    subject: 'Message',
-                    text: `Name: ${name}\nEmail: ${email}\nPhone: ${phone}\nMessage: ${message}`
-                };
-    
-                // Send the email
-                await transporter.sendMail(mailOptions);
-                console.log('Email sent successfully');
-    
-                // Show success message
-                document.getElementById('submitButton').disabled = true;
-                document.getElementById('successMessage').classList.remove('d-none');
-            } catch (error) {
-                console.error('Error sending email:', error);
-                // Handle error here
-            }
         }
+
+        // Function to reset form fields
+        function resetForm() {
+            document.getElementById('name').value = '';
+            document.getElementById('email').value = '';
+            document.getElementById('phone').value = '';
+            document.getElementById('message').value = '';
+        }
+
     </script>
-    
-    
+
+
+
 
 
     <!-- Bootstrap core JS-->
@@ -379,6 +400,9 @@
     <script src="js/scripts.js"></script>
 
     <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+
+    <script src="https://cdn.emailjs.com/sdk/2.6.4/email.min.js"></script>
+
 </body>
 
 </html>
