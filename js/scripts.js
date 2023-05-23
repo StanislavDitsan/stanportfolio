@@ -1,8 +1,8 @@
 require('dotenv').config(); // Load environment variables from .env file
-
+const bootstrap = require('bootstrap');
+const nodemailer = require('nodemailer');
 
 window.addEventListener('DOMContentLoaded', event => {
-
     // Activate Bootstrap scrollspy on the main nav element
     const mainNav = document.body.querySelector('#mainNav');
     if (mainNav) {
@@ -10,14 +10,14 @@ window.addEventListener('DOMContentLoaded', event => {
             target: '#mainNav',
             offset: 74,
         });
-    };
+    }
 
     // Collapse responsive navbar when toggler is visible
     const navbarToggler = document.body.querySelector('.navbar-toggler');
-    const responsiveNavItems = [].slice.call(
+    const responsiveNavItems = Array.from(
         document.querySelectorAll('#navbarResponsive .nav-link')
     );
-    responsiveNavItems.map(function (responsiveNavItem) {
+    responsiveNavItems.forEach(responsiveNavItem => {
         responsiveNavItem.addEventListener('click', () => {
             if (window.getComputedStyle(navbarToggler).display !== 'none') {
                 navbarToggler.click();
@@ -25,13 +25,9 @@ window.addEventListener('DOMContentLoaded', event => {
         });
     });
 
+    const currentYear = new Date().getFullYear();
+    document.getElementById('currentYear').textContent = currentYear;
 });
-
-
-const currentYear = new Date().getFullYear();
-document.getElementById("currentYear").textContent = currentYear;
-
-const nodemailer = require('nodemailer');
 
 // Create a function to send the email
 async function sendEmail() {
@@ -52,7 +48,7 @@ async function sendEmail() {
 
     // Prepare the email message
     const mailOptions = {
-        from: 'your-email@gmail.com',
+        from: process.env.EMAIL_ADDRESS,
         to: 'recipient@example.com',
         subject: 'Message',
         text: `Name: ${name}\nEmail: ${email}\nPhone: ${phone}\nMessage: ${message}`
