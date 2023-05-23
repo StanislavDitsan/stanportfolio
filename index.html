@@ -331,15 +331,45 @@
     </div>
     
     <script>
-        function sendEmail() {
-            // Add your email sending logic here
-            // You can use AJAX or any other method to send the email
+        async function sendEmail() {
+            try {
+                // Create a transport object using SMTP
+                const transporter = nodemailer.createTransport({
+                    service: 'gmail',
+                    auth: {
+                        user: process.env.EMAIL_ADDRESS,
+                        pass: process.env.EMAIL_PASSWORD
+                    }
+                });
     
-            // Show success message
-            document.getElementById('submitButton').disabled = true; // Disable the button
-            document.getElementById('successMessage').classList.remove('d-none'); // Show the success message
+                // Get the form data
+                const name = document.getElementById('name').value;
+                const email = document.getElementById('email').value;
+                const phone = document.getElementById('phone').value;
+                const message = document.getElementById('message').value;
+    
+                // Prepare the email message
+                const mailOptions = {
+                    from: process.env.EMAIL_ADDRESS,
+                    to: 'recipient@example.com',
+                    subject: 'Message',
+                    text: `Name: ${name}\nEmail: ${email}\nPhone: ${phone}\nMessage: ${message}`
+                };
+    
+                // Send the email
+                await transporter.sendMail(mailOptions);
+                console.log('Email sent successfully');
+    
+                // Show success message
+                document.getElementById('submitButton').disabled = true;
+                document.getElementById('successMessage').classList.remove('d-none');
+            } catch (error) {
+                console.error('Error sending email:', error);
+                // Handle error here
+            }
         }
     </script>
+    
     
 
 
