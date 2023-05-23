@@ -31,30 +31,30 @@ window.addEventListener('DOMContentLoaded', event => {
 
 // Create a function to send the email
 async function sendEmail() {
-    // Create a transport object using SMTP
-    const transporter = nodemailer.createTransport({
-        service: 'gmail',
-        auth: {
-            user: process.env.EMAIL_ADDRESS,
-            pass: process.env.EMAIL_PASSWORD
-        }
-    });
-
-    // Get the form data
-    const name = document.getElementById('name').value;
-    const email = document.getElementById('email').value;
-    const phone = document.getElementById('phone').value;
-    const message = document.getElementById('message').value;
-
-    // Prepare the email message
-    const mailOptions = {
-        from: process.env.EMAIL_ADDRESS,
-        to: 'recipient@example.com',
-        subject: 'Message',
-        text: `Name: ${name}\nEmail: ${email}\nPhone: ${phone}\nMessage: ${message}`
-    };
-
     try {
+        // Create a transport object using SMTP
+        const transporter = nodemailer.createTransport({
+            service: 'gmail',
+            auth: {
+                user: process.env.EMAIL_ADDRESS,
+                pass: process.env.EMAIL_PASSWORD
+            }
+        });
+
+        // Get the form data
+        const name = document.getElementById('name').value;
+        const email = document.getElementById('email').value;
+        const phone = document.getElementById('phone').value;
+        const message = document.getElementById('message').value;
+
+        // Prepare the email message
+        const mailOptions = {
+            from: process.env.EMAIL_ADDRESS,
+            to: 'recipient@example.com',
+            subject: 'Message',
+            text: `Name: ${name}\nEmail: ${email}\nPhone: ${phone}\nMessage: ${message}`
+        };
+
         // Send the email
         await transporter.sendMail(mailOptions);
         console.log('Email sent successfully');
