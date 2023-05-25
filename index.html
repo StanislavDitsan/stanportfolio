@@ -287,6 +287,59 @@
         </div>
     </section>
 
+    <!-- <div class="container">
+        <div class="row p-4">
+            <div class="col-sm-4">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h5 class="card-title">Plain Static Website</h5>
+                        <p class="card-text">A plain static website consists of HTML and CSS files and doesn't have
+                            dynamic content or interactive features.</p>
+                        <ul class="card-text">
+                            <li>Static pages with fixed content</li>
+                            <li>Basic information display</li>
+                            <li>No user interactions or database</li>
+                        </ul>
+                        <p class="card-text">Price Range: $500 - $1,000</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h5 class="card-title">Blog Website</h5>
+                        <p class="card-text">A blog website allows you to publish and manage articles, share
+                            information, and engage with your readers.</p>
+                        <ul class="card-text">
+                            <li>Multiple blog posts with categories</li>
+                            <li>Author profiles and commenting system</li>
+                            <li>Search functionality</li>
+                        </ul>
+                        <p class="card-text">Price Range: $1,000 - $2,500</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h5 class="card-title">E-commerce Website</h5>
+                        <p class="card-text">An e-commerce website enables online buying and selling of products or
+                            services, complete with shopping carts, payment gateways, and inventory management.</p>
+                        <ul class="card-text">
+                            <li>Product catalog with categories and filters</li>
+                            <li>User registration and login</li>
+                            <li>Shopping cart and checkout system</li>
+                            <li>Payment gateway integration</li>
+                            <li>Order management and inventory tracking</li>
+                        </ul>
+                        <p class="card-text">Price Range: $2,500 - $5,000</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> -->
+
+
     <!-- Footer-->
     <footer class="bg-black text-center py-5">
         <div class="container px-5">
@@ -403,8 +456,27 @@
 
     </script>
 
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            var cursor = document.querySelector(".custom-cursor");
 
+            document.addEventListener("mousemove", function (event) {
+                var posX = event.clientX;
+                var posY = event.clientY;
 
+                cursor.style.left = posX + "px";
+                cursor.style.top = posY + "px";
+            });
+
+            document.addEventListener("mouseenter", function () {
+                cursor.classList.add("pulse-animation");
+            });
+
+            document.addEventListener("mouseleave", function () {
+                cursor.classList.remove("pulse-animation");
+            });
+        });
+    </script>
 
 
     <!-- Bootstrap core JS-->
