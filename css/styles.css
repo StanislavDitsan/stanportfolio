@@ -5297,10 +5297,11 @@ fieldset:disabled .btn {
   display: block;
   padding: var(--bs-pagination-padding-y) var(--bs-pagination-padding-x);
   font-size: var(--bs-pagination-font-size);
-  color: var(--bs-pagination-color);
+  color: orange;
   text-decoration: none;
   background-color: var(--bs-pagination-bg);
   border: var(--bs-pagination-border-width) solid var(--bs-pagination-border-color);
+  outline: none !important;
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
 
@@ -5312,7 +5313,7 @@ fieldset:disabled .btn {
 
 .page-link:hover {
   z-index: 2;
-  color: var(--bs-pagination-hover-color);
+  color: orange;
   background-color: var(--bs-pagination-hover-bg);
   border-color: var(--bs-pagination-hover-border-color);
 }
@@ -5321,7 +5322,7 @@ fieldset:disabled .btn {
   z-index: 3;
   color: var(--bs-pagination-focus-color);
   background-color: var(--bs-pagination-focus-bg);
-  outline: 0;
+  outline: none !important;
   box-shadow: var(--bs-pagination-focus-box-shadow);
 }
 
@@ -12860,12 +12861,49 @@ section.cta {
   background-size: cover;
 }
 
-section.cta .cta-content {
+section.cta2 {
+  position: relative;
+  padding: 12rem 0;
+  background-image: url("../assets/img/static-web-page.avif");
+  background-position: center;
+  background-size: cover;
+}
+
+section.cta4 {
+  position: relative;
+  padding: 12rem 0;
+  background-image: url("../assets/img/e-commerce-website.avif");
+  background-position: center;
+  background-size: cover;
+}
+
+section.cta3 {
+  position: relative;
+  padding: 12rem 0;
+}
+
+video.background-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+}
+
+section.cta .cta-content,
+section.cta2 .cta-content2,
+section.cta3 .cta-content3,
+section.cta4 .cta-content4 {
   position: relative;
   z-index: 1;
 }
 
-section.cta:before {
+
+section.cta:before,
+section.cta2:before,
+section.cta4:before {
   content: "";
   position: absolute;
   top: 0;
@@ -12873,6 +12911,16 @@ section.cta:before {
   width: 100%;
   height: 100%;
   background: rgba(0, 0, 0, 0.5);
+}
+
+section.cta3:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
 }
 
 .icon-feature {
@@ -12924,6 +12972,119 @@ section.cta:before {
 .features-device-mockup .device-wrapper {
   max-width: 10rem;
 }
+
+/* blog */
+
+.modal-body p {
+  text-align: center;
+}
+
+/* CSS for the image container within the modal */
+.image-container {
+  text-align: center;
+  /* Center the image horizontally */
+  max-width: 80%;
+  /* Adjust as needed to control the image's maximum width */
+  margin: 0 auto;
+  /* Center the image horizontally within the container */
+  padding-right: 2rem;
+  margin-bottom: 10px;
+}
+
+/* CSS for the image itself */
+.image-container img {
+  width: 350px;
+  /* Make sure the image does not exceed the container's width */
+  height: 350px;
+  /* Maintain the image's aspect ratio */
+
+}
+
+.blog-posts {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.blog-post-tile {
+  width: auto;
+  margin: auto;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem;
+  background-color: #fff;
+  transition: transform 0.2s, box-shadow 0.2s;
+  cursor: pointer;
+}
+
+.blog-post-tile:hover {
+  transform: scale(1.1);
+}
+
+/* Blog Post Tile Image */
+.blog-post-tile img {
+  width: 250px;
+  /* Set your desired width */
+  height: 250px;
+  /* Set your desired height */
+  object-fit: cover;
+  /* Maintain aspect ratio while filling the fixed dimensions */
+  border-radius: 5px;
+}
+
+
+/* Blog Post Title */
+.blog-post-tile h3 {
+  font-size: 1rem;
+  margin: 1em;
+  text-align: center;
+}
+
+/* Blog Post Date */
+.blog-post-tile p {
+  display: none;
+}
+
+
+
+/* Make modal content occupy full height of the screen */
+#blogPostModal .modal-content {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Ensure modal body grows to occupy available space */
+#blogPostModal .modal-body {
+  flex-grow: 1;
+  overflow: auto;
+  /* Add scroll if content is taller than screen */
+}
+
+#filter-category {
+  border: none; /* Remove the border */
+  /* Add any additional styles as needed */
+  margin-left: 20px;
+  margin-top: 2.5rem;
+  float: right;
+  outline: none !important;
+}
+
+/* Media query for small devices (e.g., mobile) */
+@media (max-width: 768px) {
+  .image-container {
+    float: none;
+    /* Remove the float to stack the image on top of the text */
+    width: 100%;
+    /* Make the image take up the full width */
+    height: auto;
+    /* Maintain the image's aspect ratio */
+    margin-right: auto;
+    /* Remove the right margin for spacing */
+    padding-bottom: 2rem;
+  }
+}
+
 
 @media (min-width: 576px) {
   .features-device-mockup .circle {

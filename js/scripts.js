@@ -71,3 +71,312 @@ const targets = document.querySelectorAll('.animate__animated');
 targets.forEach((target) => {
     observer.observe(target);
 });
+
+// Blog
+
+const blogPostsContainer = document.getElementById('blog-posts');
+let blogPostsData;
+const postsPerPage = 8; // Number of posts per page
+let currentPage = 1; // Current page number
+
+fetch('blog-posts.json')
+    .then(response => response.json())
+    .then(data => {
+        blogPostsData = data;
+        displayBlogPosts(currentPage); // Display the initial page
+    })
+    .catch(error => console.error('Error fetching blog posts:', error));
+
+function displayBlogPosts(page) {
+    const startIndex = (page - 1) * postsPerPage;
+    const endIndex = startIndex + postsPerPage;
+    const postsToDisplay = blogPostsData.slice(startIndex, endIndex);
+
+    blogPostsContainer.innerHTML = '';
+
+    postsToDisplay.forEach((post, index) => {
+        const postTile = document.createElement('div');
+        postTile.classList.add('blog-post-tile');
+        postTile.dataset.index = startIndex + index;
+        postTile.innerHTML = `
+      <img src="${post.image}" alt="${post.title}">
+      <h3>${post.title}</h3>
+      <p>${post.date}</p>
+    `;
+        postTile.addEventListener('click', () => openBlogPost(startIndex + index));
+        blogPostsContainer.appendChild(postTile);
+    });
+
+    // Update pagination controls
+    updatePagination();
+}
+
+function updatePagination() {
+    const totalPages = Math.ceil(blogPostsData.length / postsPerPage);
+    const prevPageButton = document.getElementById('prev-page');
+    const nextPageButton = document.getElementById('next-page');
+
+    prevPageButton.classList.toggle('disabled', currentPage === 1);
+    nextPageButton.classList.toggle('disabled', currentPage === totalPages);
+}
+
+function goToPage(page) {
+    if (page >= 1 && page <= Math.ceil(blogPostsData.length / postsPerPage)) {
+        currentPage = page;
+        displayBlogPosts(currentPage);
+    }
+}
+
+document.getElementById('prev-page').addEventListener('click', () => {
+    if (currentPage > 1) {
+        goToPage(currentPage - 1);
+    }
+});
+
+document.getElementById('next-page').addEventListener('click', () => {
+    const totalPages = Math.ceil(blogPostsData.length / postsPerPage);
+    if (currentPage < totalPages) {
+        goToPage(currentPage + 1);
+    }
+});
+
+
+function openBlogPost(index) {
+    const selectedPost = blogPostsData[index];
+    const modalContent = `
+          <div class="modal-header">
+            <h2 class="modal-title">${selectedPost.title}</h2>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <div class="image-container">
+                <img src="${selectedPost.image}" alt="${selectedPost.title}">
+            </div>
+            ${selectedPost.content.map(paragraph => `<p>${paragraph}</p>`).join('')}
+
+            <p>${selectedPost.date}</p>
+            <div class="btn-group">
+              <button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Share
+              </button>
+              <div class="dropdown-menu">
+                <button class="dropdown-item" onclick="sharePostOnTwitter(${index})">Share on Twitter</button>
+                <button class="dropdown-item" onclick="sharePostOnFacebook(${index})">Share on Facebook</button>
+                <button class="dropdown-item" onclick="sharePostOnLinkedIn(${index})">Share on LinkedIn</button>
+                <button class="dropdown-item" onclick="sharePostOnWhatsApp(${index})">Share on WhatsApp</button>
+                <button class="dropdown-item" onclick="sharePostOnPinterest(${index})">Share on Pinterest</button>
+                <!-- Add more sharing options as needed -->
+              </div>
+            </div>
+          </div>
+        `;
+
+    // Get a reference to the modal content
+    const modalBody = document.querySelector('#blogPostModal .modal-content');
+
+    // Set the modal content
+    modalBody.innerHTML = modalContent;
+
+    // Show the modal
+    const modal = new bootstrap.Modal(document.getElementById('blogPostModal'));
+    modal.show();
+}
+
+function sharePostOnTwitter(index) {
+    const selectedPost = blogPostsData[index];
+    const tweetText = encodeURIComponent(selectedPost.shareText + ' ' + selectedPost.link);
+    const twitterShareUrl = `https://twitter.com/intent/tweet?text=${tweetText}`;
+
+    // Open a new window/tab for sharing on Twitter
+    window.open(twitterShareUrl, '_blank');
+}
+
+
+function sharePostOnFacebook(index) {
+    const selectedPost = blogPostsData[index];
+    const facebookShareUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(selectedPost.link)}`;
+
+    // Open a new window/tab for sharing on Facebook
+    window.open(facebookShareUrl, '_blank');
+}
+
+function sharePostOnLinkedIn(index) {
+    const selectedPost = blogPostsData[index];
+    const linkedInShareUrl = `https://www.linkedin.com/shareArticle?url=${encodeURIComponent(selectedPost.link)}`;
+
+    // Open a new window/tab for sharing on LinkedIn
+    window.open(linkedInShareUrl, '_blank');
+}
+
+function sharePostOnWhatsApp(index) {
+    const selectedPost = blogPostsData[index];
+    const whatsappShareUrl = `https://api.whatsapp.com/send?text=${encodeURIComponent(selectedPost.title + ' ' + selectedPost.link)}`;
+
+    // Open a new window/tab for sharing on WhatsApp
+    window.open(whatsappShareUrl, '_blank');
+}
+
+
+function shareOnPinterest(imageUrl, title) {
+    const pinterestShareUrl = `https://www.pinterest.com/pin/create/button/?url=&media=${encodeURIComponent(imageUrl)}&description=${encodeURIComponent(title)}`;
+
+    // Open a new window/tab for sharing on Pinterest
+    window.open(pinterestShareUrl, '_blank');
+}
+
+function sharePostOnPinterest(index) {
+    const selectedPost = blogPostsData[index];
+    const pinterestShareUrl = `https://www.pinterest.com/pin/create/button/?url=${encodeURIComponent(selectedPost.link)}&media=${encodeURIComponent(selectedPost.image)}&description=${encodeURIComponent(selectedPost.title)}`;
+
+    // Open a new window/tab for sharing on Pinterest
+    window.open(pinterestShareUrl, '_blank');
+}
+
+
+// JavaScript code to create a typewriter effect
+function typeWriter(text, element, speed) {
+    let i = 0;
+    element.innerHTML = "";
+
+    function type() {
+        if (i < text.length) {
+            element.innerHTML += text.charAt(i);
+            i++;
+            setTimeout(type, speed);
+        }
+    }
+
+    type();
+}
+
+// JavaScript code to create a typewriter effect
+function typeWriter(text, element, speed) {
+    let i = 0;
+    element.innerHTML = "";
+
+    function type() {
+        if (i < text.length) {
+            element.innerHTML += text.charAt(i);
+            i++;
+            setTimeout(type, speed);
+        }
+    }
+
+    type();
+}
+
+// Check if the blog section is in the viewport
+function isElementInViewport(el) {
+    const rect = el.getBoundingClientRect();
+    return (
+        rect.top >= 0 &&
+        rect.left >= 0 &&
+        rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+        rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+    );
+}
+
+// Start the typewriter effect when the blog section is in the viewport
+// JavaScript code to create a typewriter effect for multiple lines
+function typeWriter(text, element, speed) {
+    let i = 0;
+    element.innerHTML = ""; // Clear the element's content
+
+    function type() {
+        if (i < text.length) {
+            if (text.charAt(i) === '\n') {
+                // If a newline character is encountered, add a line break
+                element.innerHTML += '<br>';
+            } else {
+                element.innerHTML += text.charAt(i);
+            }
+            i++;
+            setTimeout(type, speed);
+        }
+    }
+
+    type();
+}
+
+// Check if the blog section is in the viewport
+function isElementInViewport(el) {
+    const rect = el.getBoundingClientRect();
+    return (
+        rect.top >= 0 &&
+        rect.left >= 0 &&
+        rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+        rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+    );
+}
+
+// Start the typewriter effect when the blog section is in the viewport
+function startTypingWhenVisible() {
+    const blogTitle = document.getElementById("blog-title");
+    const textToType = "Silly Girl Blog\nDiscover Our Stories"; // Your blog title with a line break
+    const typingSpeed = 100; // Adjust the typing speed (milliseconds per character)
+
+    if (isElementInViewport(blogTitle)) {
+        // Trigger the typewriter effect
+        typeWriter(textToType, blogTitle, typingSpeed);
+
+        // Remove the scroll event listener to prevent multiple triggers
+        window.removeEventListener("scroll", startTypingWhenVisible);
+    }
+}
+
+// Add a scroll event listener to check when the blog section is in the viewport
+window.addEventListener("scroll", startTypingWhenVisible);
+
+
+// Filter 
+
+// Fetch and set the data
+let originalBlogPostsData; // Declare the variable
+
+fetch('blog-posts.json')
+    .then(response => response.json())
+    .then(data => {
+        originalBlogPostsData = data; // Set the data here
+        blogPostsData = data; // If needed, set your main data variable here as well
+        displayBlogPosts(currentPage); // Display the initial page
+    })
+    .catch(error => console.error('Error fetching blog posts:', error));
+
+const filterCategory = document.getElementById('filter-category');
+
+// Define the displayFilteredBlogPosts function separately
+function displayFilteredBlogPosts(filteredPosts) {
+    // Clear the existing blog posts
+    blogPostsContainer.innerHTML = '';
+
+    // Display the filtered blog posts
+    filteredPosts.forEach((post, index) => {
+        const postTile = document.createElement('div');
+        postTile.classList.add('blog-post-tile');
+        postTile.dataset.index = index;
+        postTile.innerHTML = `
+            <img src="${post.image}" alt="${post.title}">
+            <h3>${post.title}</h3>
+            <p>${post.date}</p>
+        `;
+        postTile.addEventListener('click', () => openBlogPost(index));
+        blogPostsContainer.appendChild(postTile);
+    });
+
+    // Update pagination controls if needed
+    updatePagination();
+}
+
+// Add the event listener for filtering
+filterCategory.addEventListener('change', () => {
+    const selectedCategory = filterCategory.value;
+
+    // Create a copy of the original data to filter
+    const filteredPosts = originalBlogPostsData.filter(post => {
+        // If no category is selected or the post matches the selected category
+        return selectedCategory === '' || post.category === selectedCategory;
+    });
+
+    // Use the displayFilteredBlogPosts function to display the filtered posts
+    displayFilteredBlogPosts(filteredPosts);
+});
