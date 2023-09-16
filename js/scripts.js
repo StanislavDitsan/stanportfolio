@@ -227,19 +227,53 @@ function shareOnPinterest(imageUrl, title) {
 }
 
 function sharePostOnPinterest(index) {
-    const selectedPost = blogPostsData[index];
+    try {
+        const selectedPost = blogPostsData[index];
 
-    // Construct an absolute URL to the image assuming it's hosted on your website
-    const baseUrl = window.location.origin; // Get the base URL of your website
-    const absoluteImageUrl = baseUrl + selectedPost.image; // Assuming selectedPost.image is a relative path
+        // Check if selectedPost is valid
+        if (!selectedPost) {
+            throw new Error("Selected post is undefined or doesn't exist.");
+        }
 
-    // Create the Pinterest share URL with the absolute image URL
-    const pinterestShareUrl = `https://www.pinterest.com/pin/create/button/?url=${encodeURIComponent(selectedPost.link)}&media=${encodeURIComponent(absoluteImageUrl)}&description=${encodeURIComponent(selectedPost.title)}`;
+        // Construct an absolute URL to the image assuming it's hosted on your website
+        const baseUrl = window.location.origin; // Get the base URL of your website
+        const absoluteImageUrl = baseUrl + selectedPost.image; // Assuming selectedPost.image is a relative path
 
+        // Ensure that the absolute image URL is properly formatted
+        const formattedImageUrl = absoluteImageUrl.replace(/\/\//g, '/'); // Remove any double slashes
 
-    // Open a new window/tab for sharing on Pinterest
-    window.open(pinterestShareUrl, '_blank');
+        // Construct the Pinterest share URL with the properly formatted image URL
+        const pinterestShareUrl = `https://www.pinterest.com/pin/create/button/?url=${encodeURIComponent(selectedPost.link)}&media=${encodeURIComponent(formattedImageUrl)}&description=${encodeURIComponent(selectedPost.title)}`;
+
+        console.log("Pinterest Share URL:", pinterestShareUrl);
+
+        // Open a new window/tab for sharing on Pinterest
+        window.open(pinterestShareUrl, '_blank');
+    } catch (error) {
+        console.error("Error sharing on Pinterest:", error.message);
+    }
 }
+
+
+// Add a click event listener to all buttons with the "open-modal" class
+document.querySelectorAll('.open-modal').forEach(function (button) {
+    button.addEventListener('click', function () {
+        // Get the index from the data attribute
+        const index = parseInt(button.getAttribute('data-index'));
+
+        // Check if the index is valid
+        if (!isNaN(index) && index >= 0 && index < blogPostsData.length) {
+            // Populate the selectedPost object
+            const selectedPost = blogPostsData[index];
+
+            // Now, selectedPost.link should contain a valid URL to the blog post
+            console.log("Selected Post:", selectedPost);
+
+            // Open the modal with the selectedPost data
+            // ... (code to open the modal with the selectedPost data)
+        }
+    });
+});
 
 
 

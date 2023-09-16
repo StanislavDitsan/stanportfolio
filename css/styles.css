@@ -12997,6 +12997,7 @@ section.cta3:before {
   /* Make sure the image does not exceed the container's width */
   height: 350px;
   /* Maintain the image's aspect ratio */
+  border-radius: 5px;
 
 }
 
@@ -13096,6 +13097,7 @@ section.cta3:before {
     height: 250px;
     margin: 0; /* Reset the margin to zero */
     padding: 0%;
+    border-radius: 5px;
   }
 }
 
