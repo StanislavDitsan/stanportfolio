@@ -155,6 +155,7 @@ function openBlogPost(index) {
             ${selectedPost.content.map(paragraph => `<p>${paragraph}</p>`).join('')}
 
             <p>${selectedPost.date}</p>
+            <div class="d-flex justify-content-end">
             <div class="btn-group">
               <button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Share
@@ -168,6 +169,7 @@ function openBlogPost(index) {
                 <!-- Add more sharing options as needed -->
               </div>
             </div>
+          </div>
           </div>
         `;
 
@@ -226,11 +228,19 @@ function shareOnPinterest(imageUrl, title) {
 
 function sharePostOnPinterest(index) {
     const selectedPost = blogPostsData[index];
-    const pinterestShareUrl = `https://www.pinterest.com/pin/create/button/?url=${encodeURIComponent(selectedPost.link)}&media=${encodeURIComponent(selectedPost.image)}&description=${encodeURIComponent(selectedPost.title)}`;
+
+    // Construct an absolute URL to the image assuming it's hosted on your website
+    const baseUrl = window.location.origin; // Get the base URL of your website
+    const absoluteImageUrl = baseUrl + selectedPost.image; // Assuming selectedPost.image is a relative path
+
+    // Create the Pinterest share URL with the absolute image URL
+    const pinterestShareUrl = `https://www.pinterest.com/pin/create/button/?url=${encodeURIComponent(selectedPost.link)}&media=${encodeURIComponent(absoluteImageUrl)}&description=${encodeURIComponent(selectedPost.title)}`;
+
 
     // Open a new window/tab for sharing on Pinterest
     window.open(pinterestShareUrl, '_blank');
 }
+
 
 
 // JavaScript code to create a typewriter effect

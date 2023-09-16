@@ -12987,8 +12987,8 @@ section.cta3:before {
   /* Adjust as needed to control the image's maximum width */
   margin: 0 auto;
   /* Center the image horizontally within the container */
-  padding-right: 2rem;
   margin-bottom: 10px;
+  padding: auto;
 }
 
 /* CSS for the image itself */
@@ -13062,7 +13062,8 @@ section.cta3:before {
 }
 
 #filter-category {
-  border: none; /* Remove the border */
+  border: none;
+  /* Remove the border */
   /* Add any additional styles as needed */
   margin-left: 20px;
   margin-top: 2.5rem;
@@ -13082,6 +13083,19 @@ section.cta3:before {
     margin-right: auto;
     /* Remove the right margin for spacing */
     padding-bottom: 2rem;
+  }
+}
+
+@media (max-width: 426px) {
+  .image-container {
+    text-align: center; /* Right-align the contents horizontally */
+  }
+
+  .image-container img {
+    width: 250px;
+    height: 250px;
+    margin: 0; /* Reset the margin to zero */
+    padding: 0%;
   }
 }
 
