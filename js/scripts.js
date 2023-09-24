@@ -156,9 +156,6 @@ function openBlogPost(index) {
 
             <p>${selectedPost.date}</p>
             
-            <!-- Add a link to the blog post using the 'link' property -->
-            <p><a href="${selectedPost.link}" target="_blank">Read more</a></p>
-
             <div class="d-flex justify-content-end">
             <div class="btn-group">
               <button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -241,13 +238,10 @@ function sharePostOnPinterest(index) {
 
         // Construct an absolute URL to the image assuming it's hosted on your website
         const baseUrl = window.location.origin; // Get the base URL of your website
-        const absoluteImageUrl = baseUrl + selectedPost.image; // Assuming selectedPost.image is a relative path
-
-        // Ensure that the absolute image URL is properly formatted
-        const formattedImageUrl = absoluteImageUrl.replace(/\/\//g, '/'); // Remove any double slashes
+        const absoluteImageUrl = new URL(selectedPost.image, baseUrl).href; // Construct the absolute image URL
 
         // Construct the Pinterest share URL with the properly formatted image URL
-        const pinterestShareUrl = `https://www.pinterest.com/pin/create/button/?url=${encodeURIComponent(selectedPost.link)}&media=${encodeURIComponent(formattedImageUrl)}&description=${encodeURIComponent(selectedPost.title)}`;
+        const pinterestShareUrl = `https://www.pinterest.com/pin/create/button/?url=${encodeURIComponent(selectedPost.link)}&media=${encodeURIComponent(absoluteImageUrl)}&description=${encodeURIComponent(selectedPost.title)}`;
 
         console.log("Pinterest Share URL:", pinterestShareUrl);
 
@@ -257,6 +251,7 @@ function sharePostOnPinterest(index) {
         console.error("Error sharing on Pinterest:", error.message);
     }
 }
+
 
 
 // Add a click event listener to all buttons with the "open-modal" class
