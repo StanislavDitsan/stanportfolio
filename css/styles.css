@@ -13066,7 +13066,7 @@ section.cta3:before {
   /* Remove the border */
   /* Add any additional styles as needed */
   margin-left: 20px;
-  margin-top: 2.5rem;
+  margin-top: 0.8rem;
   float: right;
   outline: none !important;
 }

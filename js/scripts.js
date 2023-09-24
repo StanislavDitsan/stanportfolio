@@ -155,6 +155,10 @@ function openBlogPost(index) {
             ${selectedPost.content.map(paragraph => `<p>${paragraph}</p>`).join('')}
 
             <p>${selectedPost.date}</p>
+            
+            <!-- Add a link to the blog post using the 'link' property -->
+            <p><a href="${selectedPost.link}" target="_blank">Read more</a></p>
+
             <div class="d-flex justify-content-end">
             <div class="btn-group">
               <button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

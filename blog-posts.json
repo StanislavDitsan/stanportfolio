@@ -140,7 +140,8 @@
             "Each string in the array represents a separate paragraph."
         ],
         "image": "./assets/img/travel2.avif",
-        "shareText": "Check out the first blog post!"
+        "shareText": "Check out the first blog post!",
+        "link": "https://digitelle-studios.com/silly-girl.html/first-blog-post"
     },
     {
         "title": "Vegan Gyoza | Recipe",
