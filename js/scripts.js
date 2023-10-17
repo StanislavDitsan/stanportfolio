@@ -292,22 +292,6 @@ function typeWriter(text, element, speed) {
     type();
 }
 
-// JavaScript code to create a typewriter effect
-function typeWriter(text, element, speed) {
-    let i = 0;
-    element.innerHTML = "";
-
-    function type() {
-        if (i < text.length) {
-            element.innerHTML += text.charAt(i);
-            i++;
-            setTimeout(type, speed);
-        }
-    }
-
-    type();
-}
-
 // Check if the blog section is in the viewport
 function isElementInViewport(el) {
     const rect = el.getBoundingClientRect();

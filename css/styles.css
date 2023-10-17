@@ -12856,6 +12856,7 @@ section.cta {
   position: relative;
   padding: 15rem 0;
   background-image: url("../assets/img/buildyourwebsite.avif");
+  background-attachment: fixed;
   background-position: center;
   background-size: cover;
 }
@@ -12864,6 +12865,7 @@ section.cta2 {
   position: relative;
   padding: 12rem 0;
   background-image: url("../assets/img/static-web-page.avif");
+  background-attachment: fixed;
   background-position: center;
   background-size: cover;
 }
@@ -12872,6 +12874,7 @@ section.cta4 {
   position: relative;
   padding: 12rem 0;
   background-image: url("../assets/img/e-commerce-website.avif");
+  background-attachment: fixed;
   background-position: center;
   background-size: cover;
 }
