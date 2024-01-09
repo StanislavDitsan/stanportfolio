@@ -13083,7 +13083,8 @@ section.cta3:before {
   font-size: 24px;
   font-weight: bold;
   color: #333;
-  margin-top: 10px; /* Adjust as needed for spacing between counters */
+  margin-top: 10px;
+  /* Adjust as needed for spacing between counters */
 }
 
 /* Media query for small devices (e.g., mobile) */
@@ -13103,7 +13104,7 @@ section.cta3:before {
 
 @media (max-width: 767px) {
   .counter-container {
-      display: block;
+    display: block;
   }
 }
 
@@ -13206,6 +13207,15 @@ footer a:active,
 footer a:focus {
   color: rgba(255, 255, 255, 0.75);
   text-decoration: underline;
+}
+
+.social-net li {
+  display: inline;
+  font-size: x-large;
+}
+
+.social-net i:hover {
+  transform: scale(1.2);
 }
 
 .masthead {
