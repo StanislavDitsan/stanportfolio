@@ -13101,6 +13101,12 @@ section.cta3:before {
   }
 }
 
+@media (max-width: 767px) {
+  .counter-container {
+      display: block;
+  }
+}
+
 @media (max-width: 426px) {
   .image-container {
     text-align: center;
