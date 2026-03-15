@@ -13646,7 +13646,9 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: border-color 0.25s ease, transform 0.25s ease;
+  transition:
+    border-color 0.25s ease,
+    transform 0.25s ease;
 }
 
 .client-logo-link:hover .client-logo-card,
@@ -13691,7 +13693,9 @@ body {
 }
 
 .trust-action-card {
-  transition: border-color 0.2s ease, background-color 0.2s ease,
+  transition:
+    border-color 0.2s ease,
+    background-color 0.2s ease,
     transform 0.2s ease;
 }
 
@@ -13700,4 +13704,9 @@ body {
   border-color: var(--bs-primary) !important;
   background-color: rgba(var(--bs-primary-rgb), 0.06);
   transform: translateY(-2px);
+}
+
+.portfolio-card-img {
+  height: 220px;
+  object-fit: cover;
 }
