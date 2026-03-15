@@ -3,123 +3,103 @@
 
 <head>
   <script type="application/ld+json">
-      [
-  {
-    "@context": "https://schema.org",
-    "@type": "WebPage",
-    "name": "Silly Girl Services - Content Creation & Social Media",
-    "description": "Exclusive content production tailored for your brand. Services include Instagram posts, TikTok videos, YouTube content, and more.",
-    "url": "https://digitelle-studios.com/silly-girl.html",
-    "publisher": {
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
       "@type": "Organization",
+      "@id": "https://digitelle-studios.com/silly-girl.html#organization",
       "name": "Silly Girl Guide",
-      "url": "https://digitelle-studios.com",
-      "logo": "https://digitelle-studios.com/assets/img/SillyGirlLogo.png"
-    },
-    "mainEntity": [
-      {
-        "@type": "Service",
-        "name": "Instagram Posts",
-        "description": "Engaging static visuals with compelling captions that showcase your brand's offerings."
+      "url": "https://digitelle-studios.com/silly-girl.html",
+      "logo": "https://digitelle-studios.com/assets/img/favicon.png",
+      "parentOrganization": {
+        "@type": "Organization",
+        "name": "Digitelle Studios",
+        "url": "https://digitelle-studios.com/"
       },
-      {
-        "@type": "Service",
-        "name": "TikTok Videos",
-        "description": "Creative and lively short-form videos that capture attention and drive engagement."
-      },
-      {
-        "@type": "Service",
-        "name": "YouTube Videos",
-        "description": "Detailed and immersive video content highlighting your brand's story or product."
-      },
-      {
-        "@type": "Service",
-        "name": "Full Social Media Package",
-        "description": "Comprehensive content creation across multiple platforms (Instagram, TikTok, YouTube) for a cohesive brand presence."
-      },
-      {
-        "@type": "Service",
-        "name": "Custom Content Creation",
-        "description": "Tailored solutions to meet your specific campaign objectives and content requirements."
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "customer support",
+        "availableLanguage": ["English"],
+        "url": "https://linktr.ee/silly_girl"
       }
-    ],
-    "author": {
-      "@type": "Organization",
-      "name": "Silly Girl Guide",
-      "member": [
+    },
+    {
+      "@type": "Person",
+      "@id": "https://digitelle-studios.com/silly-girl.html#gabriella",
+      "name": "Gabriella",
+      "jobTitle": "Social Media & Influencer Specialist",
+      "worksFor": {
+        "@id": "https://digitelle-studios.com/silly-girl.html#organization"
+      }
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://digitelle-studios.com/silly-girl.html#webpage",
+      "url": "https://digitelle-studios.com/silly-girl.html",
+      "name": "Social Media Content Creation Worldwide | Silly Girl Guide",
+      "description": "Silly Girl Guide offers content creation services worldwide, including Instagram posts, TikTok videos, YouTube content, and full social media packages.",
+      "inLanguage": "en",
+      "publisher": {
+        "@id": "https://digitelle-studios.com/silly-girl.html#organization"
+      },
+      "about": {
+        "@id": "https://digitelle-studios.com/silly-girl.html#services"
+      }
+    },
+    {
+      "@type": "ItemList",
+      "@id": "https://digitelle-studios.com/silly-girl.html#services",
+      "name": "Content Creation Services",
+      "itemListElement": [
         {
-          "@type": "Person",
-          "name": "Gabriella",
-          "jobTitle": "Social Media & Influencer Specialist",
-          "description": "Specializes in content creation and media management."
+          "@type": "ListItem",
+          "position": 1,
+          "item": {
+            "@type": "Service",
+            "name": "Instagram Content Creation",
+            "provider": {
+              "@id": "https://digitelle-studios.com/silly-girl.html#organization"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "item": {
+            "@type": "Service",
+            "name": "TikTok Video Creation",
+            "provider": {
+              "@id": "https://digitelle-studios.com/silly-girl.html#organization"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "item": {
+            "@type": "Service",
+            "name": "YouTube Video Production",
+            "provider": {
+              "@id": "https://digitelle-studios.com/silly-girl.html#organization"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 4,
+          "item": {
+            "@type": "Service",
+            "name": "Full Social Media Package",
+            "provider": {
+              "@id": "https://digitelle-studios.com/silly-girl.html#organization"
+            }
+          }
         }
       ]
     }
-  },
-  {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "Silly Girl Guide",
-    "description": "We offer exclusive content production designed specifically for your brand's use. Crafted with our storytelling expertise to elevate your brand's online presence.",
-    "contactPoint": {
-      "@type": "ContactPoint",
-      "contactType": "Customer Service",
-      "availableLanguage": "English",
-      "url": "https://linktr.ee/silly_girl"
-    }
-  },
-  {
-    "@context": "https://schema.org",
-    "@type": "OfferCatalog",
-    "name": "Content Creation Packages",
-    "itemListElement": [
-      {
-        "@type": "Offer",
-        "itemOffered": {
-          "@type": "Service",
-          "name": "Instagram Content Package",
-          "description": "A package of Instagram posts designed to boost engagement and reach.",
-          "additionalType": "https://linktr.ee/silly_girl"
-        },
-        "priceCurrency": "EUR",
-        "price": "100"
-      },
-      {
-        "@type": "Offer",
-        "itemOffered": {
-          "@type": "Service",
-          "name": "TikTok Video Package",
-          "description": "A package of custom TikTok videos tailored to boost your online presence.",
-          "additionalType": "https://linktr.ee/silly_girl"
-        },
-        "priceCurrency": "EUR",
-        "price": "150"
-      },
-      {
-        "@type": "Offer",
-        "itemOffered": {
-          "@type": "Service",
-          "name": "YouTube Video Production",
-          "description": "Custom YouTube videos designed to showcase your brand.",
-          "additionalType": "https://linktr.ee/silly_girl"
-        },
-        "priceCurrency": "EUR",
-        "price": "300"
-      },
-      {
-        "@type": "Offer",
-        "itemOffered": {
-          "@type": "Product",
-          "name": "Full Social Media Package",
-          "description": "Comprehensive content creation across Instagram, TikTok, and YouTube for a cohesive brand presence.",
-          "additionalType": "https://linktr.ee/silly_girl"
-        },
-        "priceCurrency": "EUR",
-        "price": "500"
-      }
-    ]
-  }
-]
+  ]
+}
     </script>
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-421CT7ZZMW"></script>
@@ -152,15 +132,30 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
   <meta name="description"
-    content="Bring your brand to life with Silly Girl's custom content! From vibrant visuals to unique storytelling, we'll make your business the talk of Barcelona. Whether it's web design or standout social media content, we've got you covered." />
+    content="Silly Girl Guide creates social media content worldwide, including Instagram, TikTok, and YouTube packages designed to grow your brand." />
   <meta name="author" content="Silly Girl" />
   <meta name="keywords"
-    content="Barcelona brand promotion, creative content, custom web design, digital agency, social media marketing, brand storytelling, local promoters, vibrant branding, business growth, bespoke marketing, content creators, Barcelona digital" />
+    content="content creation services worldwide, social media content creator global, TikTok content creation service, Instagram content package worldwide, YouTube video production service, social media management worldwide" />
 
-  <meta name="robots" content="index, follow" />
+  <meta name="robots" content="index, follow, max-image-preview:large" />
+  <link rel="canonical" href="https://digitelle-studios.com/silly-girl.html" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Silly Girl Guide" />
+  <meta property="og:title" content="Social Media Content Creation Worldwide | Silly Girl Guide" />
+  <meta property="og:description"
+    content="Instagram, TikTok, and YouTube content packages for brands that want stronger social presence worldwide." />
+  <meta property="og:url" content="https://digitelle-studios.com/silly-girl.html" />
+  <meta property="og:image" content="https://digitelle-studios.com/assets/img/gg.avif" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Social Media Content Creation Worldwide | Silly Girl Guide" />
+  <meta name="twitter:description"
+    content="Creative social content packages for Instagram, TikTok, and YouTube worldwide." />
+  <meta name="twitter:image" content="https://digitelle-studios.com/assets/img/gg.avif" />
 
   <title>
-    Silly Girl Guide - Barcelona Business Promotion and Digital Solutions
+    Social Media Content Creation Worldwide | Silly Girl Guide
   </title>
 
   <link rel="icon" type="image/x-icon" href="./assets/img/favicon.png" />
@@ -235,9 +230,9 @@
     <div class="container">
       <div class="row py-5 gx-5 align-items-center justify-content-center justify-content-lg-between">
         <div class="col-12 col-lg-5">
-          <h2 class="display-4 lh-1 mb-4 animate__animated animate__slow hidden" data-animation="animate__fadeIn">
+          <h1 class="display-4 lh-1 mb-4 animate__animated animate__slow hidden" data-animation="animate__fadeIn">
             Check out our TikTok account
-          </h2>
+          </h1>
 
           <p class="lead fw-normal text-muted animate__animated animate__slow hidden" data-animation="animate__fadeIn">
             If you are looking to promote your Business, get in touch with us.

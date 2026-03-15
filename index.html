@@ -3,118 +3,134 @@
 
 <head>
     <script type="application/ld+json">
-        [
+{
+    "@context": "https://schema.org",
+    "@graph": [
         {
-          "@context": "https://schema.org",
-          "@type": "WebPage",
-          "name": "Digitelle Studios - Content Creation & Web Development",
-          "description": "Helping businesses create engaging content, build stunning websites, and manage their social media effectively.",
-          "url": "https://digitelle-studios.com",
-          "publisher": {
             "@type": "Organization",
+            "@id": "https://digitelle-studios.com/#organization",
             "name": "Digitelle Studios",
-            "url": "https://digitelle-studios.com",
-            "logo": "https://digitelle-studios.com/assets/img/favicon.png"
-          },
-          "mainEntity": [
-            {
-              "@type": "Service",
-              "name": "Web Development",
-              "description": "Custom, responsive websites built to enhance user experience and increase conversions."
-            },
-            {
-              "@type": "Service",
-              "name": "Cinematic Storytelling",
-              "description": "Capture stunning aerial footage with our professional drone video recording services."
-            },
-            {
-              "@type": "Service",
-              "name": "Content Creation",
-              "description": "Boost your business visibility with engaging, high-quality video content designed to showcase your brand."
-            },
-            {
-              "@type": "Service",
-              "name": "Search Engine Optimization",
-              "description": "Boost your SEO with our comprehensive website support solutions."
-            },
-            {
-              "@type": "Service",
-              "name": "Google Business Profile Optimization",
-              "description": "Optimize your Google Business Profile for better local search visibility."
+            "url": "https://digitelle-studios.com/",
+            "logo": "https://digitelle-studios.com/assets/img/favicon.png",
+            "contactPoint": {
+                "@type": "ContactPoint",
+                "contactType": "customer support",
+                "availableLanguage": ["English"],
+                "url": "https://digitelle-studios.com/"
             }
-          ],
-          "author": {
-            "@type": "Organization",
+        },
+        {
+            "@type": "ProfessionalService",
+            "@id": "https://digitelle-studios.com/#business",
             "name": "Digitelle Studios",
-            "member": [
-              {
-                "@type": "Person",
-                "name": "Stan",
-                "jobTitle": "Web Developer",
-                "description": "Full Stack Web Developer."
-              },
-              {
-                "@type": "Person",
-                "name": "Gabriella",
-                "jobTitle": "Media Manager",
-                "description": "Specializes in content creation and media management."
-              }
+            "url": "https://digitelle-studios.com/",
+            "image": "https://digitelle-studios.com/assets/img/stas-developer.avif",
+            "description": "Web development, content creation, and social media services for businesses worldwide.",
+            "areaServed": "Worldwide",
+            "priceRange": "€€",
+            "serviceType": [
+                "Web development services",
+                "Website design",
+                "Content creation",
+                "Social media management",
+                "SEO services",
+                "Google Business Profile optimization"
+            ],
+            "parentOrganization": {
+                "@id": "https://digitelle-studios.com/#organization"
+            }
+        },
+        {
+            "@type": "WebSite",
+            "@id": "https://digitelle-studios.com/#website",
+            "url": "https://digitelle-studios.com/",
+            "name": "Digitelle Studios",
+            "inLanguage": "en",
+            "publisher": {
+                "@id": "https://digitelle-studios.com/#organization"
+            }
+        },
+        {
+            "@type": "WebPage",
+            "@id": "https://digitelle-studios.com/#webpage",
+            "url": "https://digitelle-studios.com/",
+            "name": "Web Development & Content Creation Worldwide | Digitelle Studios",
+            "description": "Digitelle Studios helps businesses worldwide grow online with custom web development, content creation, social media management, and SEO support.",
+            "isPartOf": {
+                "@id": "https://digitelle-studios.com/#website"
+            },
+            "about": {
+                "@id": "https://digitelle-studios.com/#business"
+            },
+            "breadcrumb": {
+                "@id": "https://digitelle-studios.com/#breadcrumb"
+            }
+        },
+        {
+            "@type": "BreadcrumbList",
+            "@id": "https://digitelle-studios.com/#breadcrumb",
+            "itemListElement": [
+                {
+                    "@type": "ListItem",
+                    "position": 1,
+                    "name": "Home",
+                    "item": "https://digitelle-studios.com/"
+                }
             ]
-          }
         },
         {
-          "@context": "https://schema.org",
-          "@type": "Organization",
-          "name": "Digitelle Studios",
-          "description": "We strive to elevate your online presence through comprehensive digital solutions.",
-          "contactPoint": {
-            "@type": "ContactPoint",
-            "contactType": "Customer Service",
-            "availableLanguage": "English",
-            "url": "https://digitelle-studios.com"
-          }
-        },
-        {
-          "@context": "https://schema.org",
-          "@type": "OfferCatalog",
-          "name": "Web Development Packages",
-          "itemListElement": [
-            {
-              "@type": "Offer",
-              "itemOffered": {
-                "@type": "Service",
-                "name": "Professional Static Website",
-                "description": "Package offers a comprehensive solution for your online presence.",
-                "additionalType": "https://digitelle-studios.com"
-              },
-              "priceCurrency": "EUR",
-              "price": "200-400"
-            },
-            {
-              "@type": "Offer",
-              "itemOffered": {
-                "@type": "Service",
-                "name": "Professional Blog Website",
-                "description": "A polished and engaging platform for sharing insights and expertise.",
-                "additionalType": "https://digitelle-studios.com"
-              },
-              "priceCurrency": "EUR",
-              "price": "300-600"
-            },
-            {
-              "@type": "Offer",
-              "itemOffered": {
-                "@type": "Service",
-                "name": "E-commerce Website",
-                "description": "Empower businesses with a high-performance platform for showcasing and selling products.",
-                "additionalType": "https://digitelle-studios.com"
-              },
-              "priceCurrency": "EUR",
-              "price": "1000"
-            }
-          ]
+            "@type": "ItemList",
+            "@id": "https://digitelle-studios.com/#services",
+            "name": "Digital Services",
+            "itemListElement": [
+                {
+                    "@type": "ListItem",
+                    "position": 1,
+                    "item": {
+                        "@type": "Service",
+                        "name": "Web Development",
+                        "provider": {
+                            "@id": "https://digitelle-studios.com/#business"
+                        }
+                    }
+                },
+                {
+                    "@type": "ListItem",
+                    "position": 2,
+                    "item": {
+                        "@type": "Service",
+                        "name": "Content Creation",
+                        "provider": {
+                            "@id": "https://digitelle-studios.com/#business"
+                        }
+                    }
+                },
+                {
+                    "@type": "ListItem",
+                    "position": 3,
+                    "item": {
+                        "@type": "Service",
+                        "name": "Social Media Management",
+                        "provider": {
+                            "@id": "https://digitelle-studios.com/#business"
+                        }
+                    }
+                },
+                {
+                    "@type": "ListItem",
+                    "position": 4,
+                    "item": {
+                        "@type": "Service",
+                        "name": "Search Engine Optimization",
+                        "provider": {
+                            "@id": "https://digitelle-studios.com/#business"
+                        }
+                    }
+                }
+            ]
         }
-      ]
+    ]
+}
       </script>
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-421CT7ZZMW"></script>
@@ -138,11 +154,28 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="description"
-        content="Professional web development services for businesses. Customised solutions for website design, responsive development, e-commerce integration, and more. Contact us for expert web development solutions." />
+        content="Digitelle Studios provides web development, content creation, social media management, and SEO services for businesses worldwide." />
     <meta name="author" content="Digitelle-Studios" />
     <meta name="keywords"
-        content="web development, website design, responsive development, e-commerce website, blog websites, professional services">
-    <title>Digitelle - Studios | Barcelona Business Promotion and Digital Solutions</title>
+        content="web development services worldwide, website design agency global, SEO services worldwide, content creation services global, social media management services worldwide, ecommerce website developer international">
+    <meta name="robots" content="index, follow, max-image-preview:large" />
+    <link rel="canonical" href="https://digitelle-studios.com/" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Digitelle Studios" />
+    <meta property="og:title" content="Web Development & Content Creation Worldwide | Digitelle Studios" />
+    <meta property="og:description"
+        content="Grow your business online with custom websites, content creation, social media management, and SEO support worldwide." />
+    <meta property="og:url" content="https://digitelle-studios.com/" />
+    <meta property="og:image" content="https://digitelle-studios.com/assets/img/stas-developer.avif" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Web Development & Content Creation Worldwide | Digitelle Studios" />
+    <meta name="twitter:description"
+        content="Custom websites, social media content, and SEO support to help businesses grow worldwide." />
+    <meta name="twitter:image" content="https://digitelle-studios.com/assets/img/stas-developer.avif" />
+
+    <title>Web Development & Content Creation Worldwide | Digitelle Studios</title>
     <link rel="icon" type="image/x-icon" href="./assets/img/favicon.png" />
     <!-- Bootstrap icons-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
