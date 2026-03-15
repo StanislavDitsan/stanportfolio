@@ -13630,3 +13630,74 @@ body {
   margin-top: 1.5rem;
   padding-top: 1rem;
 }
+
+.client-logo-link {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+
+.client-logo-card {
+  min-height: 170px;
+  border: 2px solid var(--bs-border-color);
+  border-radius: 1rem;
+  padding: 1.5rem;
+  background-color: var(--bs-white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.25s ease, transform 0.25s ease;
+}
+
+.client-logo-link:hover .client-logo-card,
+.client-logo-link:focus-visible .client-logo-card {
+  transform: translateY(-2px);
+}
+
+.client-logo-link:focus-visible {
+  outline: none;
+}
+
+.client-logo-img {
+  width: 160px;
+  height: 88px;
+  max-width: 100%;
+  object-fit: contain;
+}
+
+.client-logo-bunch:hover .client-logo-card,
+.client-logo-bunch:focus-visible .client-logo-card {
+  border-color: var(--bs-primary);
+}
+
+.client-logo-gridpeek:hover .client-logo-card,
+.client-logo-gridpeek:focus-visible .client-logo-card {
+  border-color: var(--bs-purple);
+}
+
+.client-logo-silly:hover .client-logo-card,
+.client-logo-silly:focus-visible .client-logo-card {
+  border-color: var(--bs-pink);
+}
+
+.client-logo-gabriella:hover .client-logo-card,
+.client-logo-gabriella:focus-visible .client-logo-card {
+  border-color: var(--bs-teal);
+}
+
+.client-logo-lepeche:hover .client-logo-card,
+.client-logo-lepeche:focus-visible .client-logo-card {
+  border-color: var(--bs-orange);
+}
+
+.trust-action-card {
+  transition: border-color 0.2s ease, background-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.trust-action-card:hover,
+.trust-action-card:focus-visible {
+  border-color: var(--bs-primary) !important;
+  background-color: rgba(var(--bs-primary-rgb), 0.06);
+  transform: translateY(-2px);
+}
