@@ -58,6 +58,46 @@
             "@type": "Answer",
             "text": "Yes, all content is created to match your brand tone, visual style, and conversion goals."
           }
+        },
+        {
+          "@type": "Question",
+          "name": "How long does it take to produce a batch of content?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Most content batches are delivered within 1 to 2 weeks, depending on volume, scripting needs, and revisions."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do you handle filming, or just editing?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "We can support both. We can work with footage you provide, or help plan and produce original video content."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can you manage posting and scheduling too?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. We can prepare content calendars and coordinate publishing schedules, or hand off ready-to-post assets for your team."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How much do content creation services cost?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Pricing depends on content volume, format complexity, and frequency. We provide a tailored quote based on your goals."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do you offer ongoing content packages?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. We offer monthly content packages for consistent posting, campaign support, and ongoing creative production."
+          }
         }
       ]
     },
@@ -90,6 +130,7 @@
         content="content creation services, social media content creation, video content production, brand storytelling services, creative content agency" />
     <meta name="robots" content="index, follow, max-image-preview:large" />
     <link rel="canonical" href="https://digitelle-studios.com/content-creation-services.html" />
+
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="Digitelle Studios" />
     <meta property="og:title" content="Content Creation Services for Social Growth | Digitelle Studios" />
@@ -97,11 +138,13 @@
         content="Creative content production for social media channels and brand storytelling campaigns." />
     <meta property="og:url" content="https://digitelle-studios.com/content-creation-services.html" />
     <meta property="og:image" content="https://digitelle-studios.com/assets/img/gg.avif" />
+
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Content Creation Services for Social Growth | Digitelle Studios" />
     <meta name="twitter:description"
         content="Creative content production for social media channels and brand storytelling campaigns." />
     <meta name="twitter:image" content="https://digitelle-studios.com/assets/img/gg.avif" />
+
     <title>Content Creation Services for Social Growth | Digitelle Studios</title>
     <link rel="icon" type="image/x-icon" href="./assets/img/favicon.png" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
@@ -114,81 +157,1948 @@
         rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,400;1,400&amp;display=swap"
         rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@18.1.1/build/css/intlTelInput.css">
     <link href="css/styles.css" rel="stylesheet" />
+    <!-- EmailJs -->
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script>
+        (function () {
+            emailjs.init("UaZWUlEb7skLpUE_c");
+        })();
+    </script>
+
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Tighter side gutters on mobile so content isn't squeezed by the desktop px-5 padding */
+        @media (max-width: 767.98px) {
+            .container.px-5 {
+                padding-left: 1.25rem !important;
+                padding-right: 1.25rem !important;
+            }
+        }
+
+        @media (max-width: 420px) {
+            .container.px-5 {
+                padding-left: 1rem !important;
+                padding-right: 1rem !important;
+            }
+        }
+
+        /* Hero */
+        .content-hero {
+            position: relative;
+            overflow: hidden;
+            padding: 9.5rem 0 6rem;
+            background: #33372c;
+        }
+
+        @media (min-width: 1200px) {
+            .content-hero {
+                padding-top: 12rem;
+            }
+        }
+
+        .content-hero-visual {
+            position: relative;
+        }
+
+        .content-hero-badge {
+            position: absolute;
+            z-index: 2;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.15rem;
+            border-radius: 0.9rem;
+            font-size: 0.85rem;
+            font-weight: 600;
+            background: #33372c;
+            color: #fff;
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            box-shadow: 0 1rem 2rem rgba(16, 18, 20, 0.25);
+            white-space: nowrap;
+        }
+
+        .content-hero-badge i {
+            font-size: 1.1rem;
+            color: #ff885b;
+        }
+
+        .content-hero-badge-1 {
+            top: -1.25rem;
+            right: 1.5rem;
+        }
+
+        .content-hero-badge-2 {
+            bottom: -1.25rem;
+            left: 1.5rem;
+        }
+
+        @media (max-width: 991.98px) {
+            .content-hero-badge {
+                display: none;
+            }
+        }
+
+        .text-white-75 {
+            color: rgba(255, 255, 255, 0.85);
+        }
+
+        /* Navbar glass buttons */
+        .nav-glass-btn {
+            position: relative;
+            overflow: hidden;
+            border-radius: 999px;
+            border: 1px solid rgba(51, 55, 44, 0.26) !important;
+            background: linear-gradient(145deg, rgba(255, 255, 255, 0.82), rgba(255, 255, 255, 0.62)) !important;
+            color: #33372C !important;
+            backdrop-filter: blur(14px) saturate(140%);
+            -webkit-backdrop-filter: blur(14px) saturate(140%);
+            box-shadow:
+                0 10px 26px rgba(51, 55, 44, 0.18),
+                inset 0 1px 0 rgba(255, 255, 255, 0.75);
+            transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease, background 0.22s ease;
+        }
+
+        .nav-glass-btn:focus,
+        .nav-glass-btn:focus-visible {
+            outline: none;
+            box-shadow:
+                0 14px 34px rgba(14, 18, 22, 0.18);
+        }
+
+        .nav-glass-btn:hover,
+        .nav-glass-btn:focus-visible {
+            transform: translateY(-1px);
+            border-color: rgba(255, 255, 255, 0.5) !important;
+            background: linear-gradient(145deg, rgba(255, 255, 255, 0.52), rgba(255, 255, 255, 0.24)) !important;
+            box-shadow:
+                0 14px 34px rgba(14, 18, 22, 0.18);
+        }
+
+        .nav-glass-btn.nav-glass-warm:hover,
+        .nav-glass-btn.nav-glass-warm:focus-visible {
+            border-color: rgba(255, 136, 91, 0.65) !important;
+            background: linear-gradient(145deg, rgba(255, 196, 170, 0.62), rgba(255, 136, 91, 0.3)) !important;
+            color: #2f1910 !important;
+        }
+
+        .nav-glass-btn.nav-glass-cool:hover,
+        .nav-glass-btn.nav-glass-cool:focus-visible {
+            border-color: rgba(85, 124, 86, 0.6) !important;
+            background: linear-gradient(145deg, rgba(198, 221, 198, 0.62), rgba(85, 124, 86, 0.28)) !important;
+            color: #132113 !important;
+        }
+
+        .nav-glass-btn:active {
+            transform: translateY(0);
+            background: linear-gradient(145deg, rgba(255, 255, 255, 0.32), rgba(255, 255, 255, 0.14)) !important;
+            box-shadow:
+                0 6px 16px rgba(14, 18, 22, 0.14);
+        }
+
+        .nav-glass-btn i {
+            color: currentColor;
+            background: transparent !important;
+            box-shadow: none !important;
+            border: 0;
+        }
+
+        .nav-icon-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 3rem;
+            height: 3rem;
+            padding: 0 !important;
+            flex: 0 0 3rem;
+        }
+
+        .nav-icon-btn i {
+            display: block;
+            font-size: 1.1rem;
+            line-height: 1;
+        }
+
+        #mainNav .navbar-brand {
+            display: inline-flex;
+            align-items: center;
+            min-height: 2.6rem;
+            padding: 0.55rem 0.95rem;
+            border-radius: 999px;
+            border: 1px solid transparent;
+            transition: border-color 0.22s ease, box-shadow 0.22s ease, background-color 0.22s ease, color 0.22s ease;
+        }
+
+        #mainNav .navbar-brand:hover,
+        #mainNav .navbar-brand:focus-visible {
+            border-color: rgba(85, 124, 86, 0.58);
+            background-color: rgba(255, 255, 255, 0.68);
+            color: #264128;
+            box-shadow:
+                0 0 0 3px rgba(85, 124, 86, 0.12),
+                inset 0 1px 0 rgba(255, 255, 255, 0.8);
+            outline: none;
+        }
+
+        #mainNav .nav-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 2.6rem;
+            padding: 0.55rem 0.95rem;
+            border-radius: 999px;
+            border: 1px solid transparent;
+            color: #33372c;
+            transition: border-color 0.22s ease, box-shadow 0.22s ease, background-color 0.22s ease, color 0.22s ease;
+        }
+
+        #mainNav .nav-link:hover,
+        #mainNav .nav-link:focus-visible {
+            border-color: rgba(85, 124, 86, 0.58);
+            background-color: rgba(255, 255, 255, 0.68);
+            color: #264128;
+            box-shadow:
+                0 0 0 3px rgba(85, 124, 86, 0.12),
+                inset 0 1px 0 rgba(255, 255, 255, 0.8);
+            outline: none;
+        }
+
+        .hero-cta-btn {
+            background: #fff !important;
+            border-color: rgba(255, 255, 255, 0.88) !important;
+            color: #33372C !important;
+        }
+
+        #contactModal .iti {
+            display: block;
+            width: 100%;
+        }
+
+        /* Message CTA icon attention animation */
+        .msg-cta-icon {
+            display: inline-block;
+            width: 1.05em;
+            height: 1.05em;
+            vertical-align: -0.1em;
+            transform-origin: center;
+            animation: msg-icon-pop 2.6s ease-in-out infinite;
+        }
+
+        .nav-msg-icon {
+            width: 1.45rem;
+            height: 1.45rem;
+            display: block;
+            margin: 0 auto;
+            transform: translateX(0.5px);
+            animation: none;
+        }
+
+        .msg-cta-icon .msg-bubble {
+            fill: currentColor;
+        }
+
+        .msg-cta-icon .msg-line {
+            stroke: #fff;
+            stroke-width: 1.25;
+            stroke-linecap: round;
+            transform-box: fill-box;
+            transform-origin: center;
+            animation: msg-wave-pulse 1s ease-in-out infinite;
+        }
+
+        .msg-cta-icon .msg-line-2 {
+            animation-delay: 0.12s;
+        }
+
+        .msg-cta-icon .msg-line-3 {
+            animation-delay: 0.24s;
+        }
+
+        @keyframes msg-icon-pop {
+
+            0%,
+            70%,
+            100% {
+                transform: scale(1);
+            }
+
+            10% {
+                transform: scale(1.06);
+            }
+
+            22% {
+                transform: scale(1.1);
+            }
+
+            34% {
+                transform: scale(1);
+            }
+        }
+
+        @keyframes msg-wave-pulse {
+
+            0%,
+            100% {
+                transform: scaleY(0.85);
+                opacity: 0.85;
+            }
+
+            45% {
+                transform: scaleY(1.1);
+                opacity: 1;
+            }
+
+            70% {
+                transform: scaleY(0.92);
+                opacity: 0.9;
+            }
+        }
+
+        .content-hero-points {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 0.9rem;
+            color: rgba(255, 255, 255, 0.85);
+            font-weight: 500;
+            font-size: 0.95rem;
+            padding-top: 1.75rem;
+            margin-top: 1.75rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.12);
+        }
+
+        @media (min-width: 576px) {
+            .content-hero-points {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (min-width: 992px) {
+            .content-hero-points {
+                grid-template-columns: 1fr 1fr;
+                gap: 1rem 1.25rem;
+            }
+        }
+
+        .content-hero-points .content-point {
+            display: flex;
+            align-items: center;
+            gap: 0.55rem;
+            min-width: 0;
+        }
+
+        .content-hero-points .content-point i {
+            color: #ff885b;
+            font-size: 1.1rem;
+        }
+
+        .content-hero-points .content-point span {
+            line-height: 1.45;
+        }
+
+        .content-hero-points .content-point-divider {
+            width: 1px;
+            height: 1.1rem;
+            background: rgba(255, 255, 255, 0.18);
+        }
+
+        /* Typography accents */
+        .heading-accent {
+            font-family: "Cormorant Garamond", serif;
+            font-style: italic;
+            font-weight: 600;
+        }
+
+        .heading-accent-light {
+            color: #ff885b;
+        }
+
+        .heading-accent-primary {
+            color: #557c56;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .heading-accent {
+                animation: none;
+            }
+
+            .msg-cta-icon {
+                animation: none;
+            }
+
+            .msg-cta-icon .msg-line,
+            .msg-cta-icon .msg-line-2,
+            .msg-cta-icon .msg-line-3 {
+                animation: none;
+            }
+        }
+
+        .section-heading {
+            font-size: clamp(1.85rem, 1.35rem + 1.9vw, 2.75rem);
+            line-height: 1.15;
+        }
+
+        /* Section rhythm */
+        .section-py {
+            padding-top: clamp(4rem, 3rem + 5vw, 8rem);
+            padding-bottom: clamp(4rem, 3rem + 5vw, 8rem);
+        }
+
+        .section-heading-block {
+            margin-bottom: clamp(2.5rem, 1.75rem + 3vw, 4.5rem);
+        }
+
+        .content-services-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: clamp(1rem, 0.85rem + 0.9vw, 1.5rem);
+        }
+
+        .content-bento-item {
+            min-width: 0;
+        }
+
+        @media (min-width: 768px) {
+            .content-services-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            .content-bento-item.bento-full {
+                grid-column: span 2;
+            }
+        }
+
+        @media (min-width: 992px) {
+            .content-services-grid {
+                grid-template-columns: repeat(4, minmax(0, 1fr));
+                grid-auto-flow: dense;
+                grid-auto-rows: minmax(12rem, auto);
+                align-items: stretch;
+            }
+
+            .content-bento-item.bento-featured {
+                grid-column: span 2;
+            }
+
+            .content-bento-item.bento-wide {
+                grid-column: span 2;
+            }
+
+            .content-bento-item.bento-full {
+                grid-column: 1 / -1;
+            }
+
+            .content-bento-item.bento-compact .content-service-art {
+                aspect-ratio: 16 / 8.5;
+            }
+
+            .content-bento-item.bento-full .content-service-art {
+                aspect-ratio: 16 / 7.6;
+            }
+        }
+
+        /* Trusted by - logo row */
+        .content-logo-row {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: clamp(1.75rem, 1.25rem + 2vw, 3rem) clamp(2rem, 1.5rem + 3vw, 4rem);
+        }
+
+        .content-logo-link {
+            display: flex;
+            align-items: center;
+            gap: 0.65rem;
+            text-decoration: none;
+            color: inherit;
+            padding: 0.6rem 0.9rem;
+            margin: -0.6rem -0.9rem;
+            border-radius: 0.85rem;
+            transition: background-color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
+        }
+
+        .content-logo-link:hover,
+        .content-logo-link:focus-visible {
+            background-color: #fff;
+            box-shadow: 0 0.75rem 1.5rem rgba(16, 18, 20, 0.08);
+            transform: translateY(-2px);
+        }
+
+        .content-logo-img {
+            height: 38px;
+            width: auto;
+            max-width: 130px;
+            object-fit: contain;
+        }
+
+        .content-logo-icon {
+            width: 36px;
+            height: 36px;
+            border-radius: 0.65rem;
+            object-fit: cover;
+            flex-shrink: 0;
+        }
+
+        .content-logo-name {
+            font-weight: 600;
+            font-size: 0.95rem;
+            color: #495057;
+            white-space: nowrap;
+        }
+
+        .content-clients-expanded .container {
+            max-width: min(1260px, 94vw);
+        }
+
+        .content-clients-expanded .content-logo-row {
+            gap: clamp(1.9rem, 1.4rem + 2.2vw, 3.4rem) clamp(2.3rem, 1.8rem + 3.2vw, 4.5rem);
+        }
+
+        .content-clients-expanded .content-logo-link {
+            padding: 0.75rem 1rem;
+            margin: -0.75rem -1rem;
+            border-radius: 1rem;
+        }
+
+        .content-clients-expanded .content-logo-img {
+            height: 42px;
+            max-width: 150px;
+        }
+
+        .content-clients-expanded .content-logo-icon {
+            width: 40px;
+            height: 40px;
+        }
+
+        .content-clients-expanded .content-logo-name {
+            font-size: 1rem;
+        }
+
+        .content-marquee-section {
+            padding: clamp(1.8rem, 1.2rem + 1.6vw, 2.8rem) 0;
+            border-top: 1px solid rgba(51, 55, 44, 0.08);
+            border-bottom: 1px solid rgba(51, 55, 44, 0.08);
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.7), rgba(248, 249, 250, 0.95));
+        }
+
+        .content-marquee {
+            position: relative;
+            overflow: hidden;
+            padding-top: 0.5rem;
+            padding-bottom: 0.5rem;
+            mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
+            -webkit-mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
+        }
+
+        .content-marquee-track {
+            display: flex;
+            width: max-content;
+            gap: 1.5rem;
+            animation: content-marquee-scroll 36s linear infinite;
+        }
+
+        .content-marquee:hover .content-marquee-track {
+            animation-play-state: paused;
+        }
+
+        .content-marquee-group {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            padding-right: 1.5rem;
+        }
+
+        .content-marquee-chip {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.8rem;
+            width: clamp(14.5rem, 18vw, 17.5rem);
+            min-height: 3.4rem;
+            padding: 0;
+            border-radius: 999px;
+            background: transparent;
+            border: 1px solid transparent;
+            box-shadow: none;
+            white-space: nowrap;
+            color: #2f3430;
+            font-weight: 600;
+            font-size: clamp(1.08rem, 0.95rem + 0.28vw, 1.22rem);
+            text-decoration: none;
+            transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease, background 0.22s ease, color 0.22s ease;
+        }
+
+        .content-marquee-chip:hover,
+        .content-marquee-chip:focus-visible {
+            transform: translateY(-1px);
+            border-color: rgba(85, 124, 86, 0.6);
+            background: linear-gradient(145deg, rgba(198, 221, 198, 0.62), rgba(85, 124, 86, 0.28));
+            color: #132113;
+            box-shadow: none;
+            outline: none;
+        }
+
+        .content-marquee-chip img {
+            width: 1.95rem;
+            height: 1.95rem;
+            border-radius: 0.35rem;
+            object-fit: contain;
+            flex-shrink: 0;
+            filter: grayscale(1) saturate(0) contrast(1.05);
+            transition: filter 0.22s ease;
+        }
+
+        .content-marquee-chip:hover img,
+        .content-marquee-chip:focus-visible img {
+            filter: none;
+        }
+
+        @keyframes content-marquee-scroll {
+            from {
+                transform: translateX(0);
+            }
+
+            to {
+                transform: translateX(-50%);
+            }
+        }
+
+        .content-accent-wrap {
+            position: relative;
+            display: inline-block;
+        }
+
+        .content-underline {
+            position: absolute;
+            left: 0.1rem;
+            bottom: -0.45rem;
+            width: calc(100% - 0.2rem);
+            height: 0.6rem;
+            overflow: visible;
+        }
+
+        .content-underline path {
+            stroke-dasharray: 210;
+            stroke-dashoffset: 210;
+        }
+
+        .col-lg-7 .content-underline path {
+            animation: underline-draw 0.75s cubic-bezier(0.22, 1, 0.36, 1) 0.55s forwards;
+        }
+
+        @keyframes underline-draw {
+            to {
+                stroke-dashoffset: 0;
+            }
+        }
+
+        /* Browser mockup */
+        .content-browser {
+            position: relative;
+            z-index: 1;
+            background: #fff;
+            border-radius: 0.85rem;
+            box-shadow: 0 2rem 4rem rgba(16, 18, 20, 0.35);
+            overflow: hidden;
+        }
+
+        [data-parallax] {
+            transform: translate3d(0, var(--parallax-y, 0px), 0);
+            will-change: transform;
+        }
+
+        .content-browser-bar {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            padding: 0.65rem 0.9rem;
+            background: #f1f1f4;
+            border-bottom: 1px solid rgba(16, 18, 20, 0.06);
+        }
+
+        .content-browser-dot {
+            width: 0.6rem;
+            height: 0.6rem;
+            border-radius: 50%;
+            background: #d0d2d8;
+        }
+
+        .content-browser-dot:nth-child(1) {
+            background: #ff5f57;
+        }
+
+        .content-browser-dot:nth-child(2) {
+            background: #febc2e;
+        }
+
+        .content-browser-dot:nth-child(3) {
+            background: #28c840;
+        }
+
+        .content-browser-url {
+            margin-left: 0.6rem;
+            font-size: 0.75rem;
+            color: #868e96;
+            background: #fff;
+            border-radius: 999px;
+            padding: 0.25rem 0.9rem;
+            flex: 1;
+        }
+
+        .content-browser img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Cards */
+        .content-card {
+            position: relative;
+            overflow: hidden;
+            border: 0;
+            background: #fff;
+            box-shadow: 0 0.95rem 2.05rem rgba(16, 18, 20, 0.09);
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+        }
+
+        .content-services-grid .content-card {
+            background: transparent !important;
+            box-shadow: none !important;
+            border: 0 !important;
+            border-radius: 0 !important;
+            padding: 0 !important;
+            overflow: visible;
+        }
+
+        .content-card::after {
+            content: "";
+            position: absolute;
+            top: 1.25rem;
+            right: 1.25rem;
+            width: 3.5rem;
+            height: 3.5rem;
+            background-image: radial-gradient(circle, rgba(51, 55, 44, 0.14) 1.5px, transparent 1.5px);
+            background-size: 10px 10px;
+            pointer-events: none;
+        }
+
+        .content-card:hover {
+            transform: none;
+            box-shadow: inherit !important;
+        }
+
+        .content-icon {
+            width: 3.25rem;
+            height: 3.25rem;
+            border-radius: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: #fff;
+            background: #33372c;
+        }
+
+        .content-service-art {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            aspect-ratio: 16 / 10;
+            margin-bottom: 1.1rem;
+            border-radius: 1rem;
+            padding: 0.9rem;
+            background:
+                radial-gradient(circle at 80% 18%, rgba(255, 136, 91, 0.2), transparent 46%),
+                linear-gradient(155deg, rgba(85, 124, 86, 0.14), rgba(51, 55, 44, 0.08));
+            border: 1px solid rgba(51, 55, 44, 0.12);
+            overflow: hidden;
+        }
+
+        .content-service-art img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            filter: saturate(0.8) hue-rotate(-12deg) contrast(1.02);
+            transform: translateZ(0);
+        }
+
+        .content-card:hover .content-service-art img {
+            animation: none;
+        }
+
+        .content-service-icon {
+            font-size: 3.25rem;
+            color: #557c56;
+        }
+
+        @keyframes service-icon-bob {
+
+            0%,
+            100% {
+                transform: translateY(0) scale(1);
+            }
+
+            50% {
+                transform: translateY(-3px) scale(1.06);
+            }
+        }
+
+        /* Process timeline */
+        .content-timeline-row {
+            display: flex;
+            flex-direction: column;
+            gap: clamp(1.25rem, 1rem + 1.2vw, 2rem);
+        }
+
+        @media (min-width: 992px) {
+            .content-timeline-row {
+                flex-direction: row;
+                align-items: stretch;
+                gap: 1.25rem;
+            }
+        }
+
+        .content-timeline-step {
+            flex: 1;
+            position: relative;
+            border-radius: 1.1rem;
+            perspective: 1500px;
+        }
+
+        /* Flip card */
+        .content-timeline-step.tone-1 {
+            --tone-color: #557c56;
+        }
+
+        .content-timeline-step.tone-2 {
+            --tone-color: #ff885b;
+        }
+
+        .content-timeline-step.tone-3 {
+            --tone-color: #33372c;
+        }
+
+        .content-timeline-step.tone-4 {
+            --tone-color: #557c56;
+        }
+
+        .content-flip-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            border-radius: inherit;
+            transition: transform 0.7s cubic-bezier(0.4, 0.2, 0.2, 1);
+            transform-style: preserve-3d;
+        }
+
+        .content-timeline-step:hover .content-flip-inner,
+        .content-timeline-step:focus-visible .content-flip-inner,
+        .content-timeline-step.is-flipped .content-flip-inner {
+            transform: rotateY(180deg);
+        }
+
+        .content-flip-front,
+        .content-flip-back {
+            border-radius: inherit;
+            backface-visibility: hidden;
+            -webkit-backface-visibility: hidden;
+        }
+
+        .content-flip-front {
+            position: relative;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: clamp(1.5rem, 1.2rem + 1vw, 2rem) clamp(1.15rem, 1rem + 0.9vw, 1.65rem) clamp(1.4rem, 1.1rem + 0.8vw, 1.8rem);
+            border: 1px solid rgba(255, 255, 255, 0.55);
+            background: linear-gradient(145deg, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.5));
+            backdrop-filter: blur(16px) saturate(140%);
+            -webkit-backdrop-filter: blur(16px) saturate(140%);
+            box-shadow:
+                0 1.2rem 2.2rem rgba(51, 55, 44, 0.08),
+                inset 0 1px 0 rgba(255, 255, 255, 0.7);
+            overflow: hidden;
+        }
+
+        .content-flip-front::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(circle at top left, rgba(85, 124, 86, 0.1), transparent 32%),
+                radial-gradient(circle at top right, rgba(85, 124, 86, 0.12), transparent 34%),
+                radial-gradient(circle at bottom left, rgba(85, 124, 86, 0.14), transparent 34%),
+                radial-gradient(circle at bottom right, rgba(51, 55, 44, 0.12), transparent 34%),
+                linear-gradient(180deg, rgba(255, 255, 255, 0.22), rgba(255, 255, 255, 0));
+            pointer-events: none;
+        }
+
+        .content-flip-front>* {
+            position: relative;
+            z-index: 1;
+        }
+
+        .content-flip-back {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            background: #fff;
+            border: 1px solid rgba(255, 255, 255, 0.55);
+            box-shadow:
+                0 1.2rem 2.2rem rgba(51, 55, 44, 0.08),
+                inset 0 1px 0 rgba(255, 255, 255, 0.7);
+            transform: rotateY(180deg);
+        }
+
+        .content-flip-back img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            padding: 1.25rem;
+        }
+
+        .content-flip-back-label {
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            padding: 0.5rem 1rem;
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-align: center;
+            color: #fff;
+            background: var(--tone-color, #33372c);
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .content-flip-inner {
+                transition: none;
+            }
+        }
+
+        .content-timeline-step h3 {
+            margin-bottom: 0.65rem !important;
+        }
+
+        .content-timeline-step p {
+            max-width: 22ch;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .content-timeline-arrow {
+            display: none !important;
+            align-items: center;
+            justify-content: center;
+            color: rgba(51, 55, 44, 0.25);
+            font-size: 1.5rem;
+            padding-top: 1.6rem;
+            flex: 0 0 2.5rem;
+        }
+
+        @media (min-width: 992px) {
+            .content-timeline-arrow {
+                display: none !important;
+            }
+        }
+
+        .content-timeline-icon {
+            width: 3.75rem;
+            height: 3.75rem;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: #fff;
+            background: #33372c;
+            box-shadow: 0 0.75rem 1.5rem rgba(51, 55, 44, 0.25);
+            margin: 0 auto 1.25rem;
+        }
+
+        /* Feature list */
+        .content-feature-list {
+            display: grid;
+            grid-template-columns: 1fr;
+        }
+
+        @media (min-width: 768px) {
+            .content-feature-list {
+                grid-template-columns: 1fr 1fr;
+                column-gap: 2.5rem;
+            }
+        }
+
+        .content-feature-row {
+            display: flex;
+            gap: 1rem;
+            padding: 1.1rem 0;
+            border-bottom: 1px solid rgba(16, 18, 20, 0.06);
+        }
+
+        .content-feature-row i {
+            font-size: 1.35rem;
+            color: #557c56;
+            margin-top: 0.15rem;
+            flex-shrink: 0;
+        }
+
+        .content-feature-row strong {
+            display: block;
+        }
+
+        .content-feature-row span {
+            color: #6c757d;
+            font-size: 0.9rem;
+        }
+
+        .content-mini-chart .chart-bar,
+        .content-mini-chart .chart-line,
+        .content-mini-chart .chart-dot,
+        .content-mini-chart .chart-dot-glow,
+        .content-mini-chart .chart-badge,
+        .content-mini-chart .chart-baseline {
+            opacity: 0;
+        }
+
+        .reveal.is-visible .content-mini-chart .chart-baseline {
+            animation: chart-fade-in 0.6s ease-out forwards;
+        }
+
+        .reveal.is-visible .content-mini-chart .chart-bar {
+            transform-box: fill-box;
+            transform-origin: bottom center;
+            animation: chart-bar-rise 0.8s ease-out forwards;
+        }
+
+        .reveal.is-visible .content-mini-chart .chart-bar-1 {
+            animation-delay: 0.08s;
+        }
+
+        .reveal.is-visible .content-mini-chart .chart-bar-2 {
+            animation-delay: 0.18s;
+        }
+
+        .reveal.is-visible .content-mini-chart .chart-bar-3 {
+            animation-delay: 0.28s;
+        }
+
+        .reveal.is-visible .content-mini-chart .chart-line {
+            stroke-dasharray: 230;
+            stroke-dashoffset: 230;
+            animation: chart-line-draw 1s ease-out 0.34s forwards;
+        }
+
+        .reveal.is-visible .content-mini-chart .chart-dot,
+        .reveal.is-visible .content-mini-chart .chart-dot-glow {
+            transform-box: fill-box;
+            transform-origin: center;
+            animation: chart-dot-pop 0.45s ease-out 1.05s forwards;
+        }
+
+        .reveal.is-visible .content-mini-chart .chart-badge {
+            animation: chart-badge-pop 0.5s ease-out 1.2s forwards;
+        }
+
+        @keyframes chart-fade-in {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes chart-bar-rise {
+            from {
+                opacity: 0;
+                transform: scaleY(0.18);
+            }
+
+            to {
+                opacity: 1;
+                transform: scaleY(1);
+            }
+        }
+
+        @keyframes chart-line-draw {
+            from {
+                opacity: 0;
+                stroke-dashoffset: 230;
+            }
+
+            to {
+                opacity: 1;
+                stroke-dashoffset: 0;
+            }
+        }
+
+        @keyframes chart-dot-pop {
+            from {
+                opacity: 0;
+                transform: scale(0.4);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        @keyframes chart-badge-pop {
+            from {
+                opacity: 0;
+                transform: translateY(6px) scale(0.92);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        /* Pricing */
+        .content-pricing-card {
+            border: 1px solid rgba(16, 18, 20, 0.06);
+            border-radius: 1.25rem;
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+            position: relative;
+        }
+
+        .content-pricing-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 1.25rem 2.5rem rgba(51, 55, 44, 0.12) !important;
+        }
+
+        .content-pricing-card.featured {
+            border: 2px solid #ff885b;
+        }
+
+        .content-pricing-card.featured .content-pricing-badge {
+            position: absolute;
+            top: -0.9rem;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #33372c;
+            color: #ff885b;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            padding: 0.35rem 1rem;
+            border-radius: 999px;
+            white-space: nowrap;
+        }
+
+        .content-pricing-card ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .content-pricing-card ul li {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.6rem;
+            margin-bottom: 0.6rem;
+            color: #495057;
+        }
+
+        .content-pricing-card ul li i {
+            color: #557c56;
+            margin-top: 0.2rem;
+        }
+
+        /* Final CTA */
+        .content-final-cta {
+            background: #33372c;
+            border-radius: 1.5rem;
+            position: relative;
+            overflow: hidden;
+            padding: clamp(2.5rem, 2rem + 3vw, 5rem) clamp(1.5rem, 1rem + 3vw, 4rem);
+        }
+
+        /* Reveal animation */
+        .reveal {
+            opacity: 0;
+            transform: translateY(28px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .reveal.is-visible {
+            opacity: 1;
+            transform: none;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .reveal {
+                opacity: 1;
+                transform: none;
+                transition: none;
+            }
+
+            .content-underline path {
+                stroke-dasharray: none;
+                stroke-dashoffset: 0;
+                animation: none !important;
+            }
+
+            .content-card .content-icon i {
+                animation: none;
+            }
+
+            .content-mini-chart .chart-bar,
+            .content-mini-chart .chart-line,
+            .content-mini-chart .chart-dot,
+            .content-mini-chart .chart-dot-glow,
+            .content-mini-chart .chart-badge,
+            .content-mini-chart .chart-baseline {
+                opacity: 1;
+                animation: none !important;
+                transform: none;
+                stroke-dasharray: none;
+                stroke-dashoffset: 0;
+            }
+
+            [data-parallax] {
+                transform: none !important;
+                will-change: auto;
+            }
+
+            .content-marquee {
+                mask-image: none;
+                -webkit-mask-image: none;
+            }
+
+            .content-marquee-track {
+                animation: none;
+                width: 100%;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .content-marquee-group[aria-hidden="true"] {
+                display: none;
+            }
+        }
+
+        /* Accordion */
+        .content-accordion .accordion-button:not(.collapsed) {
+            color: #557c56;
+            background-color: rgba(51, 55, 44, 0.05);
+        }
+
+        .content-accordion .accordion-button:focus {
+            box-shadow: none;
+            border-color: rgba(51, 55, 44, 0.15);
+        }
+
+        /* Primary buttons: orange accent with dark green text */
+        .btn-primary {
+            --bs-btn-color: #33372c;
+            --bs-btn-bg: #ff885b;
+            --bs-btn-border-color: #ff885b;
+            --bs-btn-hover-color: #33372c;
+            --bs-btn-hover-bg: #f3713f;
+            --bs-btn-hover-border-color: #f3713f;
+            --bs-btn-active-color: #33372c;
+            --bs-btn-active-bg: #f3713f;
+            --bs-btn-active-border-color: #f3713f;
+            --bs-btn-disabled-color: #33372c;
+            --bs-btn-disabled-bg: #ff885b;
+            --bs-btn-disabled-border-color: #ff885b;
+        }
+    </style>
 </head>
 
 <body id="page-top">
     <nav class="navbar navbar-expand-lg navbar-light fixed-top shadow-sm" id="mainNav">
-        <div class="container px-5"><a class="navbar-brand" href="index.html">Digitelle-Studios</a><a
-                class="btn btn-outline-dark rounded-pill px-3" href="index.html" aria-label="Back to Home"
-                title="Back to Home"><i class="bi bi-house-door"></i></a></div>
+        <div class="container px-5">
+            <a class="navbar-brand fw-bold" href="index.html">Digitelle-Studios</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive"
+                aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                <i class="bi-list"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ms-auto me-4 my-3 my-lg-0">
+                    <li class="nav-item"><a class="nav-link me-lg-3" href="#services">Services</a></li>
+                    <li class="nav-item"><a class="nav-link me-lg-3" href="#process">Process</a></li>
+                    <li class="nav-item"><a class="nav-link me-lg-3" href="#pricing">Pricing</a></li>
+                    <li class="nav-item"><a class="nav-link me-lg-3" href="#faq">FAQ</a></li>
+                </ul>
+                <div class="d-flex align-items-center gap-2">
+                    <button class="btn rounded-pill px-3 nav-glass-btn nav-glass-cool nav-icon-btn" type="button"
+                        data-bs-toggle="modal" data-bs-target="#contactModal" aria-label="Message Us"
+                        title="Message Us">
+                        <svg class="msg-cta-icon nav-msg-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                            <path class="msg-bubble"
+                                d="M5 4h14a3 3 0 0 1 3 3v7a3 3 0 0 1-3 3H11l-4.4 3.6a.8.8 0 0 1-1.3-.62V17H5a3 3 0 0 1-3-3V7a3 3 0 0 1 3-3Z" />
+                            <line class="msg-line msg-line-1" x1="9.7" y1="14.6" x2="9.7" y2="9.4" />
+                            <line class="msg-line msg-line-2" x1="12" y1="16" x2="12" y2="8" />
+                            <line class="msg-line msg-line-3" x1="14.3" y1="14" x2="14.3" y2="10" />
+                        </svg>
+                    </button>
+                    <a class="btn btn-outline-dark rounded-pill px-3 nav-glass-btn nav-glass-cool nav-icon-btn"
+                        href="index.html" aria-label="Back to Home" title="Back to Home">
+                        <i class="bi bi-house-fill"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
     </nav>
 
-    <section class="bg-light" style="padding-top: 8rem; padding-bottom: 4rem;">
+    <!-- Hero -->
+    <header class="content-hero">
         <div class="container px-5">
-            <h1 class="display-5 mb-3">Content Creation Services for Brand Growth</h1>
-            <p class="text-muted mb-4">From concept to final asset, we produce strategic content designed to increase
-                visibility and engagement.</p>
-
-            <div class="row g-4 mb-5">
-                <div class="col-md-4">
-                    <div class="bg-white p-4 rounded-4 shadow-sm h-100">
-                        <h2 class="h5">Video Content</h2>
-                        <p class="text-muted mb-0">Short-form and long-form video tailored to each platform and campaign
-                            objective.</p>
+            <div class="row align-items-center gx-5">
+                <div class="col-lg-7">
+                    <h1 class="display-4 fw-bold text-white mb-3">Content that turns scrolls into
+                        <span class="content-accent-wrap">
+                            <span class="heading-accent heading-accent-light">customers</span>
+                            <svg class="content-underline" viewBox="0 0 200 20" preserveAspectRatio="none"
+                                aria-hidden="true">
+                                <path d="M2 12 C 40 4, 80 18, 120 8 S 180 4 198 10" stroke="#ff885b" stroke-width="4"
+                                    fill="none" stroke-linecap="round" />
+                            </svg>
+                        </span>
+                    </h1>
+                    <p class="lead text-white-75 mb-4">We plan, script, and produce social media videos, visuals,
+                        and campaign content that builds your brand, grows your audience, and drives real
+                        results.</p>
+                    <div class="d-flex flex-wrap gap-3 mb-4">
+                        <button
+                            class="btn btn-light btn-lg rounded-pill px-4 fw-semibold nav-glass-btn nav-glass-cool hero-cta-btn"
+                            type="button" data-bs-toggle="modal" data-bs-target="#contactModal">
+                            Get a Free Quote
+                        </button>
+                        <button
+                            class="btn btn-outline-light btn-lg rounded-pill px-4 nav-glass-btn nav-glass-cool hero-cta-btn"
+                            type="button" data-bs-toggle="modal" data-bs-target="#contactModal">
+                            <svg class="me-2 msg-cta-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                                <path class="msg-bubble"
+                                    d="M5 4h14a3 3 0 0 1 3 3v7a3 3 0 0 1-3 3H11l-4.4 3.6a.8.8 0 0 1-1.3-.62V17H5a3 3 0 0 1-3-3V7a3 3 0 0 1 3-3Z" />
+                                <line class="msg-line msg-line-1" x1="9.7" y1="14.6" x2="9.7" y2="9.4" />
+                                <line class="msg-line msg-line-2" x1="12" y1="16" x2="12" y2="8" />
+                                <line class="msg-line msg-line-3" x1="14.3" y1="14" x2="14.3" y2="10" />
+                            </svg>Message Us
+                        </button>
+                    </div>
+                    <div class="content-hero-points">
+                        <span class="content-point"><i class="bi bi-camera-reels-fill"></i><span>Short-form &amp;
+                                long-form video</span></span>
+                        <span class="content-point"><i class="bi bi-lightbulb"></i><span>Creative strategy &amp;
+                                scripting</span></span>
+                        <span class="content-point"><i class="bi bi-calendar3"></i><span>Content calendars &amp;
+                                campaigns</span></span>
+                        <span class="content-point"><i class="bi bi-graph-up"></i><span>Built to grow your
+                                audience</span></span>
                     </div>
                 </div>
-                <div class="col-md-4">
-                    <div class="bg-white p-4 rounded-4 shadow-sm h-100">
-                        <h2 class="h5">Creative Strategy</h2>
-                        <p class="text-muted mb-0">Audience-first concepts, scripts, hooks, and content pillars for
-                            consistency.</p>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="bg-white p-4 rounded-4 shadow-sm h-100">
-                        <h2 class="h5">Campaign Assets</h2>
-                        <p class="text-muted mb-0">Graphics, captions, and media packs that support launches and
-                            promotions.</p>
+                <div class="col-lg-5 d-none d-lg-block">
+                    <div class="content-hero-visual">
+                        <div class="content-hero-badge content-hero-badge-1"><i class="bi bi-patch-check-fill"></i>Built
+                            for engagement</div>
+                        <div class="content-browser" data-parallax data-parallax-speed="0.075" data-parallax-max="20">
+                            <div class="content-browser-bar">
+                                <span class="content-browser-dot"></span>
+                                <span class="content-browser-dot"></span>
+                                <span class="content-browser-dot"></span>
+                                <span class="content-browser-url">digitelle-studios.com</span>
+                            </div>
+                            <img src="assets/img/gg.avif" alt="Content creation preview"
+                                loading="lazy" decoding="async" />
+                        </div>
+                        <div class="content-hero-badge content-hero-badge-2"><i class="bi bi-graph-up"></i>Tracked
+                            &amp; measured</div>
                     </div>
                 </div>
             </div>
+        </div>
+    </header>
 
-            <div class="bg-white rounded-4 shadow-sm p-4 p-lg-5 mb-5">
-                <h2 class="h3 mb-3">Featured Growth Partner: Silly Girl</h2>
-                <p class="text-muted mb-4">Our content strategy and production support for Silly Girl reached millions
-                    of views per year while helping partner businesses grow visibility, increase revenue, and expand
-                    international exposure.</p>
-                <div class="row g-4 align-items-center">
-                    <div class="col-md-4">
-                        <a href="https://www.silly-girl.co/" target="_blank" rel="noopener"
-                            class="border rounded-4 p-4 h-100 d-flex align-items-center justify-content-center text-decoration-none">
-                            <img src="assets/img/sillylogo.webp" alt="Silly Girl logo" loading="lazy" decoding="async"
-                                style="height: 84px; width: auto; max-width: 100%;">
-                        </a>
+    <!-- Services -->
+    <section id="services" class="section-py">
+        <div class="container px-5">
+            <div class="text-center section-heading-block reveal">
+                <h2 class="fw-bold section-heading">Content built around your brand <span
+                        class="heading-accent heading-accent-primary">goals</span></h2>
+                <p class="text-muted col-lg-8 mx-auto mb-0">From short-form video to campaign strategy, every piece
+                    of content is created to grow your audience and your business.</p>
+            </div>
+            <div class="content-services-grid">
+                <div class="content-bento-item bento-wide reveal">
+                    <div class="content-card bg-white p-4 rounded-4 shadow-sm h-100" style="--icon-delay: 0s;">
+                        <div class="content-service-art">
+                            <img src="assets/img/service-illustrations/analytics-tracking.svg"
+                                alt="Illustration for short-form video production" loading="lazy" decoding="async" />
+                        </div>
+                        <h3 class="h5">Short-Form Video Production</h3>
+                        <p class="text-muted mb-0">Reels, TikToks, and YouTube Shorts scripted, filmed, and edited to
+                            capture attention and drive engagement.</p>
                     </div>
-                    <div class="col-md-8">
-                        <div class="border rounded-4 p-4 h-100">
-                            <p class="mb-2">“Silly Girl generated <strong>millions of annual views</strong> and
-                                consistently boosted business visibility, revenue results, and international online
-                                exposure through high-performing content campaigns.”</p>
-                            <p class="small text-muted mb-0">Client: Silly Girl · Content Strategy, Short-Form Video,
-                                Distribution, and Performance Optimization</p>
+                </div>
+                <div class="content-bento-item bento-compact reveal">
+                    <div class="content-card bg-white p-4 rounded-4 shadow-sm h-100" style="--icon-delay: 0.15s;">
+                        <div class="content-service-art">
+                            <i class="bi bi-lightbulb content-service-icon"></i>
+                        </div>
+                        <h3 class="h5">Content Strategy & Planning</h3>
+                        <p class="text-muted mb-0">Audience research, content pillars, and messaging strategy aligned
+                            to your brand and goals.</p>
+                    </div>
+                </div>
+                <div class="content-bento-item bento-compact reveal">
+                    <div class="content-card bg-white p-4 rounded-4 shadow-sm h-100" style="--icon-delay: 0.3s;">
+                        <div class="content-service-art">
+                            <i class="bi bi-pencil-square content-service-icon"></i>
+                        </div>
+                        <h3 class="h5">Scriptwriting & Hooks</h3>
+                        <p class="text-muted mb-0">Scroll-stopping hooks, scripts, and captions written to match your
+                            brand voice.</p>
+                    </div>
+                </div>
+                <div class="content-bento-item bento-compact reveal">
+                    <div class="content-card bg-white p-4 rounded-4 shadow-sm h-100" style="--icon-delay: 0.45s;">
+                        <div class="content-service-art">
+                            <i class="bi bi-image content-service-icon"></i>
+                        </div>
+                        <h3 class="h5">Social Media Graphics</h3>
+                        <p class="text-muted mb-0">Branded visuals, carousels, and campaign graphics designed for
+                            Instagram, TikTok, and beyond.</p>
+                    </div>
+                </div>
+                <div class="content-bento-item bento-compact reveal">
+                    <div class="content-card bg-white p-4 rounded-4 shadow-sm h-100" style="--icon-delay: 0.6s;">
+                        <div class="content-service-art">
+                            <i class="bi bi-calendar3 content-service-icon"></i>
+                        </div>
+                        <h3 class="h5">Content Calendars</h3>
+                        <p class="text-muted mb-0">Organized posting schedules and campaign plans to keep your
+                            content consistent.</p>
+                    </div>
+                </div>
+                <div class="content-bento-item bento-wide reveal">
+                    <div class="content-card bg-white p-4 rounded-4 shadow-sm h-100" style="--icon-delay: 0.75s;">
+                        <div class="content-service-art">
+                            <img src="assets/img/service-illustrations/seo-technical.svg"
+                                alt="Illustration for content performance reporting" loading="lazy"
+                                decoding="async" />
+                        </div>
+                        <h3 class="h5">Performance Reporting</h3>
+                        <p class="text-muted mb-0">Tracking views, engagement, and growth so you can see what's
+                            working and double down.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process -->
+    <section id="process" class="section-py bg-light">
+        <div class="container px-5">
+            <div class="text-center section-heading-block reveal">
+                <h2 class="fw-bold section-heading">From idea to <span
+                        class="heading-accent heading-accent-primary">published content</span> in four steps</h2>
+                <p class="text-muted col-lg-8 mx-auto mb-0">A clear, simple process so you always know what's
+                    happening with your content.</p>
+            </div>
+            <div class="content-timeline-row reveal">
+                <div class="content-timeline-step text-center tone-1" tabindex="0">
+                    <div class="content-flip-inner">
+                        <div class="content-flip-front">
+                            <div class="content-timeline-icon"><i class="bi bi-search"></i></div>
+                            <h3 class="h6 mb-2">Discovery</h3>
+                            <p class="text-muted mb-0 small">We learn about your brand, audience, and the goals
+                                behind your content.</p>
+                        </div>
+                        <div class="content-flip-back">
+                            <img src="assets/img/process-illustrations/discovery.svg"
+                                alt="Illustration of strategic discovery and planning" loading="lazy"
+                                decoding="async" />
+                            <span class="content-flip-back-label">Discovery</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="content-timeline-arrow"><i class="bi bi-chevron-right"></i></div>
+                <div class="content-timeline-step text-center tone-2" tabindex="0">
+                    <div class="content-flip-inner">
+                        <div class="content-flip-front">
+                            <div class="content-timeline-icon"><i class="bi bi-pencil-square"></i></div>
+                            <h3 class="h6 mb-2">Strategy & Scripting</h3>
+                            <p class="text-muted mb-0 small">We plan content pillars and write scripts and hooks
+                                tailored to your brand voice.</p>
+                        </div>
+                        <div class="content-flip-back">
+                            <img src="assets/img/process-illustrations/design.svg"
+                                alt="Illustration of collaborative content planning" loading="lazy" decoding="async" />
+                            <span class="content-flip-back-label">Strategy & Scripting</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="content-timeline-arrow"><i class="bi bi-chevron-right"></i></div>
+                <div class="content-timeline-step text-center tone-3" tabindex="0">
+                    <div class="content-flip-inner">
+                        <div class="content-flip-front">
+                            <div class="content-timeline-icon"><i class="bi bi-camera-reels-fill"></i></div>
+                            <h3 class="h6 mb-2">Production</h3>
+                            <p class="text-muted mb-0 small">We film, design, and edit content into polished,
+                                platform-ready assets.</p>
+                        </div>
+                        <div class="content-flip-back">
+                            <img src="assets/img/process-illustrations/development.svg"
+                                alt="Illustration of content production work" loading="lazy" decoding="async" />
+                            <span class="content-flip-back-label">Production</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="content-timeline-arrow"><i class="bi bi-chevron-right"></i></div>
+                <div class="content-timeline-step text-center tone-4" tabindex="0">
+                    <div class="content-flip-inner">
+                        <div class="content-flip-front">
+                            <div class="content-timeline-icon"><i class="bi bi-graph-up"></i></div>
+                            <h3 class="h6 mb-2">Publish & Report</h3>
+                            <p class="text-muted mb-0 small">We help schedule publishing and track performance to
+                                guide future content.</p>
+                        </div>
+                        <div class="content-flip-back">
+                            <img src="assets/img/process-illustrations/launch-support.svg"
+                                alt="Illustration of publishing and reporting on content" loading="lazy"
+                                decoding="async" />
+                            <span class="content-flip-back-label">Publish & Report</span>
                         </div>
                     </div>
                 </div>
             </div>
+        </div>
+    </section>
 
-            <h2 class="h3 mb-3">Portfolio</h2>
-            <p class="text-muted mb-4">See examples of campaign content and measurable creative outcomes.</p>
-            <a class="btn btn-outline-dark rounded-pill px-4" href="https://linktr.ee/silly_girl" target="_blank"
-                rel="noopener">View Silly Girl Portfolio</a>
+    <!-- Why choose us -->
+    <section class="section-py">
+        <div class="container px-5">
+            <div class="row align-items-center g-5">
+                <div class="col-lg-4 reveal">
+                    <h2 class="fw-bold section-heading">Everything you need for content that <span
+                            class="heading-accent heading-accent-primary">performs</span></h2>
+                    <p class="text-muted mb-0">From strategy to publishing, every content project includes the
+                        essentials that keep your audience engaged and growing.</p>
+                    <svg class="mt-4 d-none d-lg-block content-mini-chart" data-parallax data-parallax-speed="0.05"
+                        data-parallax-max="14" width="190" height="148" viewBox="0 0 200 156" fill="none"
+                        xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                        <defs>
+                            <linearGradient id="contentBar1" x1="0" y1="0" x2="0" y2="1">
+                                <stop offset="0" stop-color="#565c4c" />
+                                <stop offset="1" stop-color="#2b2f25" />
+                            </linearGradient>
+                            <linearGradient id="contentBar2" x1="0" y1="0" x2="0" y2="1">
+                                <stop offset="0" stop-color="#83ab84" />
+                                <stop offset="1" stop-color="#4a6f4b" />
+                            </linearGradient>
+                            <linearGradient id="contentBar3" x1="0" y1="0" x2="0" y2="1">
+                                <stop offset="0" stop-color="#ffaf8c" />
+                                <stop offset="1" stop-color="#ff7548" />
+                            </linearGradient>
+                            <linearGradient id="contentLine" x1="0" y1="0" x2="1" y2="0">
+                                <stop offset="0" stop-color="#33372c" />
+                                <stop offset="1" stop-color="#ff885b" />
+                            </linearGradient>
+                        </defs>
 
-            <h2 class="h3 mt-5 mb-3">Contact</h2>
-            <p class="text-muted mb-1">Email: <a
-                    href="mailto:sillygirl@digitelle-studios.com">sillygirl@digitelle-studios.com</a></p>
-            <p class="text-muted mb-0">Instagram: <a href="https://www.instagram.com/digitellestudios/" target="_blank"
-                    rel="noopener">@digitellestudios</a></p>
+                        <g class="chart-badge">
+                            <rect x="2" y="0" width="100" height="26" rx="13" fill="#33372c" />
+                            <path d="M14 15 L19 9 L24 13 L31 5" stroke="#9fd6a1" stroke-width="2" fill="none"
+                                stroke-linecap="round" stroke-linejoin="round" />
+                            <text id="contentGrowthBadge" x="68" y="17" font-family="inherit" font-size="12"
+                                font-weight="700" fill="#fff" text-anchor="middle">+32%</text>
+                        </g>
+
+                        <line class="chart-baseline" x1="6" y1="140" x2="194" y2="140" stroke="#33372c"
+                            stroke-opacity="0.12" stroke-width="2" stroke-dasharray="4 6" />
+
+                        <rect class="chart-bar chart-bar-1" x="18" y="92" width="32" height="48" rx="9"
+                            fill="url(#contentBar1)" />
+                        <rect class="chart-bar chart-bar-2" x="70" y="66" width="32" height="74" rx="9"
+                            fill="url(#contentBar2)" />
+                        <rect class="chart-bar chart-bar-3" x="122" y="40" width="32" height="100" rx="9"
+                            fill="url(#contentBar3)" />
+
+                        <path class="chart-line" d="M18 80 C50 64 86 88 104 60 C128 28 148 32 178 36"
+                            stroke="url(#contentLine)" stroke-width="3.5" stroke-linecap="round" fill="none" />
+
+                        <circle class="chart-dot-glow" cx="178" cy="36" r="11" fill="#ff885b" opacity="0.18" />
+                        <circle class="chart-dot" cx="178" cy="36" r="5.5" fill="#ff885b" />
+                    </svg>
+                </div>
+                <div class="col-lg-8 reveal">
+                    <div class="content-feature-list">
+                        <div class="content-feature-row">
+                            <i class="bi bi-camera-reels-fill"></i>
+                            <div>
+                                <strong>Platform-Ready Video</strong>
+                                <span>Short-form and long-form videos edited and formatted for every
+                                    platform.</span>
+                            </div>
+                        </div>
+                        <div class="content-feature-row">
+                            <i class="bi bi-lightbulb"></i>
+                            <div>
+                                <strong>Creative Strategy</strong>
+                                <span>Audience-first concepts, hooks, and content pillars built around your
+                                    goals.</span>
+                            </div>
+                        </div>
+                        <div class="content-feature-row">
+                            <i class="bi bi-pencil-square"></i>
+                            <div>
+                                <strong>Scripts & Captions</strong>
+                                <span>Engaging scripts and captions written to match your brand voice.</span>
+                            </div>
+                        </div>
+                        <div class="content-feature-row">
+                            <i class="bi bi-calendar3"></i>
+                            <div>
+                                <strong>Content Calendars</strong>
+                                <span>Organized posting schedules so your content stays consistent.</span>
+                            </div>
+                        </div>
+                        <div class="content-feature-row">
+                            <i class="bi bi-palette-fill"></i>
+                            <div>
+                                <strong>On-Brand Visuals</strong>
+                                <span>Graphics and campaign assets created to match your brand tone and style.</span>
+                            </div>
+                        </div>
+                        <div class="content-feature-row">
+                            <i class="bi bi-graph-up"></i>
+                            <div>
+                                <strong>Performance Reporting</strong>
+                                <span>Regular reports on views, engagement, and growth across your channels.</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trusted by clients -->
+    <section class="section-py bg-light content-clients-expanded">
+        <div class="container px-5">
+            <div class="row justify-content-center reveal">
+                <div class="col-lg-8 text-center">
+                    <h2 class="fw-bold section-heading mb-2">Trusted by <span
+                            class="heading-accent heading-accent-primary">our clients</span></h2>
+                    <p class="text-muted mb-0">A selection of brands we've helped create content that grows their
+                        audience and reach.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="content-marquee-section">
+        <div class="container px-5">
+            <div class="content-marquee" aria-label="Client marquee">
+                <div class="content-marquee-track">
+                    <div class="content-marquee-group">
+                        <a class="content-marquee-chip" href="https://www.bunch.com.ua/" target="_blank" rel="noopener">
+                            <img src="assets/img/bunch.png" alt="" loading="lazy" decoding="async" />
+                            <span>Bunch</span>
+                        </a>
+                        <a class="content-marquee-chip" href="https://www.gridpeek.com/" target="_blank" rel="noopener">
+                            <img src="assets/img/gridpeek-logo.svg" alt="" loading="lazy" decoding="async" />
+                            <span>Gridpeek</span>
+                        </a>
+                        <a class="content-marquee-chip" href="https://www.silly-girl.co/" target="_blank" rel="noopener">
+                            <img src="assets/img/sillylogo.webp" alt="" loading="lazy" decoding="async" />
+                            <span>Silly Girl</span>
+                        </a>
+                        <a class="content-marquee-chip" href="https://www.gabriellagallagher.com/" target="_blank"
+                            rel="noopener">
+                            <img src="assets/img/gg.png" alt="" loading="lazy" decoding="async" />
+                            <span>Gabriella Gallagher</span>
+                        </a>
+                        <a class="content-marquee-chip" href="https://www.lepechemignon.co.uk/" target="_blank"
+                            rel="noopener">
+                            <img src="assets/img/lapeche.png" alt="" loading="lazy" decoding="async" />
+                            <span>Le Peche Mignon</span>
+                        </a>
+                        <a class="content-marquee-chip" href="https://www.thestrtaxloophole.com/" target="_blank"
+                            rel="noopener">
+                            <img src="assets/img/strtaxloophole-icon.webp" alt="" loading="lazy" decoding="async" />
+                            <span>STR Tax Loophole</span>
+                        </a>
+                    </div>
+                    <div class="content-marquee-group" aria-hidden="true">
+                        <a class="content-marquee-chip" href="https://www.bunch.com.ua/" target="_blank" rel="noopener"
+                            tabindex="-1">
+                            <img src="assets/img/bunch.png" alt="" loading="lazy" decoding="async" />
+                            <span>Bunch</span>
+                        </a>
+                        <a class="content-marquee-chip" href="https://www.gridpeek.com/" target="_blank" rel="noopener"
+                            tabindex="-1">
+                            <img src="assets/img/gridpeek-logo.svg" alt="" loading="lazy" decoding="async" />
+                            <span>Gridpeek</span>
+                        </a>
+                        <a class="content-marquee-chip" href="https://www.silly-girl.co/" target="_blank" rel="noopener"
+                            tabindex="-1">
+                            <img src="assets/img/sillylogo.webp" alt="" loading="lazy" decoding="async" />
+                            <span>Silly Girl</span>
+                        </a>
+                        <a class="content-marquee-chip" href="https://www.gabriellagallagher.com/" target="_blank"
+                            rel="noopener" tabindex="-1">
+                            <img src="assets/img/gg.png" alt="" loading="lazy" decoding="async" />
+                            <span>Gabriella Gallagher</span>
+                        </a>
+                        <a class="content-marquee-chip" href="https://www.lepechemignon.co.uk/" target="_blank"
+                            rel="noopener" tabindex="-1">
+                            <img src="assets/img/lapeche.png" alt="" loading="lazy" decoding="async" />
+                            <span>Le Peche Mignon</span>
+                        </a>
+                        <a class="content-marquee-chip" href="https://www.thestrtaxloophole.com/" target="_blank"
+                            rel="noopener" tabindex="-1">
+                            <img src="assets/img/strtaxloophole-icon.webp" alt="" loading="lazy" decoding="async" />
+                            <span>STR Tax Loophole</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing -->
+    <section id="pricing" class="section-py">
+        <div class="container px-5">
+            <div class="text-center section-heading-block reveal">
+                <h2 class="fw-bold section-heading">Simple packages, built around your <span
+                        class="heading-accent heading-accent-primary">goals</span></h2>
+                <p class="text-muted col-lg-8 mx-auto mb-0">Every project is unique, so these packages are a starting
+                    point. Message us and we'll put together a quote tailored to your business.</p>
+            </div>
+            <div class="row g-4 justify-content-center align-items-stretch">
+                <div class="col-md-6 col-lg-4 reveal">
+                    <div class="content-pricing-card bg-white p-4 p-lg-5 h-100 d-flex flex-column">
+                        <h3 class="h5 mb-1">Starter Content</h3>
+                        <p class="text-muted small mb-4">A focused content batch to establish your presence and
+                            build momentum.</p>
+                        <ul class="mb-4">
+                            <li><i class="bi bi-check-circle-fill"></i>4 short-form videos per month</li>
+                            <li><i class="bi bi-check-circle-fill"></i>Scripts & captions included</li>
+                            <li><i class="bi bi-check-circle-fill"></i>Branded social media graphics</li>
+                            <li><i class="bi bi-check-circle-fill"></i>Basic content calendar</li>
+                        </ul>
+                        <div class="mt-auto">
+                            <button class="btn btn-outline-dark rounded-pill w-100 nav-glass-btn nav-glass-cool"
+                                type="button" data-bs-toggle="modal" data-bs-target="#contactModal">Get a Quote</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4 reveal">
+                    <div class="content-pricing-card featured bg-white p-4 p-lg-5 h-100 d-flex flex-column">
+                        <span class="content-pricing-badge">Most Popular</span>
+                        <h3 class="h5 mb-1 mt-2">Growth Content</h3>
+                        <p class="text-muted small mb-4">A consistent content engine to grow your audience and
+                            engagement month over month.</p>
+                        <ul class="mb-4">
+                            <li><i class="bi bi-check-circle-fill"></i>8-12 short-form videos per month</li>
+                            <li><i class="bi bi-check-circle-fill"></i>Content strategy & planning</li>
+                            <li><i class="bi bi-check-circle-fill"></i>Scripts, captions & hooks</li>
+                            <li><i class="bi bi-check-circle-fill"></i>Full content calendar & scheduling</li>
+                            <li><i class="bi bi-check-circle-fill"></i>Monthly performance reporting</li>
+                        </ul>
+                        <div class="mt-auto">
+                            <button class="btn btn-primary rounded-pill w-100 nav-glass-btn nav-glass-cool"
+                                type="button" data-bs-toggle="modal" data-bs-target="#contactModal">Get a Quote</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4 reveal">
+                    <div class="content-pricing-card bg-white p-4 p-lg-5 h-100 d-flex flex-column">
+                        <h3 class="h5 mb-1">Custom / Campaign</h3>
+                        <p class="text-muted small mb-4">A tailored production plan for launches, campaigns, or
+                            larger content needs.</p>
+                        <ul class="mb-4">
+                            <li><i class="bi bi-check-circle-fill"></i>Custom content volume & formats</li>
+                            <li><i class="bi bi-check-circle-fill"></i>Long-form & short-form video production</li>
+                            <li><i class="bi bi-check-circle-fill"></i>Campaign-specific creative strategy</li>
+                            <li><i class="bi bi-check-circle-fill"></i>Multi-platform asset packs</li>
+                            <li><i class="bi bi-check-circle-fill"></i>Ongoing support available</li>
+                        </ul>
+                        <div class="mt-auto">
+                            <button class="btn btn-outline-dark rounded-pill w-100 nav-glass-btn nav-glass-cool"
+                                type="button" data-bs-toggle="modal" data-bs-target="#contactModal">Get a Quote</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="section-py bg-light">
+        <div class="container px-5">
+            <div class="text-center section-heading-block reveal">
+                <h2 class="fw-bold section-heading">Frequently asked <span
+                        class="heading-accent heading-accent-primary">questions</span></h2>
+                <p class="text-muted col-lg-9 mx-auto mb-0">Answers to common questions about our content creation
+                    services, formats, turnaround times, pricing, and ongoing packages.</p>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-lg-8 reveal">
+                    <div class="accordion content-accordion" id="contentFaqAccordion">
+                        <div class="accordion-item">
+                            <h3 class="accordion-header">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#faqOne" aria-expanded="true" aria-controls="faqOne">
+                                    What content formats do you produce?
+                                </button>
+                            </h3>
+                            <div id="faqOne" class="accordion-collapse collapse show"
+                                data-bs-parent="#contentFaqAccordion">
+                                <div class="accordion-body text-muted">
+                                    We produce short-form video, social media visuals, scripts, content calendars,
+                                    and campaign assets for Instagram, TikTok, and YouTube.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h3 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#faqTwo" aria-expanded="false" aria-controls="faqTwo">
+                                    Do you create content strategy as well?
+                                </button>
+                            </h3>
+                            <div id="faqTwo" class="accordion-collapse collapse" data-bs-parent="#contentFaqAccordion">
+                                <div class="accordion-body text-muted">
+                                    Yes, content strategy is included with topic planning, audience targeting, and
+                                    messaging aligned to business goals.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h3 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#faqThree" aria-expanded="false" aria-controls="faqThree">
+                                    Can you work with our existing brand guidelines?
+                                </button>
+                            </h3>
+                            <div id="faqThree" class="accordion-collapse collapse" data-bs-parent="#contentFaqAccordion">
+                                <div class="accordion-body text-muted">
+                                    Yes, all content is created to match your brand tone, visual style, and
+                                    conversion goals.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h3 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#faqFour" aria-expanded="false" aria-controls="faqFour">
+                                    How long does it take to produce a batch of content?
+                                </button>
+                            </h3>
+                            <div id="faqFour" class="accordion-collapse collapse" data-bs-parent="#contentFaqAccordion">
+                                <div class="accordion-body text-muted">
+                                    Most content batches are delivered within 1 to 2 weeks, depending on volume,
+                                    scripting needs, and revisions.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h3 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#faqFive" aria-expanded="false" aria-controls="faqFive">
+                                    Do you handle filming, or just editing?
+                                </button>
+                            </h3>
+                            <div id="faqFive" class="accordion-collapse collapse" data-bs-parent="#contentFaqAccordion">
+                                <div class="accordion-body text-muted">
+                                    We can support both. We can work with footage you provide, or help plan and
+                                    produce original video content.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h3 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#faqSix" aria-expanded="false" aria-controls="faqSix">
+                                    Can you manage posting and scheduling too?
+                                </button>
+                            </h3>
+                            <div id="faqSix" class="accordion-collapse collapse" data-bs-parent="#contentFaqAccordion">
+                                <div class="accordion-body text-muted">
+                                    Yes. We can prepare content calendars and coordinate publishing schedules, or
+                                    hand off ready-to-post assets for your team.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h3 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#faqSeven" aria-expanded="false" aria-controls="faqSeven">
+                                    How much do content creation services cost?
+                                </button>
+                            </h3>
+                            <div id="faqSeven" class="accordion-collapse collapse" data-bs-parent="#contentFaqAccordion">
+                                <div class="accordion-body text-muted">
+                                    Pricing depends on content volume, format complexity, and frequency. We provide a
+                                    tailored quote based on your goals.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h3 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#faqEight" aria-expanded="false" aria-controls="faqEight">
+                                    Do you offer ongoing content packages?
+                                </button>
+                            </h3>
+                            <div id="faqEight" class="accordion-collapse collapse" data-bs-parent="#contentFaqAccordion">
+                                <div class="accordion-body text-muted">
+                                    Yes. We offer monthly content packages for consistent posting, campaign support,
+                                    and ongoing creative production.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="section-py">
+        <div class="container px-5">
+            <div class="content-final-cta text-center text-white reveal">
+                <h2 class="fw-bold section-heading mb-3">Ready to grow with better <span
+                        class="heading-accent heading-accent-light">content</span>?</h2>
+                <p class="text-white-75 mb-4 col-lg-8 mx-auto">Tell us about your brand and goals, and we'll get
+                    back to you with a free quote and content plan.</p>
+                <div class="d-flex flex-wrap justify-content-center gap-3 mb-4">
+                    <button class="btn btn-light btn-lg rounded-pill px-5 fw-semibold nav-glass-btn nav-glass-cool"
+                        type="button" data-bs-toggle="modal" data-bs-target="#contactModal">
+                        <svg class="me-2 msg-cta-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                            <path class="msg-bubble"
+                                d="M5 4h14a3 3 0 0 1 3 3v7a3 3 0 0 1-3 3H11l-4.4 3.6a.8.8 0 0 1-1.3-.62V17H5a3 3 0 0 1-3-3V7a3 3 0 0 1 3-3Z" />
+                            <line class="msg-line msg-line-1" x1="9.7" y1="14.6" x2="9.7" y2="9.4" />
+                            <line class="msg-line msg-line-2" x1="12" y1="16" x2="12" y2="8" />
+                            <line class="msg-line msg-line-3" x1="14.3" y1="14" x2="14.3" y2="10" />
+                        </svg>Message Us
+                    </button>
+                </div>
+                <p class="text-white-75 small mb-0">Email: <a class="text-white"
+                        href="mailto:sillygirl@digitelle-studios.com">sillygirl@digitelle-studios.com</a>
+                    &middot; Instagram: <a class="text-white" href="https://www.instagram.com/digitellestudios/"
+                        target="_blank" rel="noopener">@digitellestudios</a></p>
+            </div>
         </div>
     </section>
 
@@ -198,9 +2108,9 @@
                 <div class="col-12 col-lg-5">
                     <h2 class="site-footer-brand mb-2">Digitelle Studios</h2>
                     <p class="site-footer-text mb-3">Worldwide web development, SEO, and content creation services for
-                        growth-focused businesses.</p><a class="site-footer-social"
-                        href="https://www.instagram.com/digitellestudios/" target="_blank" rel="noopener"><i
-                            class="bi bi-instagram"></i><span>Follow us on Instagram</span></a>
+                        growth-focused businesses.</p>
+                    <a class="site-footer-social" href="https://www.instagram.com/digitellestudios/" target="_blank"
+                        rel="noopener"><i class="bi bi-instagram"></i><span>Follow us on Instagram</span></a>
                 </div>
                 <div class="col-6 col-lg-3">
                     <h3 class="site-footer-heading">Services</h3>
@@ -227,8 +2137,223 @@
         </div>
     </footer>
 
+    <!-- Contact Modal-->
+    <div class="modal fade" id="contactModal" tabindex="-1" aria-labelledby="contactModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header bg-gradient-primary-to-secondary p-4">
+                    <h5 class="modal-title font-alt text-white" id="contactModalLabel">Message Us</h5>
+                    <button class="btn-close btn-close-white" type="button" data-bs-dismiss="modal"
+                        aria-label="Close"></button>
+                </div>
+                <div class="modal-body border-0 p-4">
+                    <form id="contact-form" class="needs-validation" novalidate
+                        onsubmit="event.preventDefault(); sendEmail();">
+                        <!-- Name input-->
+                        <div class="form-floating mb-3">
+                            <input class="form-control" id="name" type="text" placeholder="Enter your name..."
+                                required />
+                            <label for="name">Full name</label>
+                            <div class="invalid-feedback">A name is required.</div>
+                        </div>
+                        <!-- Email address input-->
+                        <div class="form-floating mb-3">
+                            <input class="form-control" id="email" type="email" placeholder="name@example.com"
+                                required />
+                            <label for="email">Email address</label>
+                            <div class="invalid-feedback">An email is required.</div>
+                            <div class="invalid-feedback">Email is not valid.</div>
+                        </div>
+                        <!-- Phone number input-->
+                        <div class="mb-3">
+                            <label class="form-label" for="phone">Phone number</label>
+                            <input class="form-control" id="phone" type="tel" placeholder="(123) 456-7890" required />
+                            <div class="invalid-feedback">A phone number is required.</div>
+                        </div>
+                        <!-- Message input-->
+                        <div class="form-floating mb-3">
+                            <textarea class="form-control" id="message" placeholder="Enter your message here..."
+                                style="height: 10rem" required></textarea>
+                            <label for="message">Message</label>
+                            <div class="invalid-feedback">A message is required.</div>
+                        </div>
+                        <!-- Submit Button-->
+                        <div class="d-grid">
+                            <button class="btn btn-primary rounded-pill btn-lg nav-glass-btn nav-glass-cool"
+                                id="submitButton" type="submit">Submit</button>
+                        </div>
+                    </form>
+                </div>
+                <div id="successMessage" class="modal-footer border-0 text-center d-none">
+                    <p class="text-success mb-0">Thank you for your message!</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script>document.getElementById('currentYear').textContent = new Date().getFullYear();</script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!--https://github.com/jackocnr/intl-tel-input-->
+    <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@18.1.1/build/js/intlTelInput.min.js"></script>
+    <script>
+        var input = document.querySelector("#phone");
+        window.intlTelInput(input, {
+            utilsScript: "https://cdn.jsdelivr.net/npm/intl-tel-input@18.1.1/build/js/utils.js",
+        });
+    </script>
+
+    <!-- EmailJs-->
+    <script>
+        function sendEmail() {
+            event.preventDefault(); // Prevent form submission
+
+            const form = document.getElementById('contact-form');
+            if (!form.checkValidity()) {
+                form.classList.add('was-validated');
+                return;
+            }
+
+            // Get the form data
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const phoneInput = document.querySelector("#phone");
+            const iti = window.intlTelInputGlobals.getInstance(phoneInput);
+            const countryCode = iti.getSelectedCountryData().dialCode;
+            const phone = phoneInput.value;
+            const message = document.getElementById('message').value;
+
+            // Prepare the email parameters
+            const templateParams = {
+                from_name: name,
+                from_email: email,
+                countryCode: countryCode,
+                phone: phone,
+                message: message
+            };
+
+            // Send the email
+            emailjs.send('service_0w40uzt', 'template_rwo4bru', templateParams)
+                .then(function (response) {
+                    console.log('Email sent successfully', response);
+                    // Show success message
+                    document.getElementById('submitButton').disabled = true;
+                    document.getElementById('successMessage').classList.remove('d-none');
+                    // Reset form fields
+                    resetForm();
+                }, function (error) {
+                    console.error('Error sending email:', error);
+                    // Handle error here
+                });
+        }
+
+        // Function to reset form fields
+        function resetForm() {
+            document.getElementById('name').value = '';
+            document.getElementById('email').value = '';
+            document.getElementById('phone').value = '';
+            document.getElementById('message').value = '';
+            document.getElementById('contact-form').classList.remove('was-validated');
+        }
+    </script>
+
+    <!-- Scroll reveal animations -->
+    <script>
+        (function () {
+            var badge = document.getElementById('contentGrowthBadge');
+            if (!badge) {
+                return;
+            }
+            var value = 32 + Math.floor(Math.random() * (1000 - 32 + 1));
+            badge.textContent = '+' + value + '%';
+        })();
+    </script>
+
+    <script>
+        (function () {
+            if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                return;
+            }
+            var revealEls = document.querySelectorAll('.reveal');
+            var observer = new IntersectionObserver(function (entries, obs) {
+                entries.forEach(function (entry) {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        obs.unobserve(entry.target);
+                    }
+                });
+            }, { root: null, rootMargin: '0px', threshold: 0.15 });
+            revealEls.forEach(function (el) { observer.observe(el); });
+        })();
+    </script>
+
+    <script>
+        (function () {
+            var canHover = window.matchMedia && window.matchMedia('(hover: hover)').matches;
+            if (canHover) {
+                return;
+            }
+            var steps = document.querySelectorAll('.content-timeline-step');
+            steps.forEach(function (step) {
+                step.addEventListener('click', function () {
+                    var wasFlipped = step.classList.contains('is-flipped');
+                    steps.forEach(function (other) { other.classList.remove('is-flipped'); });
+                    if (!wasFlipped) {
+                        step.classList.add('is-flipped');
+                    }
+                });
+            });
+        })();
+    </script>
+
+    <script>
+        (function () {
+            var prefersReduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+            if (prefersReduced || window.innerWidth < 992) {
+                return;
+            }
+
+            var els = Array.prototype.slice.call(document.querySelectorAll('[data-parallax]'));
+            if (!els.length) {
+                return;
+            }
+
+            var ticking = false;
+
+            function clamp(value, min, max) {
+                return Math.max(min, Math.min(max, value));
+            }
+
+            function updateParallax() {
+                var viewportCenter = window.innerHeight / 2;
+                els.forEach(function (el) {
+                    var speed = parseFloat(el.getAttribute('data-parallax-speed') || '0.06');
+                    var maxOffset = parseFloat(el.getAttribute('data-parallax-max') || '18');
+                    var rect = el.getBoundingClientRect();
+                    var elCenter = rect.top + rect.height / 2;
+                    var delta = viewportCenter - elCenter;
+                    var offset = clamp(delta * speed, -maxOffset, maxOffset);
+                    el.style.setProperty('--parallax-y', offset.toFixed(2) + 'px');
+                });
+                ticking = false;
+            }
+
+            function requestUpdate() {
+                if (!ticking) {
+                    window.requestAnimationFrame(updateParallax);
+                    ticking = true;
+                }
+            }
+
+            updateParallax();
+            window.addEventListener('scroll', requestUpdate, { passive: true });
+            window.addEventListener('resize', requestUpdate);
+        })();
+    </script>
+
+    <!-- Crisp-->
+    <script type="text/javascript">window.$crisp = []; window.CRISP_WEBSITE_ID = "8b7bdb03-bdff-4912-a558-f786fd3e96d9"; (function () { d = document; s = d.createElement("script"); s.src = "https://client.crisp.chat/l.js"; s.async = 1; d.getElementsByTagName("head")[0].appendChild(s); })();
+    </script>
 </body>
 
 </html>
