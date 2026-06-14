@@ -172,6 +172,21 @@
             scroll-behavior: smooth;
         }
 
+        /* Tighter side gutters on mobile so content isn't squeezed by the desktop px-5 padding */
+        @media (max-width: 767.98px) {
+            .container.px-5 {
+                padding-left: 1.25rem !important;
+                padding-right: 1.25rem !important;
+            }
+        }
+
+        @media (max-width: 420px) {
+            .container.px-5 {
+                padding-left: 1rem !important;
+                padding-right: 1rem !important;
+            }
+        }
+
         /* Hero */
         .webdev-hero {
             position: relative;
@@ -1505,7 +1520,7 @@
                     <p class="text-muted mb-0">From first impression to long-term upkeep, every project includes the
                         essentials that keep visitors converting.</p>
                     <svg class="mt-4 d-none d-lg-block webdev-mini-chart" data-parallax data-parallax-speed="0.05"
-                        data-parallax-max="14" width="160" height="96" viewBox="0 0 160 96" fill="none"
+                        data-parallax-max="14" width="160" height="130" viewBox="0 -34 160 130" fill="none"
                         xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                         <rect class="chart-bar chart-bar-1" x="4" y="52" width="24" height="40" rx="6" fill="#33372c"
                             opacity="0.12" />
@@ -1513,9 +1528,9 @@
                             opacity="0.6" />
                         <rect class="chart-bar chart-bar-3" x="68" y="12" width="24" height="80" rx="6" fill="#ff885b"
                             opacity="0.85" />
-                        <path class="chart-line" d="M4 58 L40 38 L72 50 L120 14" stroke="#33372c" stroke-width="3"
+                        <path class="chart-line" d="M4 18 L40 -2 L72 10 L120 -26" stroke="#33372c" stroke-width="3"
                             stroke-linecap="round" stroke-linejoin="round" fill="none" />
-                        <circle class="chart-dot" cx="120" cy="14" r="6" fill="#33372c" />
+                        <circle class="chart-dot" cx="120" cy="-26" r="6" fill="#33372c" />
                     </svg>
                 </div>
                 <div class="col-lg-8 reveal">
