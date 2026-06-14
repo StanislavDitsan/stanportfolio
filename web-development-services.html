@@ -40,7 +40,7 @@
           "name": "What types of websites do you build?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "We build business websites, portfolio websites, landing pages, blog websites, and custom marketing pages."
+            "text": "We build business websites, portfolio websites, landing pages, blog websites, custom marketing pages, and WIX websites, including redesigns and migrations."
           }
         },
         {
@@ -58,6 +58,46 @@
             "@type": "Answer",
             "text": "Yes, we provide redesign services including UX updates, speed improvements, SEO metadata, and content restructuring."
           }
+                },
+                {
+                    "@type": "Question",
+                    "name": "How long does a website project usually take?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Most website projects take between 2 and 6 weeks depending on scope, content readiness, feedback speed, and required integrations."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Do you include SEO in your web development services?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Yes. Every build includes technical SEO basics such as clean site structure, metadata, mobile responsiveness, image optimization, and schema-ready markup."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Can you build ecommerce websites with payment gateways and affiliate tracking?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Yes. We build ecommerce websites with product pages, checkout flows, payment gateways including Stripe and PayPal, and affiliate tracking setup."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "How much do web development services cost?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Pricing depends on the number of pages, features, integrations, and content needs. We provide tailored quotes based on your business goals and project scope."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Do you offer website maintenance and support after launch?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Yes. We offer post-launch support for updates, fixes, performance improvements, and ongoing website maintenance as your business grows."
+                    }
         }
       ]
     },
@@ -117,108 +157,1728 @@
         rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,400;1,400&amp;display=swap"
         rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@18.1.1/build/css/intlTelInput.css">
     <link href="css/styles.css" rel="stylesheet" />
+    <!-- EmailJs -->
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script>
+        (function () {
+            emailjs.init("UaZWUlEb7skLpUE_c");
+        })();
+    </script>
+
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Hero */
+        .webdev-hero {
+            position: relative;
+            overflow: hidden;
+            padding: 9.5rem 0 6rem;
+            background: #33372c;
+        }
+
+        @media (min-width: 1200px) {
+            .webdev-hero {
+                padding-top: 12rem;
+            }
+        }
+
+        .webdev-hero-visual {
+            position: relative;
+        }
+
+        .webdev-hero-badge {
+            position: absolute;
+            z-index: 2;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.15rem;
+            border-radius: 0.9rem;
+            font-size: 0.85rem;
+            font-weight: 600;
+            background: #33372c;
+            color: #fff;
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            box-shadow: 0 1rem 2rem rgba(16, 18, 20, 0.25);
+            white-space: nowrap;
+        }
+
+        .webdev-hero-badge i {
+            font-size: 1.1rem;
+            color: #ff885b;
+        }
+
+        .webdev-hero-badge-1 {
+            top: -1.25rem;
+            right: 1.5rem;
+        }
+
+        .webdev-hero-badge-2 {
+            bottom: -1.25rem;
+            left: 1.5rem;
+        }
+
+        @media (max-width: 991.98px) {
+            .webdev-hero-badge {
+                display: none;
+            }
+        }
+
+        .text-white-75 {
+            color: rgba(255, 255, 255, 0.85);
+        }
+
+        /* Navbar glass buttons */
+        .nav-glass-btn {
+            position: relative;
+            overflow: hidden;
+            border-radius: 999px;
+            border: 1px solid rgba(51, 55, 44, 0.26) !important;
+            background: linear-gradient(145deg, rgba(255, 255, 255, 0.82), rgba(255, 255, 255, 0.62)) !important;
+            color: #33372C !important;
+            backdrop-filter: blur(14px) saturate(140%);
+            -webkit-backdrop-filter: blur(14px) saturate(140%);
+            box-shadow:
+                0 10px 26px rgba(51, 55, 44, 0.18),
+                inset 0 1px 0 rgba(255, 255, 255, 0.75);
+            transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease, background 0.22s ease;
+        }
+
+        .nav-glass-btn:focus,
+        .nav-glass-btn:focus-visible {
+            outline: none;
+            box-shadow:
+                0 14px 34px rgba(14, 18, 22, 0.18);
+        }
+
+        .nav-glass-btn:hover,
+        .nav-glass-btn:focus-visible {
+            transform: translateY(-1px);
+            border-color: rgba(255, 255, 255, 0.5) !important;
+            background: linear-gradient(145deg, rgba(255, 255, 255, 0.52), rgba(255, 255, 255, 0.24)) !important;
+            box-shadow:
+                0 14px 34px rgba(14, 18, 22, 0.18);
+        }
+
+        .nav-glass-btn.nav-glass-warm:hover,
+        .nav-glass-btn.nav-glass-warm:focus-visible {
+            border-color: rgba(255, 136, 91, 0.65) !important;
+            background: linear-gradient(145deg, rgba(255, 196, 170, 0.62), rgba(255, 136, 91, 0.3)) !important;
+            color: #2f1910 !important;
+        }
+
+        .nav-glass-btn.nav-glass-cool:hover,
+        .nav-glass-btn.nav-glass-cool:focus-visible {
+            border-color: rgba(85, 124, 86, 0.6) !important;
+            background: linear-gradient(145deg, rgba(198, 221, 198, 0.62), rgba(85, 124, 86, 0.28)) !important;
+            color: #132113 !important;
+        }
+
+        .nav-glass-btn:active {
+            transform: translateY(0);
+            background: linear-gradient(145deg, rgba(255, 255, 255, 0.32), rgba(255, 255, 255, 0.14)) !important;
+            box-shadow:
+                0 6px 16px rgba(14, 18, 22, 0.14);
+        }
+
+        .nav-glass-btn i {
+            color: currentColor;
+            background: transparent !important;
+            box-shadow: none !important;
+            border: 0;
+        }
+
+        .nav-icon-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 3rem;
+            height: 3rem;
+            padding: 0 !important;
+            flex: 0 0 3rem;
+        }
+
+        .nav-icon-btn i {
+            display: block;
+            font-size: 1.1rem;
+            line-height: 1;
+        }
+
+        #mainNav .nav-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 2.6rem;
+            padding: 0.55rem 0.95rem;
+            border-radius: 999px;
+            border: 1px solid transparent;
+            color: #33372c;
+            transition: border-color 0.22s ease, box-shadow 0.22s ease, background-color 0.22s ease, color 0.22s ease;
+        }
+
+        #mainNav .nav-link:hover,
+        #mainNav .nav-link:focus-visible {
+            border-color: rgba(85, 124, 86, 0.58);
+            background-color: rgba(255, 255, 255, 0.68);
+            color: #264128;
+            box-shadow:
+                0 0 0 3px rgba(85, 124, 86, 0.12),
+                inset 0 1px 0 rgba(255, 255, 255, 0.8);
+            outline: none;
+        }
+
+        .hero-cta-btn {
+            background: #fff !important;
+            border-color: rgba(255, 255, 255, 0.88) !important;
+            color: #33372C !important;
+        }
+
+        #contactModal .iti {
+            display: block;
+            width: 100%;
+        }
+
+        /* Message CTA icon attention animation */
+        .msg-cta-icon {
+            display: inline-block;
+            width: 1.05em;
+            height: 1.05em;
+            vertical-align: -0.1em;
+            transform-origin: center;
+            animation: msg-icon-pop 2.6s ease-in-out infinite;
+        }
+
+        .nav-msg-icon {
+            width: 1.45rem;
+            height: 1.45rem;
+            display: block;
+            margin: 0 auto;
+            transform: translateX(0.5px);
+            animation: none;
+        }
+
+        .msg-cta-icon .msg-bubble {
+            fill: currentColor;
+        }
+
+        .msg-cta-icon .msg-line {
+            stroke: #fff;
+            stroke-width: 1.25;
+            stroke-linecap: round;
+            transform-box: fill-box;
+            transform-origin: center;
+            animation: msg-wave-pulse 1s ease-in-out infinite;
+        }
+
+        .msg-cta-icon .msg-line-2 {
+            animation-delay: 0.12s;
+        }
+
+        .msg-cta-icon .msg-line-3 {
+            animation-delay: 0.24s;
+        }
+
+        @keyframes msg-icon-pop {
+
+            0%,
+            70%,
+            100% {
+                transform: scale(1);
+            }
+
+            10% {
+                transform: scale(1.06);
+            }
+
+            22% {
+                transform: scale(1.1);
+            }
+
+            34% {
+                transform: scale(1);
+            }
+        }
+
+        @keyframes msg-wave-pulse {
+
+            0%,
+            100% {
+                transform: scaleY(0.85);
+                opacity: 0.85;
+            }
+
+            45% {
+                transform: scaleY(1.1);
+                opacity: 1;
+            }
+
+            70% {
+                transform: scaleY(0.92);
+                opacity: 0.9;
+            }
+        }
+
+        .webdev-hero-points {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 0.9rem;
+            color: rgba(255, 255, 255, 0.85);
+            font-weight: 500;
+            font-size: 0.95rem;
+            padding-top: 1.75rem;
+            margin-top: 1.75rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.12);
+        }
+
+        @media (min-width: 576px) {
+            .webdev-hero-points {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (min-width: 992px) {
+            .webdev-hero-points {
+                grid-template-columns: 1fr 1fr;
+                gap: 1rem 1.25rem;
+            }
+        }
+
+        .webdev-hero-points .webdev-point {
+            display: flex;
+            align-items: center;
+            gap: 0.55rem;
+            min-width: 0;
+        }
+
+        .webdev-hero-points .webdev-point i {
+            color: #ff885b;
+            font-size: 1.1rem;
+        }
+
+        .webdev-hero-points .webdev-point span {
+            line-height: 1.45;
+        }
+
+        .webdev-hero-points .webdev-point-divider {
+            width: 1px;
+            height: 1.1rem;
+            background: rgba(255, 255, 255, 0.18);
+        }
+
+        /* Typography accents */
+        .heading-accent {
+            font-family: "Cormorant Garamond", serif;
+            font-style: italic;
+            font-weight: 600;
+        }
+
+        .heading-accent-light {
+            color: #ff885b;
+        }
+
+        .heading-accent-primary {
+            color: #557c56;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .heading-accent {
+                animation: none;
+            }
+
+            .msg-cta-icon {
+                animation: none;
+            }
+
+            .msg-cta-icon .msg-line,
+            .msg-cta-icon .msg-line-2,
+            .msg-cta-icon .msg-line-3 {
+                animation: none;
+            }
+        }
+
+        .section-heading {
+            font-size: clamp(1.85rem, 1.35rem + 1.9vw, 2.75rem);
+            line-height: 1.15;
+        }
+
+        /* Section rhythm */
+        .section-py {
+            padding-top: clamp(4rem, 3rem + 5vw, 8rem);
+            padding-bottom: clamp(4rem, 3rem + 5vw, 8rem);
+        }
+
+        .section-heading-block {
+            margin-bottom: clamp(2.5rem, 1.75rem + 3vw, 4.5rem);
+        }
+
+        .webdev-services-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: clamp(1rem, 0.85rem + 0.9vw, 1.5rem);
+        }
+
+        .webdev-bento-item {
+            min-width: 0;
+        }
+
+        @media (min-width: 768px) {
+            .webdev-services-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            .webdev-bento-item.bento-full {
+                grid-column: span 2;
+            }
+        }
+
+        @media (min-width: 992px) {
+            .webdev-services-grid {
+                grid-template-columns: repeat(4, minmax(0, 1fr));
+                grid-auto-flow: dense;
+                grid-auto-rows: minmax(12rem, auto);
+                align-items: stretch;
+            }
+
+            .webdev-bento-item.bento-featured {
+                grid-column: span 2;
+            }
+
+            .webdev-bento-item.bento-wide {
+                grid-column: span 2;
+            }
+
+            .webdev-bento-item.bento-full {
+                grid-column: 1 / -1;
+            }
+
+            .webdev-bento-item.bento-compact .webdev-service-art {
+                aspect-ratio: 16 / 8.5;
+            }
+
+            .webdev-bento-item.bento-full .webdev-service-art {
+                aspect-ratio: 16 / 7.6;
+            }
+        }
+
+        /* Trusted by - logo row */
+        .webdev-logo-row {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: clamp(1.75rem, 1.25rem + 2vw, 3rem) clamp(2rem, 1.5rem + 3vw, 4rem);
+        }
+
+        .webdev-logo-link {
+            display: flex;
+            align-items: center;
+            gap: 0.65rem;
+            text-decoration: none;
+            color: inherit;
+            padding: 0.6rem 0.9rem;
+            margin: -0.6rem -0.9rem;
+            border-radius: 0.85rem;
+            transition: background-color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
+        }
+
+        .webdev-logo-link:hover,
+        .webdev-logo-link:focus-visible {
+            background-color: #fff;
+            box-shadow: 0 0.75rem 1.5rem rgba(16, 18, 20, 0.08);
+            transform: translateY(-2px);
+        }
+
+        .webdev-logo-img {
+            height: 38px;
+            width: auto;
+            max-width: 130px;
+            object-fit: contain;
+        }
+
+        .webdev-logo-icon {
+            width: 36px;
+            height: 36px;
+            border-radius: 0.65rem;
+            object-fit: cover;
+            flex-shrink: 0;
+        }
+
+        .webdev-logo-name {
+            font-weight: 600;
+            font-size: 0.95rem;
+            color: #495057;
+            white-space: nowrap;
+        }
+
+        .webdev-clients-expanded .container {
+            max-width: min(1260px, 94vw);
+        }
+
+        .webdev-clients-expanded .webdev-logo-row {
+            gap: clamp(1.9rem, 1.4rem + 2.2vw, 3.4rem) clamp(2.3rem, 1.8rem + 3.2vw, 4.5rem);
+        }
+
+        .webdev-clients-expanded .webdev-logo-link {
+            padding: 0.75rem 1rem;
+            margin: -0.75rem -1rem;
+            border-radius: 1rem;
+        }
+
+        .webdev-clients-expanded .webdev-logo-img {
+            height: 42px;
+            max-width: 150px;
+        }
+
+        .webdev-clients-expanded .webdev-logo-icon {
+            width: 40px;
+            height: 40px;
+        }
+
+        .webdev-clients-expanded .webdev-logo-name {
+            font-size: 1rem;
+        }
+
+        .webdev-marquee-section {
+            padding: clamp(1.8rem, 1.2rem + 1.6vw, 2.8rem) 0;
+            border-top: 1px solid rgba(51, 55, 44, 0.08);
+            border-bottom: 1px solid rgba(51, 55, 44, 0.08);
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.7), rgba(248, 249, 250, 0.95));
+        }
+
+        .webdev-marquee {
+            position: relative;
+            overflow: hidden;
+            padding-top: 0.5rem;
+            padding-bottom: 0.5rem;
+            mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
+            -webkit-mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
+        }
+
+        .webdev-marquee-track {
+            display: flex;
+            width: max-content;
+            gap: 1.5rem;
+            animation: webdev-marquee-scroll 36s linear infinite;
+        }
+
+        .webdev-marquee:hover .webdev-marquee-track {
+            animation-play-state: paused;
+        }
+
+        .webdev-marquee-group {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            padding-right: 1.5rem;
+        }
+
+        .webdev-marquee-chip {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.8rem;
+            width: clamp(14.5rem, 18vw, 17.5rem);
+            min-height: 3.4rem;
+            padding: 0;
+            border-radius: 999px;
+            background: transparent;
+            border: 1px solid transparent;
+            box-shadow: none;
+            white-space: nowrap;
+            color: #2f3430;
+            font-weight: 600;
+            font-size: clamp(1.08rem, 0.95rem + 0.28vw, 1.22rem);
+            text-decoration: none;
+            transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease, background 0.22s ease, color 0.22s ease;
+        }
+
+        .webdev-marquee-chip:hover,
+        .webdev-marquee-chip:focus-visible {
+            transform: translateY(-1px);
+            border-color: rgba(85, 124, 86, 0.6);
+            background: linear-gradient(145deg, rgba(198, 221, 198, 0.62), rgba(85, 124, 86, 0.28));
+            color: #132113;
+            box-shadow: none;
+            outline: none;
+        }
+
+        .webdev-marquee-chip img {
+            width: 1.95rem;
+            height: 1.95rem;
+            border-radius: 0.35rem;
+            object-fit: contain;
+            flex-shrink: 0;
+            filter: grayscale(1) saturate(0) contrast(1.05);
+            transition: filter 0.22s ease;
+        }
+
+        .webdev-marquee-chip:hover img,
+        .webdev-marquee-chip:focus-visible img {
+            filter: none;
+        }
+
+        @keyframes webdev-marquee-scroll {
+            from {
+                transform: translateX(0);
+            }
+
+            to {
+                transform: translateX(-50%);
+            }
+        }
+
+        .webdev-accent-wrap {
+            position: relative;
+            display: inline-block;
+        }
+
+        .webdev-underline {
+            position: absolute;
+            left: 0.1rem;
+            bottom: -0.45rem;
+            width: calc(100% - 0.2rem);
+            height: 0.6rem;
+            overflow: visible;
+        }
+
+        .webdev-underline path {
+            stroke-dasharray: 210;
+            stroke-dashoffset: 210;
+        }
+
+        .col-lg-7 .webdev-underline path {
+            animation: underline-draw 0.75s cubic-bezier(0.22, 1, 0.36, 1) 0.55s forwards;
+        }
+
+        @keyframes underline-draw {
+            to {
+                stroke-dashoffset: 0;
+            }
+        }
+
+        /* Browser mockup */
+        .webdev-browser {
+            position: relative;
+            z-index: 1;
+            background: #fff;
+            border-radius: 0.85rem;
+            box-shadow: 0 2rem 4rem rgba(16, 18, 20, 0.35);
+            overflow: hidden;
+        }
+
+        [data-parallax] {
+            transform: translate3d(0, var(--parallax-y, 0px), 0);
+            will-change: transform;
+        }
+
+        .webdev-browser-bar {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            padding: 0.65rem 0.9rem;
+            background: #f1f1f4;
+            border-bottom: 1px solid rgba(16, 18, 20, 0.06);
+        }
+
+        .webdev-browser-dot {
+            width: 0.6rem;
+            height: 0.6rem;
+            border-radius: 50%;
+            background: #d0d2d8;
+        }
+
+        .webdev-browser-dot:nth-child(1) {
+            background: #ff5f57;
+        }
+
+        .webdev-browser-dot:nth-child(2) {
+            background: #febc2e;
+        }
+
+        .webdev-browser-dot:nth-child(3) {
+            background: #28c840;
+        }
+
+        .webdev-browser-url {
+            margin-left: 0.6rem;
+            font-size: 0.75rem;
+            color: #868e96;
+            background: #fff;
+            border-radius: 999px;
+            padding: 0.25rem 0.9rem;
+            flex: 1;
+        }
+
+        .webdev-browser img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Cards */
+        .webdev-card {
+            position: relative;
+            overflow: hidden;
+            border: 0;
+            background: #fff;
+            box-shadow: 0 0.95rem 2.05rem rgba(16, 18, 20, 0.09);
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+        }
+
+        .webdev-services-grid .webdev-card {
+            background: transparent !important;
+            box-shadow: none !important;
+            border: 0 !important;
+            border-radius: 0 !important;
+            padding: 0 !important;
+            overflow: visible;
+        }
+
+        .webdev-card::after {
+            content: "";
+            position: absolute;
+            top: 1.25rem;
+            right: 1.25rem;
+            width: 3.5rem;
+            height: 3.5rem;
+            background-image: radial-gradient(circle, rgba(51, 55, 44, 0.14) 1.5px, transparent 1.5px);
+            background-size: 10px 10px;
+            pointer-events: none;
+        }
+
+        .webdev-card:hover {
+            transform: none;
+            box-shadow: inherit !important;
+        }
+
+        .webdev-icon {
+            width: 3.25rem;
+            height: 3.25rem;
+            border-radius: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: #fff;
+            background: #33372c;
+        }
+
+        .webdev-service-art {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            aspect-ratio: 16 / 10;
+            margin-bottom: 1.1rem;
+            border-radius: 1rem;
+            padding: 0.9rem;
+            background:
+                radial-gradient(circle at 80% 18%, rgba(255, 136, 91, 0.2), transparent 46%),
+                linear-gradient(155deg, rgba(85, 124, 86, 0.14), rgba(51, 55, 44, 0.08));
+            border: 1px solid rgba(51, 55, 44, 0.12);
+            overflow: hidden;
+        }
+
+        .webdev-service-art img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            filter: saturate(0.8) hue-rotate(-12deg) contrast(1.02);
+            transform: translateZ(0);
+        }
+
+        .webdev-card:hover .webdev-service-art img {
+            animation: none;
+        }
+
+        @keyframes service-icon-bob {
+
+            0%,
+            100% {
+                transform: translateY(0) scale(1);
+            }
+
+            50% {
+                transform: translateY(-3px) scale(1.06);
+            }
+        }
+
+        /* Process timeline */
+        .webdev-timeline-row {
+            display: flex;
+            flex-direction: column;
+            gap: clamp(1.25rem, 1rem + 1.2vw, 2rem);
+        }
+
+        @media (min-width: 992px) {
+            .webdev-timeline-row {
+                flex-direction: row;
+                align-items: stretch;
+                gap: 1.25rem;
+            }
+        }
+
+        .webdev-timeline-step {
+            flex: 1;
+            position: relative;
+            padding: clamp(1.5rem, 1.2rem + 1vw, 2rem) clamp(1.15rem, 1rem + 0.9vw, 1.65rem) clamp(1.4rem, 1.1rem + 0.8vw, 1.8rem);
+            border-radius: 1.1rem;
+            border: 1px solid rgba(255, 255, 255, 0.55);
+            background: linear-gradient(145deg, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.5));
+            backdrop-filter: blur(16px) saturate(140%);
+            -webkit-backdrop-filter: blur(16px) saturate(140%);
+            box-shadow:
+                0 1.2rem 2.2rem rgba(51, 55, 44, 0.08),
+                inset 0 1px 0 rgba(255, 255, 255, 0.7);
+            overflow: hidden;
+        }
+
+        .webdev-timeline-step::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(circle at top left, rgba(85, 124, 86, 0.1), transparent 32%),
+                radial-gradient(circle at top right, rgba(85, 124, 86, 0.12), transparent 34%),
+                radial-gradient(circle at bottom left, rgba(85, 124, 86, 0.14), transparent 34%),
+                radial-gradient(circle at bottom right, rgba(51, 55, 44, 0.12), transparent 34%),
+                linear-gradient(180deg, rgba(255, 255, 255, 0.22), rgba(255, 255, 255, 0));
+            pointer-events: none;
+        }
+
+        .webdev-timeline-step>* {
+            position: relative;
+            z-index: 1;
+        }
+
+        .webdev-timeline-step h3 {
+            margin-bottom: 0.65rem !important;
+        }
+
+        .webdev-timeline-step p {
+            max-width: 22ch;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .webdev-timeline-arrow {
+            display: none !important;
+            align-items: center;
+            justify-content: center;
+            color: rgba(51, 55, 44, 0.25);
+            font-size: 1.5rem;
+            padding-top: 1.6rem;
+            flex: 0 0 2.5rem;
+        }
+
+        @media (min-width: 992px) {
+            .webdev-timeline-arrow {
+                display: none !important;
+            }
+        }
+
+        .webdev-timeline-icon {
+            width: 3.75rem;
+            height: 3.75rem;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: #fff;
+            background: #33372c;
+            box-shadow: 0 0.75rem 1.5rem rgba(51, 55, 44, 0.25);
+            margin: 0 auto 1.25rem;
+        }
+
+        /* Feature list */
+        .webdev-feature-list {
+            display: grid;
+            grid-template-columns: 1fr;
+        }
+
+        @media (min-width: 768px) {
+            .webdev-feature-list {
+                grid-template-columns: 1fr 1fr;
+                column-gap: 2.5rem;
+            }
+        }
+
+        .webdev-feature-row {
+            display: flex;
+            gap: 1rem;
+            padding: 1.1rem 0;
+            border-bottom: 1px solid rgba(16, 18, 20, 0.06);
+        }
+
+        .webdev-feature-row i {
+            font-size: 1.35rem;
+            color: #557c56;
+            margin-top: 0.15rem;
+            flex-shrink: 0;
+        }
+
+        .webdev-feature-row strong {
+            display: block;
+        }
+
+        .webdev-feature-row span {
+            color: #6c757d;
+            font-size: 0.9rem;
+        }
+
+        .webdev-mini-chart .chart-bar,
+        .webdev-mini-chart .chart-line,
+        .webdev-mini-chart .chart-dot {
+            opacity: 0;
+        }
+
+        .reveal.is-visible .webdev-mini-chart .chart-bar {
+            transform-box: fill-box;
+            transform-origin: bottom center;
+            animation: chart-bar-rise 0.8s ease-out forwards;
+        }
+
+        .reveal.is-visible .webdev-mini-chart .chart-bar-1 {
+            animation-delay: 0.08s;
+        }
+
+        .reveal.is-visible .webdev-mini-chart .chart-bar-2 {
+            animation-delay: 0.18s;
+        }
+
+        .reveal.is-visible .webdev-mini-chart .chart-bar-3 {
+            animation-delay: 0.28s;
+        }
+
+        .reveal.is-visible .webdev-mini-chart .chart-line {
+            stroke-dasharray: 170;
+            stroke-dashoffset: 170;
+            animation: chart-line-draw 1s ease-out 0.34s forwards;
+        }
+
+        .reveal.is-visible .webdev-mini-chart .chart-dot {
+            transform-box: fill-box;
+            transform-origin: center;
+            animation: chart-dot-pop 0.45s ease-out 1.05s forwards;
+        }
+
+        @keyframes chart-bar-rise {
+            from {
+                opacity: 0;
+                transform: scaleY(0.18);
+            }
+
+            to {
+                opacity: 1;
+                transform: scaleY(1);
+            }
+        }
+
+        @keyframes chart-line-draw {
+            from {
+                opacity: 0;
+                stroke-dashoffset: 170;
+            }
+
+            to {
+                opacity: 1;
+                stroke-dashoffset: 0;
+            }
+        }
+
+        @keyframes chart-dot-pop {
+            from {
+                opacity: 0;
+                transform: scale(0.4);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        /* Pricing */
+        .webdev-pricing-card {
+            border: 1px solid rgba(16, 18, 20, 0.06);
+            border-radius: 1.25rem;
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+            position: relative;
+        }
+
+        .webdev-pricing-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 1.25rem 2.5rem rgba(51, 55, 44, 0.12) !important;
+        }
+
+        .webdev-pricing-card.featured {
+            border: 2px solid #ff885b;
+        }
+
+        .webdev-pricing-card.featured .webdev-pricing-badge {
+            position: absolute;
+            top: -0.9rem;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #33372c;
+            color: #ff885b;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            padding: 0.35rem 1rem;
+            border-radius: 999px;
+            white-space: nowrap;
+        }
+
+        .webdev-pricing-card ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .webdev-pricing-card ul li {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.6rem;
+            margin-bottom: 0.6rem;
+            color: #495057;
+        }
+
+        .webdev-pricing-card ul li i {
+            color: #557c56;
+            margin-top: 0.2rem;
+        }
+
+        /* Final CTA */
+        .webdev-final-cta {
+            background: #33372c;
+            border-radius: 1.5rem;
+            position: relative;
+            overflow: hidden;
+            padding: clamp(2.5rem, 2rem + 3vw, 5rem) clamp(1.5rem, 1rem + 3vw, 4rem);
+        }
+
+        .webdev-final-cta::before {
+            content: "";
+            position: absolute;
+            width: 10rem;
+            height: 10rem;
+            background: #ff885b;
+            border-radius: 1.25rem;
+            transform: rotate(12deg);
+            top: -3rem;
+            right: -2.5rem;
+            opacity: 0.9;
+        }
+
+        /* Reveal animation */
+        .reveal {
+            opacity: 0;
+            transform: translateY(28px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .reveal.is-visible {
+            opacity: 1;
+            transform: none;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .reveal {
+                opacity: 1;
+                transform: none;
+                transition: none;
+            }
+
+            .webdev-underline path {
+                stroke-dasharray: none;
+                stroke-dashoffset: 0;
+                animation: none !important;
+            }
+
+            .webdev-card .webdev-icon i {
+                animation: none;
+            }
+
+            .webdev-mini-chart .chart-bar,
+            .webdev-mini-chart .chart-line,
+            .webdev-mini-chart .chart-dot {
+                opacity: 1;
+                animation: none !important;
+                transform: none;
+                stroke-dasharray: none;
+                stroke-dashoffset: 0;
+            }
+
+            [data-parallax] {
+                transform: none !important;
+                will-change: auto;
+            }
+
+            .webdev-marquee {
+                mask-image: none;
+                -webkit-mask-image: none;
+            }
+
+            .webdev-marquee-track {
+                animation: none;
+                width: 100%;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .webdev-marquee-group[aria-hidden="true"] {
+                display: none;
+            }
+        }
+
+        /* Accordion */
+        .webdev-accordion .accordion-button:not(.collapsed) {
+            color: #557c56;
+            background-color: rgba(51, 55, 44, 0.05);
+        }
+
+        .webdev-accordion .accordion-button:focus {
+            box-shadow: none;
+            border-color: rgba(51, 55, 44, 0.15);
+        }
+
+        /* Primary buttons: orange accent with dark green text */
+        .btn-primary {
+            --bs-btn-color: #33372c;
+            --bs-btn-bg: #ff885b;
+            --bs-btn-border-color: #ff885b;
+            --bs-btn-hover-color: #33372c;
+            --bs-btn-hover-bg: #f3713f;
+            --bs-btn-hover-border-color: #f3713f;
+            --bs-btn-active-color: #33372c;
+            --bs-btn-active-bg: #f3713f;
+            --bs-btn-active-border-color: #f3713f;
+            --bs-btn-disabled-color: #33372c;
+            --bs-btn-disabled-bg: #ff885b;
+            --bs-btn-disabled-border-color: #ff885b;
+        }
+    </style>
 </head>
 
 <body id="page-top">
     <nav class="navbar navbar-expand-lg navbar-light fixed-top shadow-sm" id="mainNav">
         <div class="container px-5">
-            <a class="navbar-brand" href="index.html">Digitelle</a>
-            <a class="btn btn-outline-dark rounded-pill px-3" href="index.html" aria-label="Back to Home"
-                title="Back to Home">
-                <i class="bi bi-house-door"></i>
-            </a>
+            <a class="navbar-brand fw-bold" href="index.html">Digitelle</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive"
+                aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                <i class="bi-list"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ms-auto me-4 my-3 my-lg-0">
+                    <li class="nav-item"><a class="nav-link me-lg-3" href="#services">Services</a></li>
+                    <li class="nav-item"><a class="nav-link me-lg-3" href="#process">Process</a></li>
+                    <li class="nav-item"><a class="nav-link me-lg-3" href="#pricing">Pricing</a></li>
+                    <li class="nav-item"><a class="nav-link me-lg-3" href="#faq">FAQ</a></li>
+                </ul>
+                <div class="d-flex align-items-center gap-2">
+                    <button class="btn rounded-pill px-3 nav-glass-btn nav-glass-cool nav-icon-btn" type="button"
+                        data-bs-toggle="modal" data-bs-target="#contactModal" aria-label="Message Us"
+                        title="Message Us">
+                        <svg class="msg-cta-icon nav-msg-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                            <path class="msg-bubble"
+                                d="M5 4h14a3 3 0 0 1 3 3v7a3 3 0 0 1-3 3H11l-4.4 3.6a.8.8 0 0 1-1.3-.62V17H5a3 3 0 0 1-3-3V7a3 3 0 0 1 3-3Z" />
+                            <line class="msg-line msg-line-1" x1="9.7" y1="14.6" x2="9.7" y2="9.4" />
+                            <line class="msg-line msg-line-2" x1="12" y1="16" x2="12" y2="8" />
+                            <line class="msg-line msg-line-3" x1="14.3" y1="14" x2="14.3" y2="10" />
+                        </svg>
+                    </button>
+                    <a class="btn btn-outline-dark rounded-pill px-3 nav-glass-btn nav-glass-cool nav-icon-btn"
+                        href="index.html" aria-label="Back to Home" title="Back to Home">
+                        <i class="bi bi-house-fill"></i>
+                    </a>
+                </div>
+            </div>
         </div>
     </nav>
 
-    <section class="bg-light" style="padding-top: 8rem; padding-bottom: 4rem;">
+    <!-- Hero -->
+    <header class="webdev-hero">
         <div class="container px-5">
-            <h1 class="display-5 mb-3">Web Development Services for High-Growth Businesses</h1>
-            <p class="text-muted mb-4">We build fast, responsive websites designed to rank in search and convert
-                visitors into customers.</p>
+            <div class="row align-items-center gx-5">
+                <div class="col-lg-7">
+                    <h1 class="display-4 fw-bold text-white mb-3">Websites that look great and turn visitors into
+                        <span class="webdev-accent-wrap">
+                            <span class="heading-accent heading-accent-light">clients</span>
+                            <svg class="webdev-underline" viewBox="0 0 200 20" preserveAspectRatio="none"
+                                aria-hidden="true">
+                                <path d="M2 12 C 40 4, 80 18, 120 8 S 180 4 198 10" stroke="#ff885b" stroke-width="4"
+                                    fill="none" stroke-linecap="round" />
+                            </svg>
+                        </span>
+                    </h1>
+                    <p class="lead text-white-75 mb-4">We design and build fast, responsive, conversion-focused
+                        websites for businesses that want to rank higher, look credible, and win more customers
+                        online.</p>
+                    <div class="d-flex flex-wrap gap-3 mb-4">
+                        <button
+                            class="btn btn-light btn-lg rounded-pill px-4 fw-semibold nav-glass-btn nav-glass-cool hero-cta-btn"
+                            type="button" data-bs-toggle="modal" data-bs-target="#contactModal">
+                            Get a Free Quote
+                        </button>
+                        <button
+                            class="btn btn-outline-light btn-lg rounded-pill px-4 nav-glass-btn nav-glass-cool hero-cta-btn"
+                            type="button" data-bs-toggle="modal" data-bs-target="#contactModal">
+                            <svg class="me-2 msg-cta-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                                <path class="msg-bubble"
+                                    d="M5 4h14a3 3 0 0 1 3 3v7a3 3 0 0 1-3 3H11l-4.4 3.6a.8.8 0 0 1-1.3-.62V17H5a3 3 0 0 1-3-3V7a3 3 0 0 1 3-3Z" />
+                                <line class="msg-line msg-line-1" x1="9.7" y1="14.6" x2="9.7" y2="9.4" />
+                                <line class="msg-line msg-line-2" x1="12" y1="16" x2="12" y2="8" />
+                                <line class="msg-line msg-line-3" x1="14.3" y1="14" x2="14.3" y2="10" />
+                            </svg>Message Us
+                        </button>
+                    </div>
+                    <div class="webdev-hero-points">
+                        <span class="webdev-point"><i class="bi bi-graph-up"></i><span>Built to rank higher on
+                                Google</span></span>
+                        <span class="webdev-point"><i class="bi bi-bar-chart-line-fill"></i><span>Conversion tracking
+                                &amp; analytics</span></span>
+                        <span class="webdev-point"><i class="bi bi-credit-card-fill"></i><span>Payment gateway &amp;
+                                affiliate setup</span></span>
+                        <span class="webdev-point"><i class="bi bi-phone-fill"></i><span>Mobile-first responsive
+                                design</span></span>
+                    </div>
+                </div>
+                <div class="col-lg-5 d-none d-lg-block">
+                    <div class="webdev-hero-visual">
+                        <div class="webdev-hero-badge webdev-hero-badge-1"><i class="bi bi-patch-check-fill"></i>Built
+                            for conversions</div>
+                        <div class="webdev-browser" data-parallax data-parallax-speed="0.075" data-parallax-max="20">
+                            <div class="webdev-browser-bar">
+                                <span class="webdev-browser-dot"></span>
+                                <span class="webdev-browser-dot"></span>
+                                <span class="webdev-browser-dot"></span>
+                                <span class="webdev-browser-url">digitelle-studios.com</span>
+                            </div>
+                            <img src="assets/img/buildyourwebsite.avif" alt="Custom website design preview"
+                                loading="lazy" decoding="async" />
+                        </div>
+                        <div class="webdev-hero-badge webdev-hero-badge-2"><i class="bi bi-phone-fill"></i>Looks great
+                            on mobile</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
 
-            <div class="row g-4 mb-5">
-                <div class="col-md-4">
-                    <div class="bg-white p-4 rounded-4 shadow-sm h-100">
-                        <h2 class="h5">Business Websites</h2>
+    <!-- Services -->
+    <section id="services" class="section-py">
+        <div class="container px-5">
+            <div class="text-center section-heading-block reveal">
+                <h2 class="fw-bold section-heading">Websites built around your business <span
+                        class="heading-accent heading-accent-primary">goals</span></h2>
+                <p class="text-muted col-lg-8 mx-auto mb-0">Custom web design and development tailored to your
+                    brand, audience, and growth goals.</p>
+            </div>
+            <div class="webdev-services-grid">
+                <div class="webdev-bento-item bento-wide reveal">
+                    <div class="webdev-card bg-white p-4 rounded-4 shadow-sm h-100" style="--icon-delay: 0s;">
+                        <div class="webdev-service-art">
+                            <img src="assets/img/service-illustrations/business-websites.svg"
+                                alt="Illustration for business website development" loading="lazy" decoding="async" />
+                        </div>
+                        <h3 class="h5">Business Websites</h3>
                         <p class="text-muted mb-0">Professional web presence designed for credibility and lead
                             generation.</p>
                     </div>
                 </div>
-                <div class="col-md-4">
-                    <div class="bg-white p-4 rounded-4 shadow-sm h-100">
-                        <h2 class="h5">Landing Pages</h2>
-                        <p class="text-muted mb-0">Campaign-focused pages built for conversions and measurable outcomes.
-                        </p>
+                <div class="webdev-bento-item bento-compact reveal">
+                    <div class="webdev-card bg-white p-4 rounded-4 shadow-sm h-100" style="--icon-delay: 0.15s;">
+                        <div class="webdev-service-art">
+                            <img src="assets/img/service-illustrations/landing-pages.svg"
+                                alt="Illustration for landing page creation" loading="lazy" decoding="async" />
+                        </div>
+                        <h3 class="h5">Landing Pages</h3>
+                        <p class="text-muted mb-0">Campaign-focused pages built for conversions and measurable
+                            outcomes.</p>
                     </div>
                 </div>
-                <div class="col-md-4">
-                    <div class="bg-white p-4 rounded-4 shadow-sm h-100">
-                        <h2 class="h5">Website Redesign</h2>
-                        <p class="text-muted mb-0">UX and performance upgrades for outdated or underperforming websites.
-                        </p>
+                <div class="webdev-bento-item bento-compact reveal">
+                    <div class="webdev-card bg-white p-4 rounded-4 shadow-sm h-100" style="--icon-delay: 0.3s;">
+                        <div class="webdev-service-art">
+                            <img src="assets/img/service-illustrations/website-redesign.svg"
+                                alt="Illustration for website redesign work" loading="lazy" decoding="async" />
+                        </div>
+                        <h3 class="h5">Website Redesign</h3>
+                        <p class="text-muted mb-0">UX and performance upgrades for outdated or underperforming
+                            websites.</p>
                     </div>
                 </div>
-            </div>
-
-            <div class="bg-white rounded-4 shadow-sm p-4 p-lg-5 mb-5">
-                <h2 class="h2 mb-3">Trusted by Our Clients</h2>
-                <p class="text-muted mb-4">A selection of brands we’ve supported through development and growth work.
-                </p>
-                <div class="row row-cols-2 row-cols-lg-5 g-4">
-                    <div class="col">
-                        <a class="client-logo-link client-logo-bunch" href="https://www.bunch.com.ua/" target="_blank"
-                            rel="noopener">
-                            <span class="client-logo-card">
-                                <img src="assets/img/bunch.png" alt="Bunch client logo" loading="lazy" decoding="async"
-                                    class="client-logo-img">
-                            </span>
-                        </a>
+                <div class="webdev-bento-item bento-compact reveal">
+                    <div class="webdev-card bg-white p-4 rounded-4 shadow-sm h-100" style="--icon-delay: 0.45s;">
+                        <div class="webdev-service-art">
+                            <img src="assets/img/service-illustrations/seo-technical.svg"
+                                alt="Illustration for SEO and technical setup" loading="lazy" decoding="async" />
+                        </div>
+                        <h3 class="h5">SEO & Technical Setup</h3>
+                        <p class="text-muted mb-0">On-page SEO, metadata, schema, and speed-focused technical setup for
+                            better visibility.</p>
                     </div>
-                    <div class="col">
-                        <a class="client-logo-link client-logo-gridpeek" href="https://www.gridpeek.com/"
-                            target="_blank" rel="noopener">
-                            <span class="client-logo-card">
-                                <img src="assets/img/gridpeek-logo.svg" alt="Gridpeek client logo" loading="lazy"
-                                    decoding="async" class="client-logo-img">
-                            </span>
-                        </a>
+                </div>
+                <div class="webdev-bento-item bento-compact reveal">
+                    <div class="webdev-card bg-white p-4 rounded-4 shadow-sm h-100" style="--icon-delay: 0.6s;">
+                        <div class="webdev-service-art">
+                            <img src="assets/img/service-illustrations/ecommerce-payments.svg"
+                                alt="Illustration for ecommerce and payments setup" loading="lazy" decoding="async" />
+                        </div>
+                        <h3 class="h5">Ecommerce & Payments</h3>
+                        <p class="text-muted mb-0">Store setup, product structure, and payment gateway integrations for
+                            seamless checkout.</p>
                     </div>
-                    <div class="col">
-                        <a class="client-logo-link client-logo-silly" href="https://www.silly-girl.co/" target="_blank"
-                            rel="noopener">
-                            <span class="client-logo-card">
-                                <img src="assets/img/sillylogo.webp" alt="Silly Girl client logo" loading="lazy"
-                                    decoding="async" class="client-logo-img">
-                            </span>
-                        </a>
-                    </div>
-                    <div class="col">
-                        <a class="client-logo-link client-logo-gabriella" href="https://www.gabriellagallagher.com/"
-                            target="_blank" rel="noopener">
-                            <span class="client-logo-card">
-                                <img src="assets/img/gg.png" alt="Gabriella Gallagher client logo" loading="lazy"
-                                    decoding="async" class="client-logo-img">
-                            </span>
-                        </a>
-                    </div>
-                    <div class="col">
-                        <a class="client-logo-link client-logo-lepeche" href="https://www.lepechemignon.co.uk/"
-                            target="_blank" rel="noopener">
-                            <span class="client-logo-card">
-                                <img src="assets/img/lapeche.png" alt="Le Peche Mignon client logo" loading="lazy"
-                                    decoding="async" class="client-logo-img">
-                            </span>
-                        </a>
+                </div>
+                <div class="webdev-bento-item bento-wide reveal">
+                    <div class="webdev-card bg-white p-4 rounded-4 shadow-sm h-100" style="--icon-delay: 0.75s;">
+                        <div class="webdev-service-art">
+                            <img src="assets/img/service-illustrations/analytics-tracking.svg"
+                                alt="Illustration for analytics and conversion tracking" loading="lazy"
+                                decoding="async" />
+                        </div>
+                        <h3 class="h5">Analytics & Conversion Tracking</h3>
+                        <p class="text-muted mb-0">Event tracking and reporting setup to measure performance and improve
+                            results over time.</p>
                     </div>
                 </div>
             </div>
+        </div>
+    </section>
 
-            <h2 class="h3 mt-5 mb-3">Contact</h2>
-            <p class="text-muted mb-1">Email: <a
-                    href="mailto:sillygirl@digitelle-studios.com">sillygirl@digitelle-studios.com</a></p>
-            <p class="text-muted mb-0">Instagram: <a href="https://www.instagram.com/digitellestudios/" target="_blank"
-                    rel="noopener">@digitellestudios</a></p>
+    <!-- Process -->
+    <section id="process" class="section-py bg-light">
+        <div class="container px-5">
+            <div class="text-center section-heading-block reveal">
+                <h2 class="fw-bold section-heading">From idea to <span
+                        class="heading-accent heading-accent-primary">live website</span> in four steps</h2>
+                <p class="text-muted col-lg-8 mx-auto mb-0">A clear, simple process so you always know what's
+                    happening with your project.</p>
+            </div>
+            <div class="webdev-timeline-row reveal">
+                <div class="webdev-timeline-step text-center tone-1">
+                    <div class="webdev-timeline-icon"><i class="bi bi-search"></i></div>
+                    <h3 class="h6 mb-2">Discovery</h3>
+                    <p class="text-muted mb-0 small">We learn about your business, goals, and the audience you want
+                        to reach.</p>
+                </div>
+                <div class="webdev-timeline-arrow"><i class="bi bi-chevron-right"></i></div>
+                <div class="webdev-timeline-step text-center tone-2">
+                    <div class="webdev-timeline-icon"><i class="bi bi-palette-fill"></i></div>
+                    <h3 class="h6 mb-2">Design</h3>
+                    <p class="text-muted mb-0 small">We design a layout that reflects your brand and guides visitors
+                        toward action.</p>
+                </div>
+                <div class="webdev-timeline-arrow"><i class="bi bi-chevron-right"></i></div>
+                <div class="webdev-timeline-step text-center tone-3">
+                    <div class="webdev-timeline-icon"><i class="bi bi-code-slash"></i></div>
+                    <h3 class="h6 mb-2">Development</h3>
+                    <p class="text-muted mb-0 small">We build a fast, responsive site with clean code and
+                        SEO-friendly structure.</p>
+                </div>
+                <div class="webdev-timeline-arrow"><i class="bi bi-chevron-right"></i></div>
+                <div class="webdev-timeline-step text-center tone-4">
+                    <div class="webdev-timeline-icon"><i class="bi bi-cloud-arrow-up-fill"></i></div>
+                    <h3 class="h6 mb-2">Launch & Support</h3>
+                    <p class="text-muted mb-0 small">We launch your site and stay on hand for updates, fixes, and
+                        ongoing support.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why choose us -->
+    <section class="section-py">
+        <div class="container px-5">
+            <div class="row align-items-center g-5">
+                <div class="col-lg-4 reveal">
+                    <h2 class="fw-bold section-heading">Everything you need for a website that <span
+                            class="heading-accent heading-accent-primary">performs</span></h2>
+                    <p class="text-muted mb-0">From first impression to long-term upkeep, every project includes the
+                        essentials that keep visitors converting.</p>
+                    <svg class="mt-4 d-none d-lg-block webdev-mini-chart" data-parallax data-parallax-speed="0.05"
+                        data-parallax-max="14" width="160" height="96" viewBox="0 0 160 96" fill="none"
+                        xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                        <rect class="chart-bar chart-bar-1" x="4" y="52" width="24" height="40" rx="6" fill="#33372c"
+                            opacity="0.12" />
+                        <rect class="chart-bar chart-bar-2" x="36" y="32" width="24" height="60" rx="6" fill="#557c56"
+                            opacity="0.6" />
+                        <rect class="chart-bar chart-bar-3" x="68" y="12" width="24" height="80" rx="6" fill="#ff885b"
+                            opacity="0.85" />
+                        <path class="chart-line" d="M4 58 L40 38 L72 50 L120 14" stroke="#33372c" stroke-width="3"
+                            stroke-linecap="round" stroke-linejoin="round" fill="none" />
+                        <circle class="chart-dot" cx="120" cy="14" r="6" fill="#33372c" />
+                    </svg>
+                </div>
+                <div class="col-lg-8 reveal">
+                    <div class="webdev-feature-list">
+                        <div class="webdev-feature-row">
+                            <i class="bi bi-phone-fill"></i>
+                            <div>
+                                <strong>Mobile-First Design</strong>
+                                <span>Looks and works great on every screen size, from phones to desktops.</span>
+                            </div>
+                        </div>
+                        <div class="webdev-feature-row">
+                            <i class="bi bi-graph-up"></i>
+                            <div>
+                                <strong>SEO Foundations</strong>
+                                <span>Built with clean structure, metadata, and performance in mind from day
+                                    one.</span>
+                            </div>
+                        </div>
+                        <div class="webdev-feature-row">
+                            <i class="bi bi-lightning-charge-fill"></i>
+                            <div>
+                                <strong>Fast Performance</strong>
+                                <span>Optimized images, code, and assets so your site loads quickly
+                                    everywhere.</span>
+                            </div>
+                        </div>
+                        <div class="webdev-feature-row">
+                            <i class="bi bi-sliders"></i>
+                            <div>
+                                <strong>Easy to Manage</strong>
+                                <span>Simple content updates so your site stays current without a developer.</span>
+                            </div>
+                        </div>
+                        <div class="webdev-feature-row">
+                            <i class="bi bi-shield-check"></i>
+                            <div>
+                                <strong>Secure & Reliable</strong>
+                                <span>Modern best practices to keep your site safe and running smoothly.</span>
+                            </div>
+                        </div>
+                        <div class="webdev-feature-row">
+                            <i class="bi bi-headset"></i>
+                            <div>
+                                <strong>Ongoing Support</strong>
+                                <span>We're available after launch for updates, fixes, and improvements.</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trusted by clients -->
+    <section class="section-py bg-light webdev-clients-expanded">
+        <div class="container px-5">
+            <div class="row justify-content-center reveal">
+                <div class="col-lg-8 text-center">
+                    <h2 class="fw-bold section-heading mb-2">Trusted by <span
+                            class="heading-accent heading-accent-primary">our clients</span></h2>
+                    <p class="text-muted mb-0">A selection of brands we've supported through development and growth
+                        work.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="webdev-marquee-section">
+        <div class="container px-5">
+            <div class="webdev-marquee" aria-label="Client marquee">
+                <div class="webdev-marquee-track">
+                    <div class="webdev-marquee-group">
+                        <a class="webdev-marquee-chip" href="https://www.bunch.com.ua/" target="_blank" rel="noopener">
+                            <img src="assets/img/bunch.png" alt="" loading="lazy" decoding="async" />
+                            <span>Bunch</span>
+                        </a>
+                        <a class="webdev-marquee-chip" href="https://www.gridpeek.com/" target="_blank" rel="noopener">
+                            <img src="assets/img/gridpeek-logo.svg" alt="" loading="lazy" decoding="async" />
+                            <span>Gridpeek</span>
+                        </a>
+                        <a class="webdev-marquee-chip" href="https://www.silly-girl.co/" target="_blank" rel="noopener">
+                            <img src="assets/img/sillylogo.webp" alt="" loading="lazy" decoding="async" />
+                            <span>Silly Girl</span>
+                        </a>
+                        <a class="webdev-marquee-chip" href="https://www.gabriellagallagher.com/" target="_blank"
+                            rel="noopener">
+                            <img src="assets/img/gg.png" alt="" loading="lazy" decoding="async" />
+                            <span>Gabriella Gallagher</span>
+                        </a>
+                        <a class="webdev-marquee-chip" href="https://www.lepechemignon.co.uk/" target="_blank"
+                            rel="noopener">
+                            <img src="assets/img/lapeche.png" alt="" loading="lazy" decoding="async" />
+                            <span>Le Peche Mignon</span>
+                        </a>
+                        <a class="webdev-marquee-chip" href="https://www.thestrtaxloophole.com/" target="_blank"
+                            rel="noopener">
+                            <img src="assets/img/strtaxloophole-icon.webp" alt="" loading="lazy" decoding="async" />
+                            <span>STR Tax Loophole</span>
+                        </a>
+                    </div>
+                    <div class="webdev-marquee-group" aria-hidden="true">
+                        <a class="webdev-marquee-chip" href="https://www.bunch.com.ua/" target="_blank" rel="noopener"
+                            tabindex="-1">
+                            <img src="assets/img/bunch.png" alt="" loading="lazy" decoding="async" />
+                            <span>Bunch</span>
+                        </a>
+                        <a class="webdev-marquee-chip" href="https://www.gridpeek.com/" target="_blank" rel="noopener"
+                            tabindex="-1">
+                            <img src="assets/img/gridpeek-logo.svg" alt="" loading="lazy" decoding="async" />
+                            <span>Gridpeek</span>
+                        </a>
+                        <a class="webdev-marquee-chip" href="https://www.silly-girl.co/" target="_blank" rel="noopener"
+                            tabindex="-1">
+                            <img src="assets/img/sillylogo.webp" alt="" loading="lazy" decoding="async" />
+                            <span>Silly Girl</span>
+                        </a>
+                        <a class="webdev-marquee-chip" href="https://www.gabriellagallagher.com/" target="_blank"
+                            rel="noopener" tabindex="-1">
+                            <img src="assets/img/gg.png" alt="" loading="lazy" decoding="async" />
+                            <span>Gabriella Gallagher</span>
+                        </a>
+                        <a class="webdev-marquee-chip" href="https://www.lepechemignon.co.uk/" target="_blank"
+                            rel="noopener" tabindex="-1">
+                            <img src="assets/img/lapeche.png" alt="" loading="lazy" decoding="async" />
+                            <span>Le Peche Mignon</span>
+                        </a>
+                        <a class="webdev-marquee-chip" href="https://www.thestrtaxloophole.com/" target="_blank"
+                            rel="noopener" tabindex="-1">
+                            <img src="assets/img/strtaxloophole-icon.webp" alt="" loading="lazy" decoding="async" />
+                            <span>STR Tax Loophole</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing -->
+    <section id="pricing" class="section-py">
+        <div class="container px-5">
+            <div class="text-center section-heading-block reveal">
+                <h2 class="fw-bold section-heading">Simple packages, built around your <span
+                        class="heading-accent heading-accent-primary">goals</span></h2>
+                <p class="text-muted col-lg-8 mx-auto mb-0">Every project is unique, so these packages are a starting
+                    point. Message us and we'll put together a quote tailored to your business.</p>
+            </div>
+            <div class="row g-4 justify-content-center align-items-stretch">
+                <div class="col-md-6 col-lg-4 reveal">
+                    <div class="webdev-pricing-card bg-white p-4 p-lg-5 h-100 d-flex flex-column">
+                        <h3 class="h5 mb-1">Starter Site</h3>
+                        <p class="text-muted small mb-4">A focused, professional site to establish your business
+                            online.</p>
+                        <ul class="mb-4">
+                            <li><i class="bi bi-check-circle-fill"></i>Up to 3 pages</li>
+                            <li><i class="bi bi-check-circle-fill"></i>Mobile-responsive design</li>
+                            <li><i class="bi bi-check-circle-fill"></i>Contact form & messaging</li>
+                            <li><i class="bi bi-check-circle-fill"></i>Basic on-page SEO</li>
+                        </ul>
+                        <div class="mt-auto">
+                            <button class="btn btn-outline-dark rounded-pill w-100 nav-glass-btn nav-glass-cool"
+                                type="button" data-bs-toggle="modal" data-bs-target="#contactModal">Get a Quote</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4 reveal">
+                    <div class="webdev-pricing-card featured bg-white p-4 p-lg-5 h-100 d-flex flex-column">
+                        <span class="webdev-pricing-badge">Most Popular</span>
+                        <h3 class="h5 mb-1 mt-2">Business Growth</h3>
+                        <p class="text-muted small mb-4">A full multi-page website designed to generate leads and
+                            rank in search.</p>
+                        <ul class="mb-4">
+                            <li><i class="bi bi-check-circle-fill"></i>5+ pages, fully responsive</li>
+                            <li><i class="bi bi-check-circle-fill"></i>SEO-optimized structure & metadata</li>
+                            <li><i class="bi bi-check-circle-fill"></i>Conversion-focused design</li>
+                            <li><i class="bi bi-check-circle-fill"></i>Contact forms, maps & integrations</li>
+                            <li><i class="bi bi-check-circle-fill"></i>Performance optimization</li>
+                        </ul>
+                        <div class="mt-auto">
+                            <button class="btn btn-primary rounded-pill w-100 nav-glass-btn nav-glass-cool"
+                                type="button" data-bs-toggle="modal" data-bs-target="#contactModal">Get a Quote</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4 reveal">
+                    <div class="webdev-pricing-card bg-white p-4 p-lg-5 h-100 d-flex flex-column">
+                        <h3 class="h5 mb-1">Custom / Ecommerce</h3>
+                        <p class="text-muted small mb-4">A tailored build for online stores or advanced
+                            functionality.</p>
+                        <ul class="mb-4">
+                            <li><i class="bi bi-check-circle-fill"></i>Custom features & integrations</li>
+                            <li><i class="bi bi-check-circle-fill"></i>Ecommerce & product catalogs</li>
+                            <li><i class="bi bi-check-circle-fill"></i>Payment gateway setup (Stripe, PayPal & more)
+                            </li>
+                            <li><i class="bi bi-check-circle-fill"></i>Scalable, future-ready structure</li>
+                            <li><i class="bi bi-check-circle-fill"></i>Ongoing support available</li>
+                        </ul>
+                        <div class="mt-auto">
+                            <button class="btn btn-outline-dark rounded-pill w-100 nav-glass-btn nav-glass-cool"
+                                type="button" data-bs-toggle="modal" data-bs-target="#contactModal">Get a Quote</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="section-py bg-light">
+        <div class="container px-5">
+            <div class="text-center section-heading-block reveal">
+                <h2 class="fw-bold section-heading">Frequently asked <span
+                        class="heading-accent heading-accent-primary">questions</span></h2>
+                <p class="text-muted col-lg-9 mx-auto mb-0">Answers to common questions about web development
+                    services, timelines, SEO, ecommerce setup, pricing, and support.</p>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-lg-8 reveal">
+                    <div class="accordion webdev-accordion" id="webdevFaqAccordion">
+                        <div class="accordion-item">
+                            <h3 class="accordion-header">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#faqOne" aria-expanded="true" aria-controls="faqOne">
+                                    What types of websites do you build?
+                                </button>
+                            </h3>
+                            <div id="faqOne" class="accordion-collapse collapse show"
+                                data-bs-parent="#webdevFaqAccordion">
+                                <div class="accordion-body text-muted">
+                                    We build business websites, portfolio websites, landing pages, blog websites,
+                                    custom marketing pages, and WIX websites, including redesigns and migrations.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h3 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#faqTwo" aria-expanded="false" aria-controls="faqTwo">
+                                    Do you build mobile-friendly websites?
+                                </button>
+                            </h3>
+                            <div id="faqTwo" class="accordion-collapse collapse" data-bs-parent="#webdevFaqAccordion">
+                                <div class="accordion-body text-muted">
+                                    Yes, all websites are developed with responsive, mobile-first layouts and
+                                    performance-focused structure.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h3 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#faqThree" aria-expanded="false" aria-controls="faqThree">
+                                    Can you redesign an existing website?
+                                </button>
+                            </h3>
+                            <div id="faqThree" class="accordion-collapse collapse" data-bs-parent="#webdevFaqAccordion">
+                                <div class="accordion-body text-muted">
+                                    Yes, we provide redesign services including UX updates, speed improvements, SEO
+                                    metadata, and content restructuring.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h3 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#faqFour" aria-expanded="false" aria-controls="faqFour">
+                                    How long does a website project usually take?
+                                </button>
+                            </h3>
+                            <div id="faqFour" class="accordion-collapse collapse" data-bs-parent="#webdevFaqAccordion">
+                                <div class="accordion-body text-muted">
+                                    Most website projects take between 2 and 6 weeks depending on scope, content
+                                    readiness, feedback speed, and required integrations.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h3 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#faqFive" aria-expanded="false" aria-controls="faqFive">
+                                    Do you include SEO in your web development services?
+                                </button>
+                            </h3>
+                            <div id="faqFive" class="accordion-collapse collapse" data-bs-parent="#webdevFaqAccordion">
+                                <div class="accordion-body text-muted">
+                                    Yes. Every build includes technical SEO basics such as clean site structure,
+                                    metadata, mobile responsiveness, image optimization, and schema-ready markup.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h3 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#faqSix" aria-expanded="false" aria-controls="faqSix">
+                                    Can you build ecommerce websites with payment gateways and affiliate tracking?
+                                </button>
+                            </h3>
+                            <div id="faqSix" class="accordion-collapse collapse" data-bs-parent="#webdevFaqAccordion">
+                                <div class="accordion-body text-muted">
+                                    Yes. We build ecommerce websites with product pages, checkout flows, payment
+                                    gateways including Stripe and PayPal, and affiliate tracking setup.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h3 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#faqSeven" aria-expanded="false" aria-controls="faqSeven">
+                                    How much do web development services cost?
+                                </button>
+                            </h3>
+                            <div id="faqSeven" class="accordion-collapse collapse" data-bs-parent="#webdevFaqAccordion">
+                                <div class="accordion-body text-muted">
+                                    Pricing depends on the number of pages, features, integrations, and content needs.
+                                    We provide tailored quotes based on your business goals and project scope.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h3 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#faqEight" aria-expanded="false" aria-controls="faqEight">
+                                    Do you offer website maintenance and support after launch?
+                                </button>
+                            </h3>
+                            <div id="faqEight" class="accordion-collapse collapse" data-bs-parent="#webdevFaqAccordion">
+                                <div class="accordion-body text-muted">
+                                    Yes. We offer post-launch support for updates, fixes, performance improvements, and
+                                    ongoing website maintenance as your business grows.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="section-py">
+        <div class="container px-5">
+            <div class="webdev-final-cta text-center text-white reveal">
+                <h2 class="fw-bold section-heading mb-3">Ready to start your <span
+                        class="heading-accent heading-accent-light">project</span>?</h2>
+                <p class="text-white-75 mb-4 col-lg-8 mx-auto">Tell us about your business and we'll get back to you
+                    with a free quote and timeline.</p>
+                <div class="d-flex flex-wrap justify-content-center gap-3 mb-4">
+                    <button class="btn btn-light btn-lg rounded-pill px-5 fw-semibold nav-glass-btn nav-glass-cool"
+                        type="button" data-bs-toggle="modal" data-bs-target="#contactModal">
+                        <svg class="me-2 msg-cta-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                            <path class="msg-bubble"
+                                d="M5 4h14a3 3 0 0 1 3 3v7a3 3 0 0 1-3 3H11l-4.4 3.6a.8.8 0 0 1-1.3-.62V17H5a3 3 0 0 1-3-3V7a3 3 0 0 1 3-3Z" />
+                            <line class="msg-line msg-line-1" x1="9.7" y1="14.6" x2="9.7" y2="9.4" />
+                            <line class="msg-line msg-line-2" x1="12" y1="16" x2="12" y2="8" />
+                            <line class="msg-line msg-line-3" x1="14.3" y1="14" x2="14.3" y2="10" />
+                        </svg>Message Us
+                    </button>
+                </div>
+                <p class="text-white-75 small mb-0">Email: <a class="text-white"
+                        href="mailto:sillygirl@digitelle-studios.com">sillygirl@digitelle-studios.com</a>
+                    &middot; Instagram: <a class="text-white" href="https://www.instagram.com/digitellestudios/"
+                        target="_blank" rel="noopener">@digitellestudios</a></p>
+            </div>
         </div>
     </section>
 
@@ -257,8 +1917,193 @@
         </div>
     </footer>
 
+    <!-- Contact Modal-->
+    <div class="modal fade" id="contactModal" tabindex="-1" aria-labelledby="contactModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header bg-gradient-primary-to-secondary p-4">
+                    <h5 class="modal-title font-alt text-white" id="contactModalLabel">Message Us</h5>
+                    <button class="btn-close btn-close-white" type="button" data-bs-dismiss="modal"
+                        aria-label="Close"></button>
+                </div>
+                <div class="modal-body border-0 p-4">
+                    <form id="contact-form" class="needs-validation" novalidate
+                        onsubmit="event.preventDefault(); sendEmail();">
+                        <!-- Name input-->
+                        <div class="form-floating mb-3">
+                            <input class="form-control" id="name" type="text" placeholder="Enter your name..."
+                                required />
+                            <label for="name">Full name</label>
+                            <div class="invalid-feedback">A name is required.</div>
+                        </div>
+                        <!-- Email address input-->
+                        <div class="form-floating mb-3">
+                            <input class="form-control" id="email" type="email" placeholder="name@example.com"
+                                required />
+                            <label for="email">Email address</label>
+                            <div class="invalid-feedback">An email is required.</div>
+                            <div class="invalid-feedback">Email is not valid.</div>
+                        </div>
+                        <!-- Phone number input-->
+                        <div class="mb-3">
+                            <label class="form-label" for="phone">Phone number</label>
+                            <input class="form-control" id="phone" type="tel" placeholder="(123) 456-7890" required />
+                            <div class="invalid-feedback">A phone number is required.</div>
+                        </div>
+                        <!-- Message input-->
+                        <div class="form-floating mb-3">
+                            <textarea class="form-control" id="message" placeholder="Enter your message here..."
+                                style="height: 10rem" required></textarea>
+                            <label for="message">Message</label>
+                            <div class="invalid-feedback">A message is required.</div>
+                        </div>
+                        <!-- Submit Button-->
+                        <div class="d-grid">
+                            <button class="btn btn-primary rounded-pill btn-lg nav-glass-btn nav-glass-cool"
+                                id="submitButton" type="submit">Submit</button>
+                        </div>
+                    </form>
+                </div>
+                <div id="successMessage" class="modal-footer border-0 text-center d-none">
+                    <p class="text-success mb-0">Thank you for your message!</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script>document.getElementById('currentYear').textContent = new Date().getFullYear();</script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!--https://github.com/jackocnr/intl-tel-input-->
+    <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@18.1.1/build/js/intlTelInput.min.js"></script>
+    <script>
+        var input = document.querySelector("#phone");
+        window.intlTelInput(input, {
+            utilsScript: "https://cdn.jsdelivr.net/npm/intl-tel-input@18.1.1/build/js/utils.js",
+        });
+    </script>
+
+    <!-- EmailJs-->
+    <script>
+        function sendEmail() {
+            event.preventDefault(); // Prevent form submission
+
+            const form = document.getElementById('contact-form');
+            if (!form.checkValidity()) {
+                form.classList.add('was-validated');
+                return;
+            }
+
+            // Get the form data
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const phoneInput = document.querySelector("#phone");
+            const iti = window.intlTelInputGlobals.getInstance(phoneInput);
+            const countryCode = iti.getSelectedCountryData().dialCode;
+            const phone = phoneInput.value;
+            const message = document.getElementById('message').value;
+
+            // Prepare the email parameters
+            const templateParams = {
+                from_name: name,
+                from_email: email,
+                countryCode: countryCode,
+                phone: phone,
+                message: message
+            };
+
+            // Send the email
+            emailjs.send('service_0w40uzt', 'template_rwo4bru', templateParams)
+                .then(function (response) {
+                    console.log('Email sent successfully', response);
+                    // Show success message
+                    document.getElementById('submitButton').disabled = true;
+                    document.getElementById('successMessage').classList.remove('d-none');
+                    // Reset form fields
+                    resetForm();
+                }, function (error) {
+                    console.error('Error sending email:', error);
+                    // Handle error here
+                });
+        }
+
+        // Function to reset form fields
+        function resetForm() {
+            document.getElementById('name').value = '';
+            document.getElementById('email').value = '';
+            document.getElementById('phone').value = '';
+            document.getElementById('message').value = '';
+            document.getElementById('contact-form').classList.remove('was-validated');
+        }
+    </script>
+
+    <!-- Scroll reveal animations -->
+    <script>
+        (function () {
+            if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                return;
+            }
+            var revealEls = document.querySelectorAll('.reveal');
+            var observer = new IntersectionObserver(function (entries, obs) {
+                entries.forEach(function (entry) {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        obs.unobserve(entry.target);
+                    }
+                });
+            }, { root: null, rootMargin: '0px', threshold: 0.15 });
+            revealEls.forEach(function (el) { observer.observe(el); });
+        })();
+    </script>
+
+    <script>
+        (function () {
+            var prefersReduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+            if (prefersReduced || window.innerWidth < 992) {
+                return;
+            }
+
+            var els = Array.prototype.slice.call(document.querySelectorAll('[data-parallax]'));
+            if (!els.length) {
+                return;
+            }
+
+            var ticking = false;
+
+            function clamp(value, min, max) {
+                return Math.max(min, Math.min(max, value));
+            }
+
+            function updateParallax() {
+                var viewportCenter = window.innerHeight / 2;
+                els.forEach(function (el) {
+                    var speed = parseFloat(el.getAttribute('data-parallax-speed') || '0.06');
+                    var maxOffset = parseFloat(el.getAttribute('data-parallax-max') || '18');
+                    var rect = el.getBoundingClientRect();
+                    var elCenter = rect.top + rect.height / 2;
+                    var delta = viewportCenter - elCenter;
+                    var offset = clamp(delta * speed, -maxOffset, maxOffset);
+                    el.style.setProperty('--parallax-y', offset.toFixed(2) + 'px');
+                });
+                ticking = false;
+            }
+
+            function requestUpdate() {
+                if (!ticking) {
+                    window.requestAnimationFrame(updateParallax);
+                    ticking = true;
+                }
+            }
+
+            updateParallax();
+            window.addEventListener('scroll', requestUpdate, { passive: true });
+            window.addEventListener('resize', requestUpdate);
+        })();
+    </script>
+
+    <!-- Crisp-->
+    <script type="text/javascript">window.$crisp = []; window.CRISP_WEBSITE_ID = "8b7bdb03-bdff-4912-a558-f786fd3e96d9"; (function () { d = document; s = d.createElement("script"); s.src = "https://client.crisp.chat/l.js"; s.async = 1; d.getElementsByTagName("head")[0].appendChild(s); })();
+    </script>
 </body>
 
 </html>
