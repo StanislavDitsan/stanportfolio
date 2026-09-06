@@ -425,6 +425,23 @@
         </div>
     </section>
 
+    <!-- STR promo section-->
+    <section>
+        <div class="container px-5">
+            <div class="row gx-5 justify-content-center">
+                <div class="col-lg-9 text-center">
+                    <h2 class="display-4 lh-1 mb-4">Own a Short-Term Rental? Your Website Should Work Just as
+                        Hard.</h2>
+                    <p class="lead fw-normal text-muted mb-4">We build STR websites with Lodgify booking
+                        integration, calendar sync, and SEO built in from day one, so your site books guests instead
+                        of just looking nice.</p>
+                    <a class="btn btn-primary py-2 px-4 rounded-pill" href="str-website-development.html">Explore STR
+                        Website Development</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Features section-->
     <section class="bg-light">
         <div class="container px-5">
@@ -725,6 +742,7 @@
                         <li><a href="seo-services.html">SEO</a></li>
                         <li><a href="wix-seo-setup-services.html">WIX SEO Setup</a></li>
                         <li><a href="content-creation-services.html">Content Creation</a></li>
+                        <li><a href="str-website-development.html">STR Website Development</a></li>
                     </ul>
                 </div>
                 <div class="col-6 col-lg-4">
@@ -788,6 +806,22 @@
                             <label for="phone"></label>
                             <div class="invalid-feedback">A phone number is required.</div>
                         </div>
+                        <!-- Subject select-->
+                        <div class="form-floating mb-3">
+                            <select class="form-select" id="subject" required>
+                                <option value="" disabled selected>Select a service...</option>
+                                <option value="Web Development">Web Development</option>
+                                <option value="SEO">SEO</option>
+                                <option value="WIX SEO Setup">WIX SEO Setup</option>
+                                <option value="STR Website Development">STR Website Development</option>
+                                <option value="Ecommerce Website Development">Ecommerce Website Development</option>
+                                <option value="Social Media Management">Social Media Management</option>
+                                <option value="Content Creation">Content Creation</option>
+                                <option value="Other">Other</option>
+                            </select>
+                            <label for="subject">Subject</label>
+                            <div class="invalid-feedback">Please select a subject.</div>
+                        </div>
                         <!-- Message input-->
                         <div class="form-floating mb-3">
                             <textarea class="form-control" id="message" placeholder="Enter your message here..."
@@ -801,9 +835,6 @@
                                 type="submit">Submit</button>
                         </div>
                     </form>
-                </div>
-                <div id="successMessage" class="modal-footer border-0 text-center d-none">
-                    <p class="text-success mb-0">Thank you for your message!</p>
                 </div>
             </div>
         </div>
@@ -826,6 +857,10 @@
             // Set up EmailJS configuration
             emailjs.init('UaZWUlEb7skLpUE_c'); // Replace YOUR_USER_ID with your EmailJS User ID
 
+            const submitButton = document.getElementById('submitButton');
+            submitButton.disabled = true;
+            submitButton.innerHTML = '<span class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>Sending...';
+
             // Get the form data
             const name = document.getElementById('name').value;
             const email = document.getElementById('email').value;
@@ -833,6 +868,7 @@
             const iti = window.intlTelInputGlobals.getInstance(phoneInput);
             const countryCode = iti.getSelectedCountryData().dialCode;
             const phone = phoneInput.value;
+            const subject = document.getElementById('subject').value;
             const message = document.getElementById('message').value;
 
             // Prepare the email parameters
@@ -841,6 +877,7 @@
                 from_email: email,
                 countryCode: countryCode,
                 phone: phone,
+                subject: subject,
                 message: message
             };
 
@@ -848,14 +885,13 @@
             emailjs.send('service_0w40uzt', 'template_rwo4bru', templateParams)
                 .then(function (response) {
                     console.log('Email sent successfully', response);
-                    // Show success message
-                    document.getElementById('submitButton').disabled = true;
-                    document.getElementById('successMessage').classList.remove('d-none');
+                    submitButton.innerHTML = '<i class="bi bi-check-circle-fill me-2"></i>Thank you for your message!';
                     // Reset form fields
                     resetForm();
                 }, function (error) {
                     console.error('Error sending email:', error);
-                    // Handle error here
+                    submitButton.disabled = false;
+                    submitButton.innerHTML = 'Submit';
                 });
         }
 
@@ -864,8 +900,16 @@
             document.getElementById('name').value = '';
             document.getElementById('email').value = '';
             document.getElementById('phone').value = '';
+            document.getElementById('subject').value = '';
             document.getElementById('message').value = '';
         }
+
+        // Reset the submit button when the modal is closed
+        document.getElementById('contactModal').addEventListener('hidden.bs.modal', function () {
+            const submitButton = document.getElementById('submitButton');
+            submitButton.disabled = false;
+            submitButton.innerHTML = 'Submit';
+        });
     </script>
 
     <!-- Crisp-->

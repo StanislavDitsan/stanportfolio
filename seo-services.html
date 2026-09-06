@@ -2115,7 +2115,9 @@
                     <ul class="site-footer-links">
                         <li><a href="web-development-services.html">Web Development</a></li>
                         <li><a href="seo-services.html">SEO</a></li>
+                        <li><a href="wix-seo-setup-services.html">WIX SEO Setup</a></li>
                         <li><a href="content-creation-services.html">Content Creation</a></li>
+                        <li><a href="str-website-development.html">STR Website Development</a></li>
                     </ul>
                 </div>
                 <div class="col-6 col-lg-4">
@@ -2168,6 +2170,22 @@
                             <input class="form-control" id="phone" type="tel" placeholder="(123) 456-7890" required />
                             <div class="invalid-feedback">A phone number is required.</div>
                         </div>
+                        <!-- Subject select-->
+                        <div class="mb-3">
+                            <label class="form-label" for="subject">Subject</label>
+                            <select class="form-select" id="subject" required>
+                                <option value="" disabled selected>Select a service...</option>
+                                <option value="Web Development">Web Development</option>
+                                <option value="SEO">SEO</option>
+                                <option value="WIX SEO Setup">WIX SEO Setup</option>
+                                <option value="STR Website Development">STR Website Development</option>
+                                <option value="Ecommerce Website Development">Ecommerce Website Development</option>
+                                <option value="Social Media Management">Social Media Management</option>
+                                <option value="Content Creation">Content Creation</option>
+                                <option value="Other">Other</option>
+                            </select>
+                            <div class="invalid-feedback">Please select a subject.</div>
+                        </div>
                         <!-- Message input-->
                         <div class="form-floating mb-3">
                             <textarea class="form-control" id="message" placeholder="Enter your message here..."
@@ -2181,9 +2199,6 @@
                                 id="submitButton" type="submit">Submit</button>
                         </div>
                     </form>
-                </div>
-                <div id="successMessage" class="modal-footer border-0 text-center d-none">
-                    <p class="text-success mb-0">Thank you for your message!</p>
                 </div>
             </div>
         </div>
@@ -2212,6 +2227,10 @@
                 return;
             }
 
+            const submitButton = document.getElementById('submitButton');
+            submitButton.disabled = true;
+            submitButton.innerHTML = '<span class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>Sending...';
+
             // Get the form data
             const name = document.getElementById('name').value;
             const email = document.getElementById('email').value;
@@ -2219,6 +2238,7 @@
             const iti = window.intlTelInputGlobals.getInstance(phoneInput);
             const countryCode = iti.getSelectedCountryData().dialCode;
             const phone = phoneInput.value;
+            const subject = document.getElementById('subject').value;
             const message = document.getElementById('message').value;
 
             // Prepare the email parameters
@@ -2227,6 +2247,7 @@
                 from_email: email,
                 countryCode: countryCode,
                 phone: phone,
+                subject: subject,
                 message: message
             };
 
@@ -2234,14 +2255,13 @@
             emailjs.send('service_0w40uzt', 'template_rwo4bru', templateParams)
                 .then(function (response) {
                     console.log('Email sent successfully', response);
-                    // Show success message
-                    document.getElementById('submitButton').disabled = true;
-                    document.getElementById('successMessage').classList.remove('d-none');
+                    submitButton.innerHTML = '<i class="bi bi-check-circle-fill me-2"></i>Thank you for your message!';
                     // Reset form fields
                     resetForm();
                 }, function (error) {
                     console.error('Error sending email:', error);
-                    // Handle error here
+                    submitButton.disabled = false;
+                    submitButton.innerHTML = 'Submit';
                 });
         }
 
@@ -2250,9 +2270,17 @@
             document.getElementById('name').value = '';
             document.getElementById('email').value = '';
             document.getElementById('phone').value = '';
+            document.getElementById('subject').value = '';
             document.getElementById('message').value = '';
             document.getElementById('contact-form').classList.remove('was-validated');
         }
+
+        // Reset the submit button when the modal is closed
+        document.getElementById('contactModal').addEventListener('hidden.bs.modal', function () {
+            const submitButton = document.getElementById('submitButton');
+            submitButton.disabled = false;
+            submitButton.innerHTML = 'Submit';
+        });
     </script>
 
     <!-- Scroll reveal animations -->
